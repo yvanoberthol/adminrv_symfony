@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+    {% include 'commons/navbar.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center grand-titre">La liste des médécins (<span class="text-white">{{ medecins | length }}</span>)
+            </h1>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
+                <form class="form-inline" action="{{ path('medecins') }}" method="get">
+                    <input class="form-control mr-sm-2" type="text" name="nom" placeholder="nom ou prénom du médécin">
+                    <button class="btn btn-success" type="submit">
+                        <span class="fa fa-search"></span>  Rechercher
+                    </button>
+                </form>
+            </nav>
+            {% if impressionDone is defined and impressionDone == true %}
+            <div
+                 class="text-center alert alert-success font-weight-bold w-100 mb-1 mt-1">
+                <span class="fa fa-check"></span> Liste des médécins générée avec succès.
+            </div>
+            {% endif %}
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom(s) et prénom(s)</th>
+                        <th>Détails</th>
+                        <th class="font-italic">Total Actif(<span class="text-success">{{ nbreMecinActif }}</span>)</th>
+                        <th colspan="2" class="text-center">Actions</th>
+                    </tr>
+                    {% if medecins|length > 0 %}
+                        {% for medecin in medecins  %}
+                        <tr>
+                            <td>{{ medecin.id }}</td>
+                            <td>{{ medecin.allName }}</td>
+                            <td>
+                                <a href="{{ path('medecin_show',{'id': medecin.id})  }}" class="btn btn-secondary">
+                                    <span class="fa fa-ellipsis-h"></span> Afficher plus de détails
+                                </a>
+                            </td>
+                            {% if medecin.compteMedecin.enabled == false %}
+                            <td>
+                                <form action="{{ path('medecin_compte_enabled') }}" method="post">
+                                    <div class="form-group text-center">
+                                        <input type="hidden" name="medecin_id" value="{{ medecin.id }}">
+                                        <button type="submit" class="btn btn-warning">
+                                            Désactivé
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                            {% else %}
+                            <td>
+                                <form action="{{ path('medecin_compte_disabled') }}" method="post">
+                                    <div class="form-group text-center">
+                                        <input type="hidden" name="medecin_id" value="{{ medecin.id }}">
+                                        <button type="submit" class="btn btn-success">
+                                            Activé
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                            {% endif %}
+                            <td>
+                                <a href="{{ '/formModifMedecin/'~medecin.id}}" class="btn btn-info">
+                                    <span class="fa fa-edit"></span> Modifier
+                                </a>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#confirmationSupp{{ medecin.id }}">
+                                    <span class="fa fa-times-circle"></span> Supprimer
+                                </button>
+                                <div class="modal modalSupp fade" id="confirmationSupp{{ medecin.id }}" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="background-color: royalblue">
+                                                <h4 class="modal-title">Supprimer un médécin</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Voulez vous supprimer le médécin <strong>
+                                                        <span class="text-info">{{ medecin.allName }}</span></strong>?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                                </button>
+                                                <form action="{{ path('medecin_delete') }}" method="POST">
+                                                    <input type="hidden" name="id" value="{{ medecin.id }}">
+                                                    <button class="btn btn-danger" type=submit>
+                                                        <span class="fa fa-times-circle"></span> Supprimer
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3></td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
+            <div class="navigation text-center">
+                {{ knp_pagination_render(medecins) }}
+            </div>
+            <div>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item mr-2">
+                        <a class="btn" style="background-color: #608059; color:white" href=/medecin/imprimer">
+                            <span class="fa fa-print"></span> Télécharger la liste des médécins
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="btn" style="background-color: purple; color:white" href="{{ path('form_medecin_add') }}">
+                            <span class="fa fa-plus"></span> Ajouter un nouveau médécin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

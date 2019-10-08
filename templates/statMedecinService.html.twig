@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+    {% include 'commons/navbar.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="grand-titre row" style="margin-bottom:25px">
+        <div class="text-center" style="font-size:40px; font-weight:bolder">
+            Calcul des ressources humaines de tous les domaines
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center" id="stat-medecins-domaines" style="height: 400px; width: 100%;">
+
+        </div>
+        <!-- The Modal -->
+        <div class="modal fade" id="listeMedecins" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title">Liste des médécins de ce domaine</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <ul id="content-medecin">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                class="fa fa-times-circle"></span> Close
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('specialites') }}">Retour à la liste des domaines</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('medecins') }}">Retour la liste des médécins</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+      $(document).ready(function () {
+          let liste = {{ specialites | json_encode| raw}};
+          let counts = {{ counts | json_encode | raw}};
+          let specialites = [];
+          let minValue = 0;
+          let maxValue = 1000;
+          //console.log(Integer.MAX_VALUE);
+
+          let i;
+          for (i = 0; i < liste.length; i++) {
+              if (counts[i] < maxValue) {
+                  maxValue = counts[i];
+              }
+              if (counts[i] > minValue) {
+                  minValue = counts[i];
+              }
+          }
+
+          for (i = 0; i < liste.length; i++) {
+              if (counts[i] < minValue && counts[i] > maxValue) {
+                  specialites.push({label: liste[i], y: counts[i], e: ""});
+              }
+
+              if (counts[i] == minValue) {
+                  specialites.push({label: liste[i], y: counts[i], e: "plus grand"});
+              }
+
+              if (counts[i] == maxValue) {
+                  specialites.push({label: liste[i], y: counts[i], e: "plus petit"});
+              }
+          }
+
+
+          // chart
+          var url = "http://localhost:8000/api/stat/specialiteMedecin/";
+          var chart = new CanvasJS.Chart("stat-medecins-domaines", {
+              animationEnabled: true,
+              exportEnabled: true,
+              theme: "dark2", // "light1", "light2", "dark1", "dark2"
+              title: {
+                  text: "Statistique sur le total de médécins par domaine"
+              },
+              axisY: {
+                  title: "Médécins par domaine(pers)",
+                  suffix: " pers",
+                  includeZero: true
+              },
+              axisX: {
+                  title: "Liste des domaines (" + specialites.length + ")"
+              },
+              data: [{
+                  type: "column",
+                  yValueFormatString: "#\" médécins(s)\"",
+                  indexLabelFontColor: "#ffc107",
+                  dataPoints: specialites,
+                  indexLabel: "{e}",
+                  click: function (e) {
+                      //chargement des médecins dans le modal
+                      $.get( url+e.dataPoint.label, function(data) {
+                          let liste =  $("#listeMedecins").modal().find("#content-medecin").html('');
+                          for (let i=0;i<data.length;i++){
+                              let tab = data[i].split(" ");
+                              let name = tab[1]+" "+tab[2];
+                              let id = tab[0];
+                              liste.append('<li><a href="{{ '/medecin/get/'}}'+id+'">'+name+'</a></li>');
+                          }
+
+                      });
+                  }
+              }]
+          });
+          chart.render();
+      });
+</script>
+{%  endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Ajouter une nouveau créneau
+{% endblock %}
+
+{% block navbar %}
+    {% include 'commons/navbar.html.twig' %}
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="grand-titre">Enregistrer un nouveau créneau</h1>
+        {% if hdebutGrand is defined and hdebutGrand == true %}
+        <div class="text-center bg-danger font-weight-bold" style="color:white">
+            <span class="fa fa-times-circle"></span> L'heure de début doit être inférieur à l'heure de fin.
+        </div>
+        {% endif %}
+        {% if hdebutExists is defined and hdebutExists == true %}
+        <div class="text-center bg-danger font-weight-bold" style="color:white">
+            <span class="fa fa-times-circle"></span> Ce début de créneau existe déja pour ce médécin.
+        </div>
+        {% endif %}
+        {% if hfinLesshdebut is defined and hfinLesshdebut == true %}
+        <div class="text-center bg-danger font-weight-bold" style="color:white">
+            <span class="fa fa-times-circle"></span> Il existe déja un créneau qui prend en compte cette intervalle
+            de temps.
+        </div>
+        {% endif %}
+        {% if hfinExists is defined and hfinExists == true %}
+        <div class="text-center bg-danger font-weight-bold" style="color:white">
+            <span class="fa fa-times-circle"></span> Cette fin de créneau existe déja pour ce médécin.
+        </div>
+        {% endif %}
+        {% if dureeIntervalle is defined and dureeIntervalle == true %}
+        <div class="text-center bg-danger font-weight-bold" style="color:white">
+            <span class="fa fa-times-circle"></span> L'intervalle de temps minimum entre Heure de début et l'heure
+            de fin doit être de 20 minutes".
+        </div>
+        {% endif %}
+
+        {{ form_start(form) }}
+            {{ form_row(form.heure_debut) }}
+            {{ form_row(form.heure_fin) }}
+            {{ form_row(form.medecin) }}
+            <div class="form-group">
+                <button type="submit" class="btn" style="background-color: purple; color:white"><span
+                            class="fa fa-plus-circle"></span> Ajouter
+                </button>
+                <a href="{{ path('creneaux') }}">Retour à la liste des créneaux</a>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker();
+    });
+</script>
+{% endblock %}

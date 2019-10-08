@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Modifier un médecin
+{% endblock %}
+
+{% block navbar %}
+    {% include 'commons/navbar.html.twig' %}
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="grand-titre">Modifier un médecin</h1>
+            {% if medecinNameExist is defined and medecinNameExist == true %}
+                <div class="text-center alert alert-danger font-weight-bold">
+                    <span class="fa fa-times-circle"></span> ce matricule existe déjà.
+                </div>
+            {% endif %}
+            {{ form_start(form) }}
+                {{ form_row(form.matricule) }}
+                {{ form_row(form.nom) }}
+                {{ form_row(form.prenom) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.telephone) }}
+                {{ form_row(form.ville) }}
+                {{ form_row(form.date_naissance) }}
+                {{ form_row(form.specialites) }}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info">
+                        <span class="fa fa-edit"></span> Modifier
+                    </button>
+                    <a href="{{ path('medecins') }}">Retour à la liste des médécins</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker();
+    });
+</script>
+{% endblock %}

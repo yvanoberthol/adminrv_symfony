@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-md-12">
+        <div style="margin-top:25px;border-radius:25px;" class=" bg-dark">
+            <div class="row mb-4 mt-2">
+                <nav class="col-md-12 navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary p-3">
+                    <a class="navbar-brand" href="{{ path('menu_principal') }}"><span class="fa fa-ambulance badge-info text-danger p-3"></span> Gestion du cabinet médical</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user-o">
+                                    </i>
+                                    Médécins
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="/medecins">Liste des médécins</a>
+                                    <a class="dropdown-item" href="{{ path('form_medecin_add') }}">Ajouter un médécin</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-file-zip-o">
+                                    </i>
+                                    Spécialités
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ path('specialites') }}">Liste des spécialités</a>
+                                    <a class="dropdown-item" href="{{ path('form_specialite_add') }}">Ajouter une spécialité</a>
+                                    <a class="dropdown-item" href="{{ path('ms_stat') }}">Statistique sur les spécialités</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-hourglass-end">
+                                    </i>
+                                    Créneaux
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="/creneaux">Liste des créneaux</a>
+                                    <a class="dropdown-item" href="/formAddCreneau">Ajouter un créneau</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="/patients" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-users">
+                                    </i>
+                                    Patients
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user">
+                                    </i>
+                                    Users
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="user">Liste des users</a>
+                                    <a class="dropdown-item" href="formAddUser">Ajouter un user</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user-circle">
+                                    </i>
+                                    <span>yvano</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="/formModifUser">
+                                        <i class="fa fa-calculator">
+                                        </i>
+                                        Mon compte
+                                    </a>
+                                    <a class="dropdown-item" href="/logout">
+                                        <i class="fa fa-sign-out">
+                                        </i>
+                                        Déconnexion
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

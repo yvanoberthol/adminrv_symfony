@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier une spécialité{% endblock %}
+{% block navbar %}
+    {% include 'commons/navbar.html.twig' %}
+{% endblock %}
+{% block body%}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="grand-titre">Modifier le domaine médical N° <span class="text-info">{{ id }}</span></h1>
+            {% if (specialiteNameExist is defined) and (specialiteNameExist == true) %}
+                <div class="text-center bg-danger font-weight-bold" style="color:white">
+                    <span class="fa fa-times-circle"></span> ce nom de spécialité existe déjà.
+                </div>
+            {% endif %}
+            {{ form_start(form) }}
+                {{ form_row(form.nom) }}
+                {{ form_row(form.description) }}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info"><span class="fa fa-edit"></span> Modifier</button>
+                    <a href="{{ path('specialites') }}">Retour à la liste des domaines</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#specialite_description'))
+            .catch(error => {
+                console.error(error);
+            })
+    </script>
+{% endblock %}
