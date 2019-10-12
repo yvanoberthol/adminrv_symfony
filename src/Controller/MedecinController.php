@@ -18,6 +18,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MedecinController extends AbstractController
@@ -78,6 +79,10 @@ class MedecinController extends AbstractController
 
         $medecin = $doctrine->getRepository(Medecin::class)->find($id);
 
+        if ($medecin === null){
+            Throw new NotFoundHttpException('Le médecin N° '.$id.' n\'existe pas');
+        }
+
         $form = $this->createForm(MedecinEditType::class,$medecin);
 
         if ($request->isMethod('POST')){
@@ -85,7 +90,6 @@ class MedecinController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isValid() && $form->isSubmitted()){
-
                 $medecinByMatricule = $doctrine->getRepository(Medecin::class)->findOneBy(array('matricule'=>$medecin->getMatricule()));
 
                 if (!$medecinByMatricule){
@@ -151,9 +155,9 @@ class MedecinController extends AbstractController
                 $manager = $doctrine->getManager();
 
                 $medecinByMatricule = $doctrine->getRepository(Medecin::class)->medecinByMatricule($medecin->getMatricule())
-                                                ->getQuery()->getResult();
+                    ->getQuery()->getResult();
 
-                if (!$medecinByMatricule ){
+                if (!$medecinByMatricule) {
 
                     $medecin->getImage()->upload();
 
@@ -168,8 +172,6 @@ class MedecinController extends AbstractController
                     $manager->flush();
                     return $this->redirectToRoute('medecins');
                 }
-
-                $model['medecin'] = $medecinByMatricule;
                 $model['medecinNameExist'] = true;
             }
 
@@ -192,7 +194,6 @@ class MedecinController extends AbstractController
         $photo = $request->files->get('photo');
         if (!empty($photo)){
             $medecin->getImage()->setFile($photo);
-            $medecin->getImage()->upload();
         }
 
         $this->getDoctrine()->getManager()->flush();

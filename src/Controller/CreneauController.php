@@ -21,20 +21,6 @@ class CreneauController extends AbstractController
 {
 
     /**
-     * @Route("/creneau/get/{id}", name="creneau_show")
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function getCreneau($id): \Symfony\Component\HttpFoundation\Response
-    {
-
-        $model['creneau'] = $this->getDoctrine()->getRepository(Creneau::class)->find($id);
-
-        return $this->render('detailCreneau.html.twig', $model);
-
-    }
-
-    /**
      * @Route("/creneaux",name="creneaux")
      * @param Request $request
      * @param PaginatorInterface $paginator
@@ -63,7 +49,7 @@ class CreneauController extends AbstractController
     }
 
     /**
-     * @Route("/formModifCreneau/{id}",name="specilaite_form_modif")
+     * @Route("/formModifCreneau/{id}",name="creneau_form_modif")
      * @param $id
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -81,16 +67,8 @@ class CreneauController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()){
                 $doctrine = $this->getDoctrine();
 
-                $creneauByName = $doctrine->getRepository(Creneau::class)->findOneBy(array('nom' => $creneau->getNom()));
-
-                if (!$creneauByName) {
-                    if ($creneauByName->getId() !== $creneau->getId()) {
-                        $model['creneauNameExist'] = true;
-                    }
-                } else {
-                    $doctrine->getManager()->flush();
-                    return $this->redirectToRoute('creneaux');
-                }
+                $doctrine->getManager()->flush();
+                return $this->redirectToRoute('creneaux');
             }
 
         }
