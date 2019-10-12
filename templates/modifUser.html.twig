@@ -30,6 +30,10 @@
             {{ form_start(form) }}
             {{ form_row(form.username) }}
             {{ form_row(form.password) }}
+            <div class="form-inline">
+                <input type="checkbox" class="form-control-lg" id="check_valid"> Afficher le mot de passe
+            </div>
+
             <div class="form-group">
                 <button type="submit" class="btn" style="background-color: purple; color:white"><span
                             class="fa fa-edit"></span> Modifier
@@ -43,6 +47,18 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('.selectpicker').selectpicker();
+
+            // le checkBox est coché dès le départ
+            $('#check_valid').attr('checked',true);
+
+            $('#check_valid').click(function () {
+                if ($(this).is(':checked')){
+                    $('#user_edit_password').prop('type','text');
+                } else{
+                    $('#user_edit_password').prop('type','password');
+                }
+
+            });
         });
     </script>
 {% endblock %}
