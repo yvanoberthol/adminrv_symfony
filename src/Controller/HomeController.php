@@ -10,16 +10,40 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class HomeController extends AbstractController
 {
 
     /**
-     * @Route("/",name="menu_principal")
+     * @Route({"/","/home"},name="menu_principal")
      */
     public function home(){
 
        return $this->render('menuAdministration.html.twig');
     }
+
+    /**
+     * @Route("/login",name="login")
+     * @param AuthenticationUtils $authenticationUtils
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function login(AuthenticationUtils $authenticationUtils){
+
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')){
+            return $this->redirectToRoute('menu_principal');
+        }
+
+
+        $model['last_username'] = $authenticationUtils->getLastUsername();
+        $model['error'] = $authenticationUtils->getLastAuthenticationError();
+
+        return $this->render('login.html.twig',$model);
+    }
+
+
+
+
 }
