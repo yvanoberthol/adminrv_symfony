@@ -14,6 +14,7 @@ use App\Entity\Medecin;
 use App\Entity\Specialite;
 use App\Form\MedecinEditType;
 use App\Form\MedecinType;
+use App\PDF\MedecinPdf;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -158,8 +159,6 @@ class MedecinController extends AbstractController
                     ->getQuery()->getResult();
 
                 if (!$medecinByMatricule) {
-
-                    $medecin->getImage()->upload();
 
                     $compteMedecin = new CompteMedecin();
 
@@ -308,6 +307,72 @@ class MedecinController extends AbstractController
         $manager->persist($compte_medecin);
 
         $manager->flush();
+    }
+
+
+    /**
+     * @Route("/medecin/pdf",name="medecin_pdf")
+     */
+    public function medecinsPDF(){
+
+        $medecins = $this->getDoctrine()->getRepository(Medecin::class)->findAll();
+
+        $image = __DIR__.'/../../public/imgs/medecin_photos.jpg';
+
+        // create new PDF document
+        $pdf = new MedecinPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        // set document information
+        $pdf->SetCreator('SANTIS');
+        $pdf->SetAuthor('Cabinet SANTIS');
+        $pdf->SetTitle('Liste des médecins de SANTIS');
+        $pdf->SetSubject('');
+        $pdf->SetKeywords('medecin');
+
+        // set default header data
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+
+        // set header and footer fonts
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        // set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // ---------------------------------------------------------
+
+        // set font
+        $pdf->SetFont('helvetica', '', 12);
+
+        // add a page
+        $pdf->AddPage();
+
+        // column titles
+        $header = array('Nom', 'Prénom', 'Téléphone','Ville');
+
+
+        // data loading
+        $data = $pdf->LoadData($medecins);
+
+        $pdf->entete($image);
+
+        // print colored table
+        $pdf->ColoredTable($header, $data);
+
+
+        // close and output PDF document
+        $pdf->Output('medecins.pdf','I');
     }
 
 }
