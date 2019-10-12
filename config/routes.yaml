@@ -1,3 +1,14 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+login:
+    path: /login
+    controller: App\Controller\HomeController::login
+
+login_check:
+    path: /login_check
+    methods: POST
+
+logout:
+    path: /logout

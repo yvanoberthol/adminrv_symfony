@@ -1,13 +1,38 @@
 security:
+    encoders:
+        App\Entity\User: plaintext
+
+
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: null }
+        dbEntity:
+            entity:
+                class: App\Entity\User
+                property: username
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+
+        main_login:
+            pattern: ^/login$
             anonymous: true
+        main:
+            pattern: ^/
+            user_checker: App\Security\UserChecker
+            access_denied_handler: App\Security\AccesDeniedHandler
+            anonymous: false
+            provider: dbEntity
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
