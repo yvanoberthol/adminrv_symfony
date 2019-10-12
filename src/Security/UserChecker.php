@@ -10,7 +10,6 @@ namespace App\Security;
 
 
 use App\Entity\User;
-use Symfony\Component\Security\Core\Exception\AccountStatusException;
 use Symfony\Component\Security\Core\Exception\DisabledException;
 use Symfony\Component\Security\Core\Exception\LockedException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
@@ -26,12 +25,19 @@ class UserChecker implements UserCheckerInterface
      */
     public function checkPreAuth(UserInterface $user)
     {
-        if (!$user instanceof  User){
+        if (!$user instanceof User) {
             return;
         }
 
-        if (!$user->getEnabled()){
+        if (!$user->getEnabled()) {
             $ex = new DisabledException('Votre compte a été désactivé');
+            $ex->setUser($user);
+            throw $ex;
+
+        }
+
+        if ($user->getAllRoles()->isEmpty()) {
+            $ex = new LockedException('Votre compte ne posséde aucun rôle pour accéder à l\'application');
             $ex->setUser($user);
             throw $ex;
 

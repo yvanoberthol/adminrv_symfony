@@ -19,9 +19,10 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-   public function userLikeUsername($name){
-       return $this->createQueryBuilder('u')
-           ->where('u.username like :name')
-           ->setParameter('name',"$name%");
-   }
+    public function userLikeUsername($name)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.username like :name')
+            ->setParameter('name', "$name%");
+    }
 }

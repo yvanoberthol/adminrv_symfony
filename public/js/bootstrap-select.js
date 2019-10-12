@@ -49,6 +49,7 @@
                 return element === array2[index];
             });
         }
+
         //<editor-fold desc="Shims">
         if (!String.prototype.startsWith) {
             (function () {

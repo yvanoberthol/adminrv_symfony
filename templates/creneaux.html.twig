@@ -7,98 +7,107 @@
     {% include 'commons/navbar.html.twig' %}
 {% endblock %}
 {% block body %}
-<div class="row">
-    <div class="col-md-10 offset-md-1">
-        <h1 class="text-center grand-titre">La liste des créneaux horaires (<span class="text-white">{{ creneaux | length }}</span>)</h1>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
-            <form class="form-inline" action="{{ path('creneaux') }}" method="get">
-                <select name="id" class="selectpicker" data-live-search="true">
-                    {% for medecin in medecins%}
-                    <option {% if medecin.id == id %} selected {% endif %}
-                            value="{{ medecin.id }}">
-                        {{ medecin.allName }}
-                    </option>
-                    {% endfor %}
-                </select>
-                <button class="btn btn-success" type="submit">
-                    <span class="fa fa-search-minus"></span>  Rechercher par médecin
-                </button>
-            </form>
-        </nav>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <tr>
-                    <th>ID</th>
-                    <th>Créneau</th>
-                    <th>Médecin</th>
-                    <th colspan="2">Actions</th>
-                </tr>
-                {% if creneaux|length > 0 %}
-                    {% for creneau in creneaux %}
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center grand-titre">La liste des créneaux horaires (<span
+                        class="text-white">{{ creneaux | length }}</span>)</h1>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
+                <form class="form-inline" action="{{ path('creneaux') }}" method="get">
+                    <select name="id" class="selectpicker" data-live-search="true">
+                        {% for medecin in medecins %}
+                            <option {% if medecin.id == id %} selected {% endif %}
+                                    value="{{ medecin.id }}">
+                                {{ medecin.allName }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn btn-success" type="submit">
+                        <span class="fa fa-search-minus"></span> Rechercher par médecin
+                    </button>
+                </form>
+            </nav>
+            <div class="table-responsive">
+                <table class="table table-bordered">
                     <tr>
-                        <td>{{ creneau.id }}</td>
-                        <td>{{ creneau.creno }}</td>
-                        <td>{{ creneau.medecin.allName }}</td>
-                        <td><a href="{{ path('creneau_form_modif',{'id':creneau.id}) }}" class="btn btn-info"><span
-                                class="fa fa-edit"></span> Modifier</a></td>
-                        <td>
-                            <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#confirmationSupp{{ creneau.id }}">
-                                <span class="fa fa-times-circle"></span> Supprimer
-                            </button>
-                            <div class="modal modalSupp fade" id="confirmationSupp{{ creneau.id }}" tabindex="-1" role="dialog">
-                                <div class="modal-dialog modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header" style="background-color: royalblue">
-                                            <h4 class="modal-title">Supprimer un creneau</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                &times;
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Voulez vous supprimer le creneau <strong><span class="text-info">{{ creneau.id }}</span></strong>?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                            </button>
-                                            <form action="{{ path('creneau_delete') }}" method="POST">
-                                                <input type="hidden" name="id" value="{{ creneau.id }}">
-                                                <button class="btn btn-danger" type=submit>
-                                                    <span class="fa fa-times-circle"></span> Supprimer
-                                                </button>
-                                            </form>
+                        <th>ID</th>
+                        <th>Créneau</th>
+                        <th>Médecin</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                    {% if creneaux|length > 0 %}
+                        {% for creneau in creneaux %}
+                            <tr>
+                                <td>{{ creneau.id }}</td>
+                                <td>{{ creneau.creno }}</td>
+                                <td>{{ creneau.medecin.allName }}</td>
+                                <td><a href="{{ path('creneau_form_modif',{'id':creneau.id}) }}"
+                                       class="btn btn-info"><span
+                                                class="fa fa-edit"></span> Modifier</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                            data-target="#confirmationSupp{{ creneau.id }}">
+                                        <span class="fa fa-times-circle"></span> Supprimer
+                                    </button>
+                                    <div class="modal modalSupp fade" id="confirmationSupp{{ creneau.id }}"
+                                         tabindex="-1" role="dialog">
+                                        <div class="modal-dialog modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background-color: royalblue">
+                                                    <h4 class="modal-title">Supprimer un creneau</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">
+                                                        &times;
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Voulez vous supprimer le creneau <strong><span
+                                                                    class="text-info">{{ creneau.id }}</span></strong>?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        Close
+                                                    </button>
+                                                    <form action="{{ path('creneau_delete') }}" method="POST">
+                                                        <input type="hidden" name="id" value="{{ creneau.id }}">
+                                                        <button class="btn btn-danger" type=submit>
+                                                            <span class="fa fa-times-circle"></span> Supprimer
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr>
-                        <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3></td>
-                    </tr>
-                {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            </td>
+                        </tr>
+                    {% endif %}
 
-            </table>
-        </div>
-    {{ knp_pagination_render(creneaux) }}
-        <div>
-            <ul class="pagination justify-content-end">
-                <li class="page-item">
-                    <a class="btn" style="background-color: purple; color:white" href="{{ path('form_creneau_add') }}">
-                        <span class="fa fa-plus"></span> Ajouter un nouveau créneau
-                    </a>
-                </li>
-            </ul>
+                </table>
+            </div>
+            {{ knp_pagination_render(creneaux) }}
+            <div>
+                <ul class="pagination justify-content-end">
+                    <li class="page-item">
+                        <a class="btn" style="background-color: purple; color:white"
+                           href="{{ path('form_creneau_add') }}">
+                            <span class="fa fa-plus"></span> Ajouter un nouveau créneau
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 {% block javascripts %}
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.selectpicker').selectpicker();
-    });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
 {% endblock %}

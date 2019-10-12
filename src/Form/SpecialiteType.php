@@ -14,9 +14,8 @@ class SpecialiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom',TextType::class)
-            ->add('description',TextareaType::class)
-        ;
+            ->add('nom', TextType::class)
+            ->add('description', TextareaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

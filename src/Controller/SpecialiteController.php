@@ -71,17 +71,17 @@ class SpecialiteController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifSpecialite($id,Request $request)
+    public function formModifSpecialite($id, Request $request)
     {
         $specialite = $this->getDoctrine()->getRepository(Specialite::class)->find($id);
 
-        $form = $this->createForm(SpecialiteType::class,$specialite);
+        $form = $this->createForm(SpecialiteType::class, $specialite);
 
         if ($request->isMethod('POST')) {
 
             $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()){
+            if ($form->isSubmitted() && $form->isValid()) {
                 $doctrine = $this->getDoctrine();
 
                 $specialiteByName = $doctrine->getRepository(Specialite::class)->findOneBy(array('nom' => $specialite->getNom()));
@@ -147,15 +147,15 @@ class SpecialiteController extends AbstractController
             //on hydrate l'obejet specialite
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()){
+            if ($form->isValid() && $form->isSubmitted()) {
                 $specialiteByName = $doctrine->getRepository(Specialite::class)->findOneBy(array('nom' => $specialite->getNom()));
 
                 if (!$specialiteByName) {
                     $manager->persist($specialite);
                     $manager->flush();
 
-                    $this->addFlash('succes','Spécialité enregistrée avec succès');
-                    return $this->redirectToRoute('specialite_show',['id'=>$specialite->getId()]);
+                    $this->addFlash('succes', 'Spécialité enregistrée avec succès');
+                    return $this->redirectToRoute('specialite_show', ['id' => $specialite->getId()]);
 
                 }
 
@@ -172,14 +172,15 @@ class SpecialiteController extends AbstractController
 
 
     /**
-     *@route("/medecinSpecialiteStat",name="ms_stat")
+     * @route("/medecinSpecialiteStat",name="ms_stat")
      */
-    public function medecinSpecialiteStat(){
+    public function medecinSpecialiteStat()
+    {
 
         $specialiteList = $this->getDoctrine()->getRepository(Specialite::class)->findAll();
 
 
-        foreach ($specialiteList as $specialite){
+        foreach ($specialiteList as $specialite) {
 
             $model['specialites'][] = $specialite->getNom();
 
@@ -187,7 +188,7 @@ class SpecialiteController extends AbstractController
         }
 
 
-        return $this->render('statMedecinService.html.twig',$model);
+        return $this->render('statMedecinService.html.twig', $model);
     }
 
     /**
@@ -195,12 +196,13 @@ class SpecialiteController extends AbstractController
      * @param $nom
      * @return JsonResponse
      */
-    public function getMedecinSpecialite($nom){
-        $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneBy(array('nom'=>$nom));
+    public function getMedecinSpecialite($nom)
+    {
+        $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneBy(array('nom' => $nom));
 
         $medecins = array();
-        foreach ($specialite->getMedecins() as $medecin){
-            $medecins[] = $medecin->getId().' '.$medecin->getAllName();
+        foreach ($specialite->getMedecins() as $medecin) {
+            $medecins[] = $medecin->getId() . ' ' . $medecin->getAllName();
         }
 
         return JsonResponse::create($medecins);

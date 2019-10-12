@@ -5,14 +5,14 @@
 <script src="{{ asset('js/bootstrap-select.js') }}"></script>
 <script src="{{ asset('js/typing.js') }}"></script>
 <script>
-    $('.inputfile').on('change',function(){
+    $('.inputfile').on('change', function () {
 
         var filename = $('input[type=file]').val().split('\\').pop();
         console.log(filename);
 
         $('#filename').html(filename);
 
-        $('#validerImage').css('display','block');
+        $('#validerImage').css('display', 'block');
     });
 
 </script>

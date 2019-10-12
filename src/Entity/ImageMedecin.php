@@ -78,7 +78,7 @@ class ImageMedecin
     {
         $this->file = $file;
 
-        if (null !== $this->url){
+        if (null !== $this->url) {
             $this->tempfilename = $this->url;
             $this->url = null;
             $this->alt = null;
@@ -86,44 +86,59 @@ class ImageMedecin
 
     }
 
-    public function getImageName(){
-       return $this->id.'.'.$this->url;
-    }
-    public function getTempImageName(){
-        return $this->id.'.'.$this->tempfilename;
-    }
-
     /**
      * @ORM\PostPersist()
      * @ORM\PostUpdate()
      */
-    public function upload(){
+    public function upload()
+    {
         // s'il n'existe pas de fichier
-        if (null === $this->file){
+        if (null === $this->file) {
             return;
         }
 
-        if (null !== $this->tempfilename){
-            $oldFile = $this->getUploadRootDir().'/'.$this->getTempImageName();
+        if (null !== $this->tempfilename) {
+            $oldFile = $this->getUploadRootDir() . '/' . $this->getTempImageName();
 
-            if (file_exists($oldFile)){
+            if (file_exists($oldFile)) {
                 unlink($oldFile);
             }
         }
 
 
         //on deplace le fichier d'origine vers le chemin voulu
-        $this->file->move($this->getUploadRootDir(),$this->getImageName());
+        $this->file->move($this->getUploadRootDir(), $this->getImageName());
 
 
+    }
+
+    private function getUploadRootDir()
+    {
+        return __DIR__ . '/../../public/' . $this->getUploadDir();
+    }
+
+    public function getUploadDir()
+    {
+        return 'uploads/image';
+    }
+
+    public function getTempImageName()
+    {
+        return $this->id . '.' . $this->tempfilename;
+    }
+
+    public function getImageName()
+    {
+        return $this->id . '.' . $this->url;
     }
 
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
-    public function setAltUrl(){
-        if (null === $this->file){
+    public function setAltUrl()
+    {
+        if (null === $this->file) {
             return;
         }
 
@@ -135,30 +150,24 @@ class ImageMedecin
     /**
      * @ORM\PreRemove()
      */
-    public function stockFileDir(){
-        $this->tempfilename = $this->getUploadRootDir().'/'.$this->getImageName();
+    public function stockFileDir()
+    {
+        $this->tempfilename = $this->getUploadRootDir() . '/' . $this->getImageName();
     }
 
     /**
      * @ORM\PostRemove()
      */
-    public function deleteFile(){
-        if (file_exists($this->tempfilename)){
+    public function deleteFile()
+    {
+        if (file_exists($this->tempfilename)) {
             unlink($this->tempfilename);
         }
     }
 
-    public function getUploadDir()
+    public function getUploadFile()
     {
-        return 'uploads/image';
-    }
-
-    public function getUploadFile(){
-        return $this->getUploadDir().'/'.$this->getImageName();
-    }
-
-    private function getUploadRootDir(){
-        return __DIR__.'/../../public/'.$this->getUploadDir();
+        return $this->getUploadDir() . '/' . $this->getImageName();
     }
 
 

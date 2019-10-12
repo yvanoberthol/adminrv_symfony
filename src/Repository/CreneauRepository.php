@@ -24,12 +24,12 @@ class CreneauRepository extends ServiceEntityRepository
      * @param $idm
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function creneauInIntervalle($hd,$idm): \Doctrine\ORM\QueryBuilder
+    public function creneauInIntervalle($hd, $idm): \Doctrine\ORM\QueryBuilder
     {
         return $this->createQueryBuilder('c')
-                ->innerJoin('c.medecin','m')
-                ->where('c.heure_debut < :hd and c.heure_fin > :hd and m.id = :id')
-                ->setParameter('id',$idm)
-                ->setParameter('hd',$hd);
+            ->innerJoin('c.medecin', 'm')
+            ->where('c.heure_debut < :hd and c.heure_fin > :hd and m.id = :id')
+            ->setParameter('id', $idm)
+            ->setParameter('hd', $hd);
     }
 }

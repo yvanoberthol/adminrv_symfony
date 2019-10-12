@@ -140,7 +140,7 @@ class Client
 
     public function getAllName(): ?string
     {
-        return $this->first_name.' '.$this->last_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     /**

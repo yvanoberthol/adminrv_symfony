@@ -23,11 +23,12 @@ class ClientController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function clients(Request $request,PaginatorInterface $paginator){
+    public function clients(Request $request, PaginatorInterface $paginator)
+    {
         $name = $request->get('name');
-        if (isset($name) && !empty($name)){
+        if (isset($name) && !empty($name)) {
             $clientsList = $this->getDoctrine()->getRepository(Client::class)->clientLikeClientname($name);
-        }else{
+        } else {
             $clientsList = $this->getDoctrine()->getRepository(Client::class)->findAll();
         }
 
@@ -38,6 +39,6 @@ class ClientController extends AbstractController
         );
 
 
-        return $this->render('clients.html.twig',$model);
+        return $this->render('clients.html.twig', $model);
     }
 }

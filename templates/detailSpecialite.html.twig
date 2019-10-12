@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block title %}Détail sur la spécialité{% endblock %}
 {% block navbar %}
-{% include 'commons/navbar.html.twig' %}
+    {% include 'commons/navbar.html.twig' %}
 {% endblock %}
 {% block body %}
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xm-12">
-            {% for message in app.session.flashBag.get('succes')  %}
-            <div class="row mb-2">
-                <div class="col-md-12 text-center alert alert-success">
+            {% for message in app.session.flashBag.get('succes') %}
+                <div class="row mb-2">
+                    <div class="col-md-12 text-center alert alert-success">
                         {{ message }}
+                    </div>
                 </div>
-            </div>
             {% endfor %}
             <div class="row mb-1">
                 <ol class="breadcrumb col-md-12">
@@ -47,12 +47,15 @@
                                             <h1><span class="text-info">{{ specialite.nom }}</span></h1>
                                             <input type="hidden" name="specialite[nom]" value="{{ specialite.nom }}">
                                             <div class="form-group">
-                                                <label class="control-label" for="specialite_description">Description de la spécialité</label>
-                                                <textarea rows="10" cols="15" name="specialite[description]" id="specialite_description">
+                                                <label class="control-label" for="specialite_description">Description de
+                                                    la spécialité</label>
+                                                <textarea rows="10" cols="15" name="specialite[description]"
+                                                          id="specialite_description">
                                                    {{ specialite.description }}
                                                  </textarea>
                                             </div>
-                                            <input type="hidden" id="specialite__token" name="specialite[_token]" value="QSweAM829w6j6niv8yZQ20Vm5V-E8-7pBoVpgBCX-Qk" />
+                                            <input type="hidden" id="specialite__token" name="specialite[_token]"
+                                                   value="QSweAM829w6j6niv8yZQ20Vm5V-E8-7pBoVpgBCX-Qk"/>
                                         </div>
                                     </div>
                                 </div>
@@ -119,13 +122,15 @@
                         {% if medecins|length > 0 %}
                             {% for medecin in medecins %}
                                 <tr class="text-center">
-                                    <td colspan="2" class="text-uppercase text-success font-weight-bold">{{ medecin.allName()}}</td>
-                                    <td><a href="{{ '/detailMedecin?id='~medecin.id }}">Avoir des détails</a></td>
+                                    <td colspan="2"
+                                        class="text-uppercase text-success font-weight-bold">{{ medecin.allName() }}</td>
+                                    <td><a href="{{ path('medecin_show',{'id':medecin.id}) }}">Avoir des détails</a></td>
                                 </tr>
                             {% endfor %}
                         {% else %}
                             <tr>
-                                <td colspan="5" class="text-center"><h3 class="text-danger">Aucun médécin trouvé ...</h3>
+                                <td colspan="5" class="text-center"><h3 class="text-danger">Aucun médécin trouvé
+                                        ...</h3>
                                 </td>
                             </tr>
                         {% endif %}

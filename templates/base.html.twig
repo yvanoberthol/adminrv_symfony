@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        {% block stylesheets %}
-            {% include 'commons/css.html.twig' %}
-        {% endblock %}
-    </head>
-    <body>
-        <div class="container">
-            {% block navbar %}
-            {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        {% include 'commons/css.html.twig' %}
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+    {% block navbar %}
+    {% endblock %}
 
-            {% block body %}{% endblock %}
-            {% block footer %}
-            {% endblock %}
-            {% include 'commons/javascripts.html.twig'%}
-            {% block javascripts %}
-            {% endblock %}
-        </div>
-    </body>
+    {% block body %}{% endblock %}
+    {% block footer %}
+    {% endblock %}
+    {% include 'commons/javascripts.html.twig' %}
+    {% block javascripts %}
+    {% endblock %}
+</div>
+</body>
 </html>

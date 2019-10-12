@@ -6,7 +6,7 @@
     <div class="row bg-dark" style="margin-top:20px; color:white">
         <div class="col-xs-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2 text-center"
 
-        style="margin-top: 40px;margin-bottom: 40px">
+             style="margin-top: 40px;margin-bottom: 40px">
             <h1>Administration au cabinet médical</h1>
             <img src="{{ asset('imgs/medecin_photos.jpg') }}" alt="" width="100px" height="100px">
         </div>
@@ -17,7 +17,7 @@
                 <div class="card-title pt-2 pb-2 vert-fond
                             text-center text-white-50">
                     <h2>
-                     <span class="fa fa-user-circle"></span>   CONNEXION
+                        <span class="fa fa-user-circle"></span> CONNEXION
                     </h2>
                 </div>
                 <div class="card-body gris-fond">
@@ -26,9 +26,9 @@
                             <h1>Entrez vos identifiants</h1>
 
                             {% if error %}
-                            <div class="alert alert-danger text-center font-weight-bold">
-                                <span class="fa fa-times-circle"></span> {{ error.message }}
-                            </div>
+                                <div class="alert alert-danger text-center font-weight-bold">
+                                    <span class="fa fa-times-circle"></span> {{ error.message }}
+                                </div>
                             {% endif %}
                             <div class="form-group">
                                 <input type="text" name="_username" id="username" class="form-control input-lg"

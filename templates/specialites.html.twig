@@ -1,4 +1,4 @@
-{% extends 'base.html.twig'%}
+{% extends 'base.html.twig' %}
 
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
@@ -7,7 +7,8 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des domaines médicaux (<span class="text-white">{{ specialites|length }}</span>)
+            <h1 class="text-center grand-titre">La liste des domaines médicaux (<span
+                        class="text-white">{{ specialites|length }}</span>)
             </h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
                 <form class="form-inline" action="{{ path('specialites') }}" method="get">
@@ -26,37 +27,42 @@
                         <th colspan="2">Actions</th>
                     </tr>
                     {% if specialites|length > 0 %}
-                        {% for specialite in specialites  %}
-                            <tr >
+                        {% for specialite in specialites %}
+                            <tr>
                                 <td>{{ specialite.id }}</td>
                                 <td>{{ specialite.nom }}</td>
-                                <td><a href="{{ path('specialite_show',{'id': specialite.id}) }}" class="btn btn-secondary"><span
+                                <td><a href="{{ path('specialite_show',{'id': specialite.id}) }}"
+                                       class="btn btn-secondary"><span
                                                 class="fa fa-ellipsis-h"></span> Afficher plus de détails</a></td>
-                                <td><a href="{{ '/formModifSpecialite/'~specialite.id}}" class="btn btn-info"><span
+                                <td><a href="{{ '/formModifSpecialite/'~specialite.id }}" class="btn btn-info"><span
                                                 class="fa fa-edit"></span> Modifier</a></td>
                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#confirmationSupp{{ specialite.id }}">
                                         <span class="fa fa-times-circle"></span> Supprimer
                                     </button>
-                                    <div class="modal modalSupp fade" id="confirmationSupp{{ specialite.id }}" tabindex="-1" role="dialog">
+                                    <div class="modal modalSupp fade" id="confirmationSupp{{ specialite.id }}"
+                                         tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: royalblue">
                                                     <h4 class="modal-title">Supprimer un domaine</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">
                                                         &times;
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Voulez vous supprimer la spécialité <strong><span class="text-info">{{ specialite.nom }}</span></strong>?
+                                                    <p>Voulez vous supprimer la spécialité <strong><span
+                                                                    class="text-info">{{ specialite.nom }}</span></strong>?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        Close
                                                     </button>
                                                     <form action="{{ path('specialite_delete') }}" method="POST">
-                                                        <input type="hidden" name="id" value="{{ specialite.id}}">
+                                                        <input type="hidden" name="id" value="{{ specialite.id }}">
                                                         <button class="btn btn-danger" type=submit>
                                                             <span class="fa fa-times-circle"></span> Supprimer
                                                         </button>
@@ -70,9 +76,10 @@
                         {% endfor %}
                     {% else %}
 
-                    <tr>
-                        <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3></td>
-                    </tr>
+                        <tr>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            </td>
+                        </tr>
                     {% endif %}
                 </table>
             </div>
@@ -87,7 +94,8 @@
                         </a>
                     </li>
                     <li class="page-item">
-                        <a class="btn" style="background-color: purple; color:white" href="{{ path('form_specialite_add') }}">
+                        <a class="btn" style="background-color: purple; color:white"
+                           href="{{ path('form_specialite_add') }}">
                             <span class="fa fa-plus"></span> Ajouter un nouveau domaine médical
                         </a>
                     </li>

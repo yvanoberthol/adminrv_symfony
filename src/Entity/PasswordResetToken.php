@@ -34,24 +34,18 @@ class PasswordResetToken
      */
     private $client;
 
-    public function __construct(string $token, Client $client){
-    $this->token = $token;
-    $this->client = $client;
-    $this->expiryDate = calculateExpiryDate(EXPIRATION);
-    }
-
-    private function calculateExpiryDate( $expiryTimeInMinutes) {
-        /*Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(new Date().getTime());
-        calendar.add(Calendar.MINUTE, expiryTimeInMinutes);
-        return new Date(calendar.getTime().getTime());*/
-    }
-
-    public function updateToken(string $token):void {
+    public function __construct(string $token, Client $client)
+    {
         $this->token = $token;
+        $this->client = $client;
         $this->expiryDate = calculateExpiryDate(EXPIRATION);
     }
 
+    public function updateToken(string $token): void
+    {
+        $this->token = $token;
+        $this->expiryDate = calculateExpiryDate(EXPIRATION);
+    }
 
     public function getId(): ?int
     {
@@ -92,6 +86,14 @@ class PasswordResetToken
     public function setClient(Client $client)
     {
         $this->client = $client;
+    }
+
+    private function calculateExpiryDate($expiryTimeInMinutes)
+    {
+        /*Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(new Date().getTime());
+        calendar.add(Calendar.MINUTE, expiryTimeInMinutes);
+        return new Date(calendar.getTime().getTime());*/
     }
 
 

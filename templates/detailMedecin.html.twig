@@ -16,13 +16,13 @@
                     <div class="text-center alert alert-success font-weight-bold w-100">
                         <span class="fa fa-check"></span> {{ message }}
                     </div>
-                {%  endfor %}
+                {% endfor %}
 
                 {% for message in app.session.flashBag.get('error') %}
                     <div class="text-center alert alert-danger font-weight-bold w-100">
                         <span class="fa fa-times-circle"></span> {{ message }}
                     </div>
-                {%  endfor %}
+                {% endfor %}
             </div>
 
             <div class="row">
@@ -45,10 +45,11 @@
 
             <div class="row">
                 <div class="col-md-3 text-center">
-                    <img class="mb-2" src="{{asset(medecin.image.uploadFile) }}" alt="{{ medecin.image.alt }}" style="width: 200px; height: 200px">
+                    <img class="mb-2" src="{{ asset(medecin.image.uploadFile) }}" alt="{{ medecin.image.alt }}"
+                         style="width: 200px; height: 200px">
 
                     <form action="{{ path('changer_photo') }}" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="{{ medecin.id }}" >
+                        <input type="hidden" name="id" value="{{ medecin.id }}">
                         <div class="upload-btn-wrapper text-center" style="width: 200px">
                             <input type="file" name="photo" class="inputfile" accept="image/jpeg,image/png"/>
                             <button class="btns">
@@ -75,18 +76,19 @@
                                 <strong>Matricule: </strong> <span class="bg-warning">{{ medecin.matricule }}</span>
                             </p>
                             <p style="font-weight: bolder;font-size: 24px">
-                                <strong>Téléphone : </strong>  <span class="bg-warning">{{ medecin.telephone }}</span>
+                                <strong>Téléphone : </strong> <span class="bg-warning">{{ medecin.telephone }}</span>
                             </p>
                             <p style="font-weight: bolder;font-size: 24px">
-                                <strong>Ville : </strong>  <span class="bg-warning">{{ medecin.ville }}</span>
+                                <strong>Ville : </strong> <span class="bg-warning">{{ medecin.ville }}</span>
                             </p>
                         </div>
                         <div class="col-md-6" style="margin-top: 10px">
                             <p style="font-weight: bolder;font-size: 24px">
-                                <strong>Email : </strong>  <span class="bg-warning">{{ medecin.email }}</span>
+                                <strong>Email : </strong> <span class="bg-warning">{{ medecin.email }}</span>
                             </p>
                             <p style="font-weight: bolder;font-size: 24px">
-                                <strong>Date de naissance: </strong>  <span class="bg-warning">{{ medecin.dateNaissance | date('d/m/Y') }}</span>
+                                <strong>Date de naissance: </strong> <span
+                                        class="bg-warning">{{ medecin.dateNaissance | date('d/m/Y') }}</span>
                             </p>
                         </div>
                     </div>
@@ -115,7 +117,8 @@
                                     </form>
                                 {% endfor %}
 
-                                <a class="badge badge-info" href="" data-toggle="modal" data-target="#addSpecialite{{ medecin.id }}">
+                                <a class="badge badge-info" href="" data-toggle="modal"
+                                   data-target="#addSpecialite{{ medecin.id }}">
                                     + lui ajouter une compétence
                                 </a>
                             </div>
@@ -135,7 +138,7 @@
                                                         <div class="form-group text-center">
                                                             <label class="control-label">
                                                                 <h1><span>Ajouter une nouvelle compétence à </span><span
-                                                                        class="text-info">
+                                                                            class="text-info">
                                                                         {{ medecin.allName }}
                                                                     </span>
                                                                 </h1>
@@ -145,7 +148,8 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Domaines:</label>
-                                                            <select name="specialiteName" class="form-control text-center">
+                                                            <select name="specialiteName"
+                                                                    class="form-control text-center">
                                                                 {% for s in specialites %}
                                                                     <option value="{{ s.nom }}">{{ s.nom }}</option>
                                                                 {% endfor %}
@@ -153,7 +157,8 @@
                                                             </select>
                                                         </div>
                                                         <div class="form-group text-center">
-                                                            <button type="submit" name="ajouter" class="btn btn-primary">
+                                                            <button type="submit" name="ajouter"
+                                                                    class="btn btn-primary">
                                                                 <span class="fa fa-plus"></span> Ajouter
                                                             </button>
                                                         </div>
@@ -171,7 +176,8 @@
                     <div class="row mt-4">
                         <div class="col-md-12" style="margin-top: 10px">
                             <h4>
-                                <span><u>NB</u>: </span><span>Pour enlèver une compétence particulière à un médécin faudra juste cliquer sur celle dont il est <span class="text-danger">spécialisé</span>.</span>
+                                <span><u>NB</u>: </span><span>Pour enlèver une compétence particulière à un médécin faudra juste cliquer sur celle dont il est <span
+                                            class="text-danger">spécialisé</span>.</span>
                             </h4>
                         </div>
                     </div>
@@ -179,23 +185,23 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
-<script>
+    <script>
 
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip({title: "Hooray!", animation: true});
-        $("#description").collapse('show');
-        $("#description").on("show.bs.collapse", function () {
-            $(".coulisseur").html('<span class="fa fa-minus"></span> Cacher');
-            $(".coulisseur").removeClass("btn-info").addClass("btn-danger");
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({title: "Hooray!", animation: true});
+            $("#description").collapse('show');
+            $("#description").on("show.bs.collapse", function () {
+                $(".coulisseur").html('<span class="fa fa-minus"></span> Cacher');
+                $(".coulisseur").removeClass("btn-info").addClass("btn-danger");
+            });
+            $("#description").on("hide.bs.collapse", function () {
+                $(".coulisseur").html('<span class="fa fa-plus-circle"></span> Afficher');
+                $(".coulisseur").removeClass("btn-danger").addClass("btn-info");
+            });
         });
-        $("#description").on("hide.bs.collapse", function () {
-            $(".coulisseur").html('<span class="fa fa-plus-circle"></span> Afficher');
-            $(".coulisseur").removeClass("btn-danger").addClass("btn-info");
-        });
-    });
-</script>
+    </script>
 {% endblock %}

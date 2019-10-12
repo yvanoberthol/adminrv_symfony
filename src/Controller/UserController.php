@@ -9,14 +9,11 @@ use App\Form\UserType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
 /**
@@ -33,20 +30,21 @@ class UserController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function users(Request $request,PaginatorInterface $paginator){
+    public function users(Request $request, PaginatorInterface $paginator)
+    {
         $model['username'] = '';
         $username = $request->get('username');
-        if (isset($username) && !empty($username)){
+        if (isset($username) && !empty($username)) {
             $model['username'] = $username;
             $usersList = $this->getDoctrine()->getRepository(User::class)->userLikeUsername($username);
-        }else{
+        } else {
             $usersList = $this->getDoctrine()->getRepository(User::class)->findAll();
         }
 
         $model['nbreUserActif'] = 0;
-        foreach ($usersList as $user){
-            if ($user->getEnabled() === true){
-                $model['nbreUserActif'] +=1;
+        foreach ($usersList as $user) {
+            if ($user->getEnabled() === true) {
+                $model['nbreUserActif'] += 1;
             }
         }
 
@@ -58,7 +56,7 @@ class UserController extends AbstractController
 
         $model['roles'] = $this->getDoctrine()->getRepository(Role::class)->findAll();
 
-        return $this->render('users.html.twig',$model);
+        return $this->render('users.html.twig', $model);
     }
 
     /**
@@ -66,41 +64,41 @@ class UserController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifUser(Request $request){
+    public function formModifUser(Request $request)
+    {
         $doctrine = $this->getDoctrine();
 
         $username = $this->getUser()->getUsername();
 
         $user = $doctrine->getRepository(User::class)->findOneByUsername($username);
 
-        if ($user === null){
-            Throw new NotFoundHttpException('L\'utilisateur N° '.$username.' n\'existe pas');
+        if ($user === null) {
+            Throw new NotFoundHttpException('L\'utilisateur N° ' . $username . ' n\'existe pas');
         }
 
-        $form = $this->createForm(UserEditType::class,$user);
+        $form = $this->createForm(UserEditType::class, $user);
 
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()){
+            if ($form->isValid() && $form->isSubmitted()) {
                 $userByUsername = $doctrine->getRepository(User::class)->findOneByUsername($user->getUsername());
 
-                if (!$userByUsername){
-                    if ($userByUsername->getId() !== $user->getId()){
+                if (!$userByUsername) {
+                    if ($userByUsername->getId() !== $user->getId()) {
                         $model['userNameExist'] = true;
                     }
-                }else{
+                } else {
                     $doctrine->getManager()->flush();
                     $model['modifSucces'] = true;
                 }
             }
         }
 
-
         $model['form'] = $form->createView();
 
-        return $this->render('modifUser.html.twig',$model);
+        return $this->render('modifUser.html.twig', $model);
     }
 
     /**
@@ -109,10 +107,11 @@ class UserController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteUser(Request $request){
+    public function deleteUser(Request $request)
+    {
 
         $doctrine = $this->getDoctrine();
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 
             $id = $request->get('id');
             $user = $doctrine->getRepository(User::class)->find($id);
@@ -130,17 +129,16 @@ class UserController extends AbstractController
      * @param Request $request
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function formAddUser(Request $request){
+    public function formAddUser(Request $request)
+    {
         $user = new User();
 
-        $form = $this->createForm(UserType::class,$user);
+        $form = $this->createForm(UserType::class, $user);
 
-
-
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()){
+            if ($form->isValid() && $form->isSubmitted()) {
 
                 $doctrine = $this->getDoctrine();
                 $manager = $doctrine->getManager();
@@ -160,7 +158,7 @@ class UserController extends AbstractController
 
         $model['form'] = $form->createView();
 
-        return $this->render('addUser.html.twig',$model);
+        return $this->render('addUser.html.twig', $model);
     }
 
 
@@ -172,8 +170,8 @@ class UserController extends AbstractController
      */
     public function setStatusUser(Request $request): ?RedirectResponse
     {
-        $user_id = (int) $request->get('user_id');
-        $enabled = (bool) $request->get('enabled');
+        $user_id = (int)$request->get('user_id');
+        $enabled = (bool)$request->get('enabled');
 
         $doctrine = $this->getDoctrine();
         $manager = $doctrine->getManager();
@@ -204,10 +202,11 @@ class UserController extends AbstractController
      * @param Request $request
      * @return RedirectResponse
      */
-    public function deleteRoleUser(Request $request){
+    public function deleteRoleUser(Request $request)
+    {
 
-        $user_id = (int) $request->get('user_id');
-        $role_id = (int) $request->get('role_id');
+        $user_id = (int)$request->get('user_id');
+        $role_id = (int)$request->get('role_id');
 
         $doctrine = $this->getDoctrine();
         $manager = $doctrine->getManager();
@@ -227,7 +226,7 @@ class UserController extends AbstractController
         } else {
             $user->removeRole($role);
             $manager->flush();
-            $this->addFlash('succes', 'L\'utilisateur '.$user->getUsername().' a perdu le role '.$role->getName());
+            $this->addFlash('succes', 'L\'utilisateur ' . $user->getUsername() . ' a perdu le role ' . $role->getRole());
         }
 
         return $this->redirectToRoute('users');
@@ -242,21 +241,21 @@ class UserController extends AbstractController
     public function addRoleUser(Request $request): RedirectResponse
     {
 
-        $user_id = (int) $request->get('user_id');
-        $role_id = (int) $request->get('role_id');
+        $user_id = (int)$request->get('user_id');
+        $role_id = (int)$request->get('role_id');
 
         $doctrine = $this->getDoctrine();
         $manager = $doctrine->getManager();
         $user = $doctrine->getRepository(User::class)->find($user_id);
         $role = $doctrine->getRepository(Role::class)->find($role_id);
 
-        if ($user->getAllRoles()->contains($role)){
-            $this->addFlash('error','l\'utilisateur possède déjà ce rôle');
-        }else{
+        if ($user->getAllRoles()->contains($role)) {
+            $this->addFlash('error', 'l\'utilisateur possède déjà le rôle '.$role->getRole());
+        } else {
             $user->addRole($role);
             $manager->flush();
 
-            $this->addFlash('succes', 'L\'utilisateur '.$user->getUsername().' a obtenu le role '.$role->getName());
+            $this->addFlash('succes', 'L\'utilisateur ' . $user->getUsername() . ' a obtenu le role ' . $role->getRole());
         }
 
         return $this->redirectToRoute('users');

@@ -3,8 +3,11 @@
         <div style="margin-top:25px;border-radius:25px;" class=" bg-dark">
             <div class="row mb-4 mt-2">
                 <nav class="col-md-12 navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary p-3">
-                    <a class="navbar-brand" href="{{ path('menu_principal') }}"><span class="fa fa-ambulance badge-info text-danger p-3"></span> Gestion du cabinet médical</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    <a class="navbar-brand" href="{{ path('menu_principal') }}"><span
+                                class="fa fa-ambulance badge-info text-danger p-3"></span> Gestion du cabinet
+                        médical</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -12,42 +15,50 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user-o">
                                     </i>
                                     Médécins
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="{{ path('medecins') }}">Liste des médécins</a>
-                                    <a class="dropdown-item" href="{{ path('form_medecin_add') }}">Ajouter un médécin</a>
+                                    <a class="dropdown-item" href="{{ path('form_medecin_add') }}">Ajouter un
+                                        médécin</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-file-zip-o">
                                     </i>
                                     Spécialités
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="{{ path('specialites') }}">Liste des spécialités</a>
-                                    <a class="dropdown-item" href="{{ path('form_specialite_add') }}">Ajouter une spécialité</a>
-                                    <a class="dropdown-item" href="{{ path('ms_stat') }}">Statistique sur les spécialités</a>
+                                    <a class="dropdown-item" href="{{ path('form_specialite_add') }}">Ajouter une
+                                        spécialité</a>
+                                    <a class="dropdown-item" href="{{ path('ms_stat') }}">Statistique sur les
+                                        spécialités</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-hourglass-end">
                                     </i>
                                     Créneaux
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="{{ path('creneaux') }}">Liste des créneaux</a>
-                                    <a class="dropdown-item" href="{{ path('form_creneau_add') }}">Ajouter un créneau</a>
+                                    <a class="dropdown-item" href="{{ path('form_creneau_add') }}">Ajouter un
+                                        créneau</a>
                                 </div>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="/patients" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="/patients" role="button" aria-haspopup="true"
+                                   aria-expanded="false">
                                     <i class="fa fa-users">
                                     </i>
                                     Patients
@@ -55,28 +66,30 @@
                             </li>
 
                             {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-user">
-                                    </i>
-                                    Users
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ path('users') }}">Liste des users</a>
-                                    <a class="dropdown-item" href="{{ path('form_user_add') }}">Ajouter un user</a>
-                                </div>
-                            </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user">
+                                        </i>
+                                        Users
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="{{ path('users') }}">Liste des users</a>
+                                        <a class="dropdown-item" href="{{ path('form_user_add') }}">Ajouter un user</a>
+                                    </div>
+                                </li>
                             {% endif %}
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user-circle">
                                     </i>
                                     <span>{{ app.token.user.username }}</span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ path('user_form_modif')}}">
+                                    <a class="dropdown-item" href="{{ path('user_form_modif') }}">
                                         <i class="fa fa-calculator">
                                         </i>
                                         Mon compte

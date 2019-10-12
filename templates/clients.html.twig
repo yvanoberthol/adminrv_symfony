@@ -1,4 +1,4 @@
-{% extends 'base.html.twig'%}
+{% extends 'base.html.twig' %}
 
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
@@ -7,7 +7,8 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des patients (<span class="text-white">{{ clients|length }}</span>)
+            <h1 class="text-center grand-titre">La liste des patients (<span
+                        class="text-white">{{ clients|length }}</span>)
             </h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
                 <form class="form-inline" action="{{ path('patients') }}" method="get">
@@ -37,8 +38,8 @@
                         <th colspan="2">Actions</th>
                     </tr>
                     {% if clients|length > 0 %}
-                        {% for client in clients  %}
-                            <tr >
+                        {% for client in clients %}
+                            <tr>
                                 <td>{{ client.id }}</td>
                                 <td>{{ client.allName }}</td>
                                 <td>{{ client.phone }}</td>
@@ -47,7 +48,8 @@
                     {% else %}
 
                         <tr>
-                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3></td>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            </td>
                         </tr>
                     {% endif %}
                 </table>

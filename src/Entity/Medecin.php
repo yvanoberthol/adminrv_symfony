@@ -121,8 +121,9 @@ class Medecin
         $this->prenom = $prenom;
     }
 
-    public function getAllName(){
-        return $this->nom.' '.$this->prenom;
+    public function getAllName()
+    {
+        return $this->nom . ' ' . $this->prenom;
     }
 
     public function getEmail(): ?string

@@ -50,6 +50,11 @@ class Role
         return $this;
     }
 
+    public function getRole(): ?string
+    {
+        return str_replace('ROLE_', '', $this->name);
+    }
+
     /**
      * @return Collection|User[]
      */

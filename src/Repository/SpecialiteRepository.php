@@ -19,11 +19,12 @@ class SpecialiteRepository extends ServiceEntityRepository
         parent::__construct($registry, Specialite::class);
     }
 
-    public function specialiteLikeNom($nom){
+    public function specialiteLikeNom($nom)
+    {
         return $this->createQueryBuilder('s')
-                ->where('s.nom like :nom')
-                ->setParameter('nom',"$nom%")
-                ->orderBy('s.nom');
+            ->where('s.nom like :nom')
+            ->setParameter('nom', "$nom%")
+            ->orderBy('s.nom');
     }
 
 }

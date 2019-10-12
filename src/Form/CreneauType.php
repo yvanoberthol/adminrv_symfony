@@ -15,14 +15,13 @@ class CreneauType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('heure_debut',TimeType::class)
-            ->add('heure_fin',TimeType::class)
-            ->add('medecin',EntityType::class,[
-                'class'=>Medecin::class,
-                'choice_label'=> 'allName',
-                'multiple'=>false
-            ])
-        ;
+            ->add('heure_debut', TimeType::class)
+            ->add('heure_fin', TimeType::class)
+            ->add('medecin', EntityType::class, [
+                'class' => Medecin::class,
+                'choice_label' => 'allName',
+                'multiple' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

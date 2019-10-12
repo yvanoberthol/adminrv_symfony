@@ -3,8 +3,8 @@
     Menu principal
 {% endblock %}
 {% block body %}
-<a href="#" title="Haut de page" class="scrollup rounded"><span class="fa fa-arrow-up"></span></a>
-<span id="name-authenticate" style="display:none">{{ app.token.user.username }}</span>
+    <a href="#" title="Haut de page" class="scrollup rounded"><span class="fa fa-arrow-up"></span></a>
+    <span id="name-authenticate" style="display:none">{{ app.token.user.username }}</span>
 <div class="container">
     <div class="jumbotron jumbotron-fluid bg-dark"
          style="margin-top:20px; color:white; border-bottom: 10px solid #018577">
@@ -19,9 +19,9 @@
             </h3>
             <p>
                 Le(s) rôle(s) à votre disposition: <span style="color:grey">
-                    [
-                    {% for role in app.token.user.roles %}
-                    {{ role }}
+                    [--
+                    {% for role in app.token.user.allRoles %}
+                        {{ role.role }} --
                     {% endfor %}
                     ]
                 </span>
@@ -101,26 +101,26 @@
             </div>
         </div>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
-        <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
-            <div class="card gris-fond">
-                <div class="card-header text-center font-weight-bold vert-fond">
-                    Utilisateurs
-                </div>
-                <div class="card-body text-center">
-                    <img class="card-img-top"
-                         src="/imgs/comptes_utilisateurs.png"
-                         alt="utilisateurs" style="width:200px; height:200px">
-                </div>
-                <div class="card-footer text-center">
-                    <a href="/users" class="text-white-50">
-                        Gestion des utilisateurs de cette application
-                    </a>
+            <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
+                <div class="card gris-fond">
+                    <div class="card-header text-center font-weight-bold vert-fond">
+                        Utilisateurs
+                    </div>
+                    <div class="card-body text-center">
+                        <img class="card-img-top"
+                             src="/imgs/comptes_utilisateurs.png"
+                             alt="utilisateurs" style="width:200px; height:200px">
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="/users" class="text-white-50">
+                            Gestion des utilisateurs de cette application
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
     </div>
-{% endblock %}
-{% block footer %}
-    {% include 'commons/footer.html.twig'%}
+    {% endblock %}
+    {% block footer %}
+    {% include 'commons/footer.html.twig' %}
 {% endblock %}

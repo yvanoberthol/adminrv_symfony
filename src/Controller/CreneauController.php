@@ -33,7 +33,7 @@ class CreneauController extends AbstractController
         if (isset($id) && !empty($id)) {
             $model['id'] = $id;
             $medecin = $this->getDoctrine()->getRepository(Medecin::class)->find($id);
-            $creneausList = $this->getDoctrine()->getRepository(Creneau::class)->findBy(array('medecin'=>$medecin));
+            $creneausList = $this->getDoctrine()->getRepository(Creneau::class)->findBy(array('medecin' => $medecin));
         } else {
             $creneausList = $this->getDoctrine()->getRepository(Creneau::class)->findAll();
         }
@@ -54,17 +54,17 @@ class CreneauController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifCreneau($id,Request $request): \Symfony\Component\HttpFoundation\Response
+    public function formModifCreneau($id, Request $request): \Symfony\Component\HttpFoundation\Response
     {
         $creneau = $this->getDoctrine()->getRepository(Creneau::class)->find($id);
 
-        $form = $this->createForm(CreneauType::class,$creneau);
+        $form = $this->createForm(CreneauType::class, $creneau);
 
         if ($request->isMethod('POST')) {
 
             $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()){
+            if ($form->isSubmitted() && $form->isValid()) {
                 $doctrine = $this->getDoctrine();
 
                 $doctrine->getManager()->flush();
@@ -122,24 +122,24 @@ class CreneauController extends AbstractController
             //on hydrate l'obejet creneau
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()){
+            if ($form->isValid() && $form->isSubmitted()) {
 
                 $intervalle = $creneau->getHeureFin()->getTimestamp() - (int)$creneau->getHeureDebut()->getTimestamp();
                 $creneauByHeureDebut = $doctrine->getRepository(Creneau::class)->findOneBy(array('heure_debut' => $creneau->getHeureDebut()));
                 $creneauByHeureFin = $doctrine->getRepository(Creneau::class)->findOneBy(array('heure_fin' => $creneau->getHeureFin()));
-               // $creneauByHeureDebutLess = $doctrine->getRepository(Creneau::class)->creneauInIntervalle($creneau->getHeureDebut(),$creneau->getMedecin()->getId());
+                // $creneauByHeureDebutLess = $doctrine->getRepository(Creneau::class)->creneauInIntervalle($creneau->getHeureDebut(),$creneau->getMedecin()->getId());
 
-                if ($creneau->getHeureDebut() >= $creneau->getHeureFin()){
+                if ($creneau->getHeureDebut() >= $creneau->getHeureFin()) {
                     $model['hdebutGrand'] = true;
-                }elseif ($intervalle < $this->getParameter('time_interval')){
+                } elseif ($intervalle < $this->getParameter('time_interval')) {
                     $model['dureeIntervalle'] = true;
-                }elseif ($creneauByHeureDebut){
+                } elseif ($creneauByHeureDebut) {
                     $model['hdebutExists'] = true;
-                }elseif ($creneauByHeureFin){
+                } elseif ($creneauByHeureFin) {
                     $model['hfinExists'] = true;
                 }/*elseif ($creneauByHeureDebutLess){
                     $model['hfinLesshdebut'] = true;
-                }*/else{
+                }*/ else {
                     $manager->persist($creneau);
                     $manager->flush();
                     return $this->redirectToRoute('creneaux');

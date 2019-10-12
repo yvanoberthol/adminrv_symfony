@@ -35,7 +35,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $salt='';
+    private $salt = '';
 
     /**
      * @ORM\Column(type="boolean")
@@ -55,20 +55,6 @@ class User implements UserInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-
-    public function setUsername(string $username)
-    {
-        $this->username = $username;
-    }
-
-    /**
-     * @param string $salt
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
     }
 
     public function getPassword(): ?string
@@ -91,11 +77,10 @@ class User implements UserInterface
         $this->enabled = $enabled;
     }
 
-
     public function getRoles()
     {
         $role_users = array();
-        foreach ($this->roles as $role){
+        foreach ($this->roles as $role) {
             $role_users[] = $role->getName();
         }
         return $role_users;
@@ -136,6 +121,14 @@ class User implements UserInterface
     }
 
     /**
+     * @param string $salt
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
+
+    /**
      * Returns the username used to authenticate the user.
      *
      * @return string The username
@@ -143,6 +136,11 @@ class User implements UserInterface
     public function getUsername()
     {
         return $this->username;
+    }
+
+    public function setUsername(string $username)
+    {
+        $this->username = $username;
     }
 
     /**

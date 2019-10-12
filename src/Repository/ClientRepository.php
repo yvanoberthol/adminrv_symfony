@@ -19,9 +19,10 @@ class ClientRepository extends ServiceEntityRepository
         parent::__construct($registry, Client::class);
     }
 
-    public function clientLikeClientname($name){
+    public function clientLikeClientname($name)
+    {
         return $this->createQueryBuilder('c')
-                    ->where('c.first_name like :name or c.last_name like :name')
-                    ->setParameter('name',"$name%");
+            ->where('c.first_name like :name or c.last_name like :name')
+            ->setParameter('name', "$name%");
     }
 }

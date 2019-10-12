@@ -3,7 +3,7 @@
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
 {% endblock %}
-{% block body%}
+{% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <h1 class="grand-titre">Modifier le domaine médical N° <span class="text-info">{{ id }}</span></h1>
@@ -13,12 +13,12 @@
                 </div>
             {% endif %}
             {{ form_start(form) }}
-                {{ form_row(form.nom) }}
-                {{ form_row(form.description) }}
-                <div class="form-group">
-                    <button type="submit" class="btn btn-info"><span class="fa fa-edit"></span> Modifier</button>
-                    <a href="{{ path('specialites') }}">Retour à la liste des domaines</a>
-                </div>
+            {{ form_row(form.nom) }}
+            {{ form_row(form.description) }}
+            <div class="form-group">
+                <button type="submit" class="btn btn-info"><span class="fa fa-edit"></span> Modifier</button>
+                <a href="{{ path('specialites') }}">Retour à la liste des domaines</a>
+            </div>
             {{ form_end(form) }}
         </div>
     </div>

@@ -24,7 +24,7 @@ class MedecinFixtures extends Fixture
 
         $liste_specialites = [
             [
-                'name'=> 'dermatologie',
+                'name' => 'dermatologie',
                 'description' => 'c\'est la science qui étudie la peau'
             ],
             [
@@ -40,7 +40,7 @@ class MedecinFixtures extends Fixture
                 'description' => 'etude de l\'environnement'
             ]
         ];
-        foreach ($liste_specialites as $specialite){
+        foreach ($liste_specialites as $specialite) {
             $ob_specialite = new Specialite();
             $ob_specialite->setNom($specialite['name']);
             $ob_specialite->setDescription($specialite['description']);
@@ -51,17 +51,17 @@ class MedecinFixtures extends Fixture
 
         $liste_medecins = [
             [
-                'nom'=> 'yvano',
+                'nom' => 'yvano',
                 'prenom' => 'berthol',
                 'matricule' => 'M001',
                 'email' => 'yvanoberthol@gmail.com',
                 'telephone' => '690735187',
                 'ville' => 'Douala',
-                'date_naissance' =>  new \DateTime('1997-05-11'),
+                'date_naissance' => new \DateTime('1997-05-11'),
                 'image_id' => $image1
             ],
             [
-                'nom'=> 'marie',
+                'nom' => 'marie',
                 'prenom' => 'regine',
                 'matricule' => 'M002',
                 'email' => 'marieemmagam@gmail.com',
@@ -71,7 +71,7 @@ class MedecinFixtures extends Fixture
                 'image_id' => $image2
             ]
         ];
-        foreach ($liste_medecins as $medecin){
+        foreach ($liste_medecins as $medecin) {
             $ob_medecin = new Medecin();
             $ob_medecin->setNom($medecin['nom']);
             $ob_medecin->setPrenom($medecin['prenom']);
@@ -82,7 +82,7 @@ class MedecinFixtures extends Fixture
             $ob_medecin->setDateNaissance($medecin['date_naissance']);
             $ob_medecin->setImage($medecin['image_id']);
 
-            foreach ($specialites as $specialite){
+            foreach ($specialites as $specialite) {
                 $ob_medecin->addSpecialite($specialite);
             }
 

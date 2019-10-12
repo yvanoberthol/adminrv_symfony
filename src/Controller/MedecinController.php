@@ -29,12 +29,13 @@ class MedecinController extends AbstractController
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getMedecin($id){
+    public function getMedecin($id)
+    {
 
         $model['medecin'] = $this->getDoctrine()->getRepository(Medecin::class)->find($id);
         $model['specialites'] = $this->getDoctrine()->getRepository(Specialite::class)->findAll();
 
-        return $this->render('detailMedecin.html.twig',$model);
+        return $this->render('detailMedecin.html.twig', $model);
 
     }
 
@@ -44,21 +45,21 @@ class MedecinController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function medecins(Request $request,PaginatorInterface $paginator){
+    public function medecins(Request $request, PaginatorInterface $paginator)
+    {
         $nom = $request->get('nom');
-        if (isset($nom) && !empty($nom)){
+        if (isset($nom) && !empty($nom)) {
             $medecinsList = $this->getDoctrine()->getRepository(Medecin::class)->medecinLikeNom($nom);
-        }else{
+        } else {
             $medecinsList = $this->getDoctrine()->getRepository(Medecin::class)->findAll();
         }
 
         $model['nbreMecinActif'] = 0;
-        foreach ($medecinsList as $medecin){
-            if ($medecin->getCompteMedecin()->getEnabled() == true){
-                $model['nbreMecinActif'] +=1;
+        foreach ($medecinsList as $medecin) {
+            if ($medecin->getCompteMedecin()->getEnabled() == true) {
+                $model['nbreMecinActif'] += 1;
             }
         }
-
 
 
         $model['medecins'] = $paginator->paginate(
@@ -66,7 +67,7 @@ class MedecinController extends AbstractController
             $request->query->getInt('page', 1), 5
         );
 
-        return $this->render('medecins.html.twig',$model);
+        return $this->render('medecins.html.twig', $model);
     }
 
     /**
@@ -75,31 +76,32 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifMedecin($id,Request $request){
+    public function formModifMedecin($id, Request $request)
+    {
         $doctrine = $this->getDoctrine();
 
         $medecin = $doctrine->getRepository(Medecin::class)->find($id);
 
-        if ($medecin === null){
-            Throw new NotFoundHttpException('Le médecin N° '.$id.' n\'existe pas');
+        if ($medecin === null) {
+            Throw new NotFoundHttpException('Le médecin N° ' . $id . ' n\'existe pas');
         }
 
-        $form = $this->createForm(MedecinEditType::class,$medecin);
+        $form = $this->createForm(MedecinEditType::class, $medecin);
 
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()){
-                $medecinByMatricule = $doctrine->getRepository(Medecin::class)->findOneBy(array('matricule'=>$medecin->getMatricule()));
+            if ($form->isValid() && $form->isSubmitted()) {
+                $medecinByMatricule = $doctrine->getRepository(Medecin::class)->findOneBy(array('matricule' => $medecin->getMatricule()));
 
-                if (!$medecinByMatricule){
-                    if ($medecinByMatricule->getId() !== $medecin->getId()){
+                if (!$medecinByMatricule) {
+                    if ($medecinByMatricule->getId() !== $medecin->getId()) {
                         $model['medecinNameExist'] = true;
                     }
-                }else{
+                } else {
 
-                    $compteMedecin = $doctrine->getRepository(CompteMedecin::class)->findOneBy(array('medecin'=>$medecin));
+                    $compteMedecin = $doctrine->getRepository(CompteMedecin::class)->findOneBy(array('medecin' => $medecin));
                     $compteMedecin->setLogin($medecin->getMatricule());
                     $compteMedecin->setPassword($medecin->getAllName());
 
@@ -112,7 +114,7 @@ class MedecinController extends AbstractController
 
         $model['form'] = $form->createView();
 
-        return $this->render('modifMedecin.html.twig',$model);
+        return $this->render('modifMedecin.html.twig', $model);
     }
 
     /**
@@ -120,10 +122,11 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return RedirectResponse
      */
-    public function deleteMedecin(Request $request){
+    public function deleteMedecin(Request $request)
+    {
 
         $doctrine = $this->getDoctrine();
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 
             $id = $request->get('id');
             $medecin = $doctrine->getRepository(Medecin::class)->find($id);
@@ -140,17 +143,17 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function formAddMedecin(Request $request){
+    public function formAddMedecin(Request $request)
+    {
         $medecin = new Medecin();
 
-        $form = $this->createForm(MedecinType::class,$medecin);
+        $form = $this->createForm(MedecinType::class, $medecin);
 
 
-
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()){
+            if ($form->isValid() && $form->isSubmitted()) {
 
                 $doctrine = $this->getDoctrine();
                 $manager = $doctrine->getManager();
@@ -178,7 +181,7 @@ class MedecinController extends AbstractController
 
         $model['form'] = $form->createView();
 
-        return $this->render('addMedecin.html.twig',$model);
+        return $this->render('addMedecin.html.twig', $model);
     }
 
     /**
@@ -186,19 +189,20 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return RedirectResponse
      */
-    public function changerPhoto(Request $request){
+    public function changerPhoto(Request $request)
+    {
 
         $medecin = $this->getDoctrine()->getRepository(Medecin::class)->find($request->get('id'));
 
         $photo = $request->files->get('photo');
-        if (!empty($photo)){
+        if (!empty($photo)) {
             $medecin->getImage()->setFile($photo);
         }
 
         $this->getDoctrine()->getManager()->flush();
 
-        $this->addFlash('succes','Votre photo a été changée avec succès');
-        return $this->redirectToRoute('medecin_show',['id'=>$medecin->getId()]);
+        $this->addFlash('succes', 'Votre photo a été changée avec succès');
+        return $this->redirectToRoute('medecin_show', ['id' => $medecin->getId()]);
 
 
     }
@@ -209,27 +213,27 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return RedirectResponse
      */
-    public function addCompetence(Request $request){
+    public function addCompetence(Request $request)
+    {
         $medecin = $this->getDoctrine()->getRepository(Medecin::class)->findOneBy(
-            array('matricule'=>$request->get('matricule'))
+            array('matricule' => $request->get('matricule'))
         );
 
         $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneBy(
-            array('nom'=>$request->get('specialiteName'))
+            array('nom' => $request->get('specialiteName'))
         );
 
-        if (!$medecin->getSpecialites()->contains($specialite)){
+        if (!$medecin->getSpecialites()->contains($specialite)) {
             $medecin->getSpecialites()->add($specialite);
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('succes','une nouvelle compétence lui a été ajouté avec succès');
-        }else{
-            $this->addFlash('error','Il possède déjà cette compétence');
+            $this->addFlash('succes', 'une nouvelle compétence lui a été ajouté avec succès');
+        } else {
+            $this->addFlash('error', 'Il possède déjà cette compétence');
         }
 
 
-
-        return $this->redirectToRoute('medecin_show',['id'=>$medecin->getId()]);
+        return $this->redirectToRoute('medecin_show', ['id' => $medecin->getId()]);
     }
 
     /**
@@ -237,23 +241,23 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return RedirectResponse
      */
-    public function suppCompetence(Request $request){
+    public function suppCompetence(Request $request)
+    {
         $medecin = $this->getDoctrine()->getRepository(Medecin::class)->findOneBy(
-            array('matricule'=>$request->get('matricule'))
+            array('matricule' => $request->get('matricule'))
         );
 
         $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneBy(
-            array('nom'=>$request->get('specialiteName'))
+            array('nom' => $request->get('specialiteName'))
         );
 
         $medecin->getSpecialites()->removeElement($specialite);
 
         $this->getDoctrine()->getManager()->flush();
 
-        $this->addFlash('succes','La compétence a été retiré avec succès');
-        return $this->redirectToRoute('medecin_show',['id'=>$medecin->getId()]);
+        $this->addFlash('succes', 'La compétence a été retiré avec succès');
+        return $this->redirectToRoute('medecin_show', ['id' => $medecin->getId()]);
     }
-
 
 
     /**
@@ -261,30 +265,14 @@ class MedecinController extends AbstractController
      * @param Request $request
      * @return RedirectResponse
      */
-    public function enableCompteMedecin(Request $request){
+    public function enableCompteMedecin(Request $request)
+    {
 
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             $medecin_id = $request->get('medecin_id');
-            $this->setStatutAccount($medecin_id,true);
+            $this->setStatutAccount($medecin_id, true);
 
-           return $this->redirectToRoute('medecins');
-        }
-
-    }
-
-    /**
-     * @Route("/compte/deactiveMedecin",name="medecin_compte_disabled",methods={"POST"})
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function disableCompteMedecin(Request $request){
-
-        if ($request->isMethod('POST')){
-            $medecin_id = $request->get('medecin_id');
-
-            $this->setStatutAccount($medecin_id,false);
-
-           return $this->redirectToRoute('medecins');
+            return $this->redirectToRoute('medecins');
         }
 
     }
@@ -300,7 +288,7 @@ class MedecinController extends AbstractController
 
         $medecin = $doctrine->getRepository(Medecin::class)->find($medecin_id);
 
-        $compte_medecin = $doctrine->getRepository(CompteMedecin::class)->findOneBy(array('medecin'=>$medecin));
+        $compte_medecin = $doctrine->getRepository(CompteMedecin::class)->findOneBy(array('medecin' => $medecin));
 
         $compte_medecin->setEnabled($enabled);
 
@@ -309,15 +297,33 @@ class MedecinController extends AbstractController
         $manager->flush();
     }
 
+    /**
+     * @Route("/compte/deactiveMedecin",name="medecin_compte_disabled",methods={"POST"})
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function disableCompteMedecin(Request $request)
+    {
+
+        if ($request->isMethod('POST')) {
+            $medecin_id = $request->get('medecin_id');
+
+            $this->setStatutAccount($medecin_id, false);
+
+            return $this->redirectToRoute('medecins');
+        }
+
+    }
 
     /**
      * @Route("/medecin/pdf",name="medecin_pdf")
      */
-    public function medecinsPDF(){
+    public function medecinsPDF()
+    {
 
         $medecins = $this->getDoctrine()->getRepository(Medecin::class)->findAll();
 
-        $image = __DIR__.'/../../public/imgs/medecin_photos.jpg';
+        $image = __DIR__ . '/../../public/imgs/medecin_photos.jpg';
 
         // create new PDF document
         $pdf = new MedecinPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -359,7 +365,7 @@ class MedecinController extends AbstractController
         $pdf->AddPage();
 
         // column titles
-        $header = array('Nom', 'Prénom', 'Téléphone','Ville');
+        $header = array('Nom', 'Prénom', 'Téléphone', 'Ville');
 
 
         // data loading
@@ -372,7 +378,7 @@ class MedecinController extends AbstractController
 
 
         // close and output PDF document
-        $pdf->Output('medecins.pdf','I');
+        $pdf->Output('medecins.pdf', 'I');
     }
 
 }
