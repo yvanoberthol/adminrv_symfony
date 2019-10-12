@@ -12,8 +12,7 @@
         <h1 class="text-center grand-titre">La liste des créneaux horaires (<span class="text-white">{{ creneaux | length }}</span>)</h1>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
             <form class="form-inline" action="{{ path('creneaux') }}" method="get">
-                <select name="id" class="selectpicker"
-                        data-live-search="true">
+                <select name="id" class="selectpicker" data-live-search="true">
                     {% for medecin in medecins%}
                     <option {% if medecin.id == id %} selected {% endif %}
                             value="{{ medecin.id }}">
@@ -30,8 +29,7 @@
             <table class="table table-bordered">
                 <tr>
                     <th>ID</th>
-                    <th>Debut</th>
-                    <th>Fin</th>
+                    <th>Créneau</th>
                     <th>Médecin</th>
                     <th colspan="2">Actions</th>
                 </tr>
@@ -41,7 +39,7 @@
                         <td>{{ creneau.id }}</td>
                         <td>{{ creneau.creno }}</td>
                         <td>{{ creneau.medecin.allName }}</td>
-                        <td><a href="{{ path('creneau_show',{'id':creneau.id}) }}" class="btn btn-info"><span
+                        <td><a href="{{ path('creneau_form_modif',{'id':creneau.id}) }}" class="btn btn-info"><span
                                 class="fa fa-edit"></span> Modifier</a></td>
                         <td>
                             <button type="button" class="btn btn-danger" data-toggle="modal"

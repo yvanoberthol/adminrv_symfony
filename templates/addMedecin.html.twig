@@ -18,6 +18,13 @@
             <span class="fa fa-times-circle"></span> ce matricule est déjà pris.
         </div>
         {% endif %}
+        {#{%  if errors is defined and errors|length >0 %}
+            {% for error in errors %}
+                <div class="text-center alert alert-danger font-weight-bold">
+                    <span class="fa fa-times-circle"></span> {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}#}
         {{ form_start(form) }}
             {{ form_row(form.nom) }}
             {{ form_row(form.prenom) }}

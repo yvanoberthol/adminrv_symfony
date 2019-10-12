@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
 <a href="#" title="Haut de page" class="scrollup rounded"><span class="fa fa-arrow-up"></span></a>
-<span id="name-authenticate" style="display:none">yvano</span>
+<span id="name-authenticate" style="display:none">{{ app.token.user.username }}</span>
 <div class="container">
     <div class="jumbotron jumbotron-fluid bg-dark"
          style="margin-top:20px; color:white; border-bottom: 10px solid #018577">
@@ -14,11 +14,17 @@
             <h3>
 		    	<span>
 	                Bienvenue <span class="text-warning" id="myName"></span> |
-	                <a href="/logout">Déconnexion</a>
+	                <a href="{{ path('logout') }}">Déconnexion</a>
 	            </span>
             </h3>
             <p>
-                Le(s) rôle(s) à votre disposition: <span style="color:grey">[Admin,Superadmin]</span>
+                Le(s) rôle(s) à votre disposition: <span style="color:grey">
+                    [
+                    {% for role in app.token.user.roles %}
+                    {{ role }}
+                    {% endfor %}
+                    ]
+                </span>
             </p>
         </div>
     </div>
@@ -94,7 +100,7 @@
                 </div>
             </div>
         </div>
-
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
         <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
             <div class="card gris-fond">
                 <div class="card-header text-center font-weight-bold vert-fond">
@@ -112,6 +118,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 {% endblock %}
 {% block footer %}

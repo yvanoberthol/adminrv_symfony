@@ -1,13 +1,15 @@
 <div class="row bg-dark" style="margin-top:25px; color:white; border-top: 10px solid #018577">
     <div class="col-md-4 text-center">
         <h4 class="font-weight-bold text-vert">Fonctionnalités de l'application</h4>
-        <h6><a href="/specialites" style="color:gray;">Gestion des domaines médicaux</a></h6>
-        <h6><a href="/medecins" style="color:grey;">Gestion des médécins</a></h6>
-        <h6><a href="/creneaux" style="color:grey;">Gestion des créneaux</a></h6>
+        <h6><a href="{{ path('specialites') }}" style="color:gray;">Gestion des domaines médicaux</a></h6>
+        <h6><a href="{{ path('medecins') }}" style="color:grey;">Gestion des médécins</a></h6>
+        <h6><a href="{{ path('creneaux') }}" style="color:grey;">Gestion des créneaux</a></h6>
         <h6><a href="/patients" style="color:grey;">Gestion des patients</a></h6>
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
         <h6>
-            <a href="/users" style="color:gray;">Gestion des utilisateurs</a>
+            <a href="{{ path('users') }}" style="color:gray;">Gestion des utilisateurs</a>
         </h6>
+        {% endif %}
     </div>
     <div class="col-md-4 text-center">
         <h4 class="font-weight-bold text-vert">Contactez nous</h4>

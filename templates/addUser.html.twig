@@ -1,45 +1,46 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="commons/header::common-header"></head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div th:insert="commons/header::myheader"></div>
-        </div>
-    </div>
+{% extends 'base.html.twig' %}
+{% block title %}
+    Ajouter une nouvel utilisateur
+{% endblock %}
+
+{% block navbar %}
+    {% include 'commons/navbar.html.twig' %}
+{% endblock %}
+{% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <h1 class="grand-titre">Enregistrer un nouvel utilisateur</h1>
-            <div th:if="${userExists == true}"
-                 class="text-center bg-danger font-weight-bold" style="color:white">
-                <span class="fa fa-times-circle"></span> ce nom d'utilisateur est déjà pris.
-            </div>
-            <form th:action="@{/addUser}" method="POST">
-                <div class="form-group">
-                    <label class="control-label">Username</label>
-                    <input type="text" name="username" th:value=${user.getUsername()} class="form-control">
-                    <span class="text-center text-danger" th:errors="${user.username}"></span>
+            {% if userNameExist is defined and userNameExist == true %}
+                <div class="text-center alert alert-danger font-weight-bold">
+                    <span class="fa fa-times-circle"></span> ce login est déjà pris.
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Password</label>
-                    <input type="text" name="password" th:value=${user.getPassword()} class="form-control">
-                    <span class="text-center text-danger" th:errors="${user.password}"></span>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="active" id="check">
-                    <label class="form-check-label" for="check">Activé(e)</label>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn" style="background-color: purple; color:white"><span
+            {% endif %}
+            {#{%  if errors is defined and errors|length >0 %}
+                {% for error in errors %}
+                    <div class="text-center alert alert-danger font-weight-bold">
+                        <span class="fa fa-times-circle"></span> {{ error }}
+                    </div>
+                {% endfor %}
+            {% endif %}#}
+            {{ form_start(form) }}
+            {{ form_row(form.username) }}
+            {{ form_row(form.password) }}
+            {{ form_row(form.enabled) }}
+            {{ form_row(form.allRoles) }}
+            <div class="form-group">
+                <button type="submit" class="btn" style="background-color: purple; color:white"><span
                             class="fa fa-plus-circle"></span> Ajouter
-                    </button>
-                    <a th:href="@{/users}">Retour à la liste des utilisateurs</a>
-                </div>
-            </form>
+                </button>
+                <a href="{{ path('users') }}">Retour à la liste des utilisateurs</a>
+            </div>
+            {{ form_end(form) }}
         </div>
     </div>
-    <div th:replace="commons/footer::body-common-scripts"></div>
-</div>
-</body>
-</html>
+{%  endblock %}
+{%  block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+{% endblock %}
