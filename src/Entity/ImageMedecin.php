@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageMedecinRepository")
@@ -27,7 +28,12 @@ class ImageMedecin
      */
     private $alt;
 
+    /**
+     * @Assert\Image(maxSize="2M",maxSizeMessage="la taille du fichier ne doit pas dépasser 2Mo",mimeTypesMessage="le fichier sélectionné doit être une image")
+     */
     private $file;
+
+    private $tempfilename;
 
     public function getId(): ?int
     {
@@ -70,24 +76,75 @@ class ImageMedecin
     public function setFile(UploadedFile $file): void
     {
         $this->file = $file;
+
+        if (null !== $this->url){
+            $this->tempfilename = $this->url;
+            $this->url = null;
+            $this->alt = null;
+        }
+
     }
 
+    public function getImageName(){
+       return $this->id.'.'.$this->url;
+    }
+    public function getTempImageName(){
+        return $this->id.'.'.$this->tempfilename;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
     public function upload(){
+        // s'il n'existe pas de fichier
         if (null === $this->file){
             return;
         }
 
-        //on recupere le nom d'origine du fichier
-        $name = $this->file->getClientOriginalName();
+        if (null !== $this->tempfilename){
+            $oldFile = $this->getUploadRootDir().'/'.$this->getTempImageName();
+
+            if (file_exists($oldFile)){
+                unlink($oldFile);
+            }
+        }
+
 
         //on deplace le fichier d'origine vers le chemin voulu
-        $this->file->move($this->getUploadRootDir(),$name);
+        $this->file->move($this->getUploadRootDir(),$this->getImageName());
+
+
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function setAltUrl(){
+        if (null === $this->file){
+            return;
+        }
 
         //on sauvegarde le nom de fichier dans l'url et alt
-        $this->setUrl($name);
-        $this->setAlt($name);
+        $this->url = $this->file->guessExtension();
+        $this->alt = $this->file->getClientOriginalName();
+    }
 
+    /**
+     * @ORM\PreRemove()
+     */
+    public function stockFileDir(){
+        $this->tempfilename = $this->getUploadRootDir().'/'.$this->getImageName();
+    }
 
+    /**
+     * @ORM\PostRemove()
+     */
+    public function deleteFile(){
+        if (file_exists($this->tempfilename)){
+            unlink($this->tempfilename);
+        }
     }
 
     public function getUploadDir()
@@ -96,7 +153,7 @@ class ImageMedecin
     }
 
     public function getUploadFile(){
-        return $this->getUploadDir().'/'.$this->url;
+        return $this->getUploadDir().'/'.$this->getImageName();
     }
 
     private function getUploadRootDir(){

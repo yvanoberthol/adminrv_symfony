@@ -5,9 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MedecinRepository")
+ * @UniqueEntity(fields={"nom"},message="ce médecin possède déjà ce nom")
  */
 class Medecin
 {
@@ -20,47 +23,60 @@ class Medecin
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Le nom ne doit pas être vide")
+     * @Assert\Length(min="3",minMessage="Le nom doit être d'au moins 3 caractères")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
+     * @Assert\Length(min="3",minMessage="Le prénom doit être d'au moins 3 caractères")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
+     * @Assert\Email(message="Entrez une adresse Email valide")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=15)
+     * @Assert\NotBlank(message="Le matricule ne doit pas être vide")
      */
     private $matricule;
 
     /**
      * @ORM\Column(type="string", length=9)
+     * @Assert\NotBlank(message="Le téléphone ne doit pas être vide")
+     * @Assert\Positive()
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\Length(min="4",minMessage="La ville doit contenir au moins 4 caractères")
      */
     private $ville;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\Date(message="Entrez une date valide")
      */
     private $date_naissance;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\ImageMedecin",cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Specialite",cascade={"persist"},inversedBy="medecins")
      * @ORM\JoinTable(name="medecin_specialite")
+     * @Assert\Valid()
      */
     private $specialites;
 

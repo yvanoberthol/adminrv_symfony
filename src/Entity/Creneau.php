@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CreneauRepository")
@@ -20,11 +21,13 @@ class Creneau
 
     /**
      * @ORM\Column(type="time")
+     *@Assert\Time(message="Ce champ doit être un temps normal")
      */
     private $heure_debut;
 
     /**
      * @ORM\Column(type="time")
+     * @Assert\Time(message="Ce champ doit être un temps normal")
      */
     private $heure_fin;
 
@@ -73,6 +76,6 @@ class Creneau
     }
 
     public function getCreno(){
-        return $this->heure_debut->format('h:s').''.$this->heure_fin->format('h:s');
+        return $this->heure_debut->format('h:i').' — '.$this->heure_fin->format('h:i');
     }
 }
