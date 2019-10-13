@@ -10,6 +10,7 @@ namespace App\Security;
 
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Exception\DisabledException;
 use Symfony\Component\Security\Core\Exception\LockedException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
@@ -17,6 +18,20 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserChecker implements UserCheckerInterface
 {
+    /**
+     * @var EntityManagerInterface
+     */
+    private $manager;
+
+    /**
+     * UserChecker constructor.
+     * @param EntityManagerInterface $manager
+     */
+    public function __construct(EntityManagerInterface $manager)
+    {
+        $this->manager = $manager;
+    }
+
 
     /**
      * Checks the user account before authentication.
@@ -51,6 +66,11 @@ class UserChecker implements UserCheckerInterface
      */
     public function checkPostAuth(UserInterface $user)
     {
-        // TODO: Implement checkPostAuth() method.
+        $username = $user->getUsername();
+
+        $user_checker = $this->manager->getRepository(User::class)->findOneByUsername($username);
+
+        $user_checker->setLastLogin(new \DateTime());
+        $this->manager->flush();
     }
 }

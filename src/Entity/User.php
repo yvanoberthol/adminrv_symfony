@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,6 +32,16 @@ class User implements UserInterface
      * @Assert\Length(min="6",minMessage="Le mot de passe doit comporter au moins 6 caractères")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $last_login;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $last_deconnexion;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -76,6 +87,40 @@ class User implements UserInterface
     {
         $this->enabled = $enabled;
     }
+
+    /**
+     * @return DateTime
+     */
+    public function getLastDeconnexion()
+    {
+        return $this->last_deconnexion;
+    }
+
+    /**
+     * @param DateTime $last_deconnexion
+     */
+    public function setLastDeconnexion($last_deconnexion): void
+    {
+        $this->last_deconnexion = $last_deconnexion;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getLastLogin()
+    {
+        return $this->last_login;
+    }
+
+    /**
+     * @param DateTime $last_login
+     */
+    public function setLastLogin($last_login): void
+    {
+        $this->last_login = $last_login;
+    }
+
+
 
     public function getRoles()
     {

@@ -32,6 +32,7 @@ security:
                 check_path: login_check
             logout:
                 path: logout
+                handlers: [logout.listener]
                 target: login
 
             # activate different ways to authenticate

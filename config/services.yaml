@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
     dir_image_medecin: '%kernel.project_dir%\public\uploads\image'
     time_interval: 20
 
@@ -53,3 +53,6 @@ services:
             - "@error404.exception"
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: process404}
+
+    logout.listener:
+        class: App\EventListener\LogoutListener

@@ -17,7 +17,7 @@ class BetaHtmlAdder
     public function addBeta(Response $response,$remainingDays){
         $content = $response->getContent();
 
-        $html = '<div class="bg-warning text-center p-1 mb-5" style="position: fixed; top: 0; right: 0; z-index: 1; width: 8%;">Beta JJ-'.
+        $html = '<div class="bg-warning text-center p-1 mb-5" style="position: fixed; top: 0; right: 0; z-index: 1; width: 8%;">Noël JJ-'.
             '<span class="text-success">'.(int) $remainingDays.'</span> !</div>';
 
         $content = str_replace('<body>','<body>'.$html,$content);

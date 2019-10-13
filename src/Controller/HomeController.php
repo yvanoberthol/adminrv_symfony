@@ -10,6 +10,8 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -42,6 +44,18 @@ class HomeController extends AbstractController
         $model['error'] = $authenticationUtils->getLastAuthenticationError();
 
         return $this->render('login.html.twig', $model);
+        return $this->render('login.html.twig', $model);
+    }
+
+    /**
+     * @Route("/changeLangue", name="change_langue")
+     * @return Response
+     */
+    public function changeLangue(){
+
+        $locale = $this->getParameter('locale');
+
+        return new Response($locale);
     }
 
 
