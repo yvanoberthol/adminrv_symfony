@@ -49,13 +49,25 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/changeLangue", name="change_langue")
+     * @param Request $request
      * @return Response
      */
-    public function changeLangue(){
-
+    public function changeLangue(Request $request){
+        //$containerBuilder->setParameter('locale',$request->get('lang'));
         $locale = $this->getParameter('locale');
 
         return new Response($locale);
+    }
+
+
+    /**
+     * @Route("/test", name="test")
+     * @return Response
+     */
+    public function test(){
+        $name = 'yvano';
+
+        return $this->render('hello.html.twig',['name'=>$name]);
     }
 
 
