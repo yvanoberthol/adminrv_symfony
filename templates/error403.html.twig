@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Accès interdit
+    {{ 'error403.nav_title'|trans }}
 {% endblock %}
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
@@ -9,15 +9,15 @@
 {% block body %}
     <div class="row bg-dark" style="margin-top:20px; color:white">
         <div class="col-xs-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2 text-center">
-            <h1>Problème d'autorisation</h1>
+            <h1>{{ 'error403.title'|trans }}</h1>
         </div>
     </div>
 
     <div class="row bg-danger" style="margin-top:20px">
         <div class="text-center col-md-12">
             <h3>
-                Désolé '<span style="color:white">{{ app.user.username }}</span>',
-                vous n'avez pas le droit d'accéder à cette page.
+                {{ 'error403.soustitle_d'|trans }} '<span style="color:white">{{ app.user.username }}</span>', {{ 'error403.soustitle_f'|trans }}
+
             </h3>
         </div>
     </div>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Ajouter une nouvel utilisateur
+    {{ 'user.formadd.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -9,10 +9,10 @@
 {% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="grand-titre">Enregistrer un nouvel utilisateur</h1>
+            <h1 class="grand-titre">{{ 'user.formadd.title:'|trans }}</h1>
             {% if userNameExist is defined and userNameExist == true %}
                 <div class="text-center alert alert-danger font-weight-bold">
-                    <span class="fa fa-times-circle"></span> ce login est déjà pris.
+                    <span class="fa fa-times-circle"></span> {{ 'user.formadd.userNameExist'|trans }}
                 </div>
             {% endif %}
             {#{%  if errors is defined and errors|length >0 %}
@@ -29,9 +29,9 @@
             {{ form_row(form.allRoles) }}
             <div class="form-group">
                 <button type="submit" class="btn" style="background-color: purple; color:white"><span
-                            class="fa fa-plus-circle"></span> Ajouter
+                            class="fa fa-plus-circle"></span> {{ 'user.formadd.form.btn_add'|trans }}
                 </button>
-                <a href="{{ path('users') }}">Retour à la liste des utilisateurs</a>
+                <a href="{{ path('users') }}">{{ 'user.formadd.back_list'|trans }}</a>
             </div>
             {{ form_end(form) }}
         </div>

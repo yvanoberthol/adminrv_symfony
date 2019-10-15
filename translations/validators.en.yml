@@ -1,0 +1,102 @@
+# Loco yaml export: Simple YAML object
+# Project: validators.en.xlf conversion
+# Release: Working copy
+# Locale: en, English
+# Exported by: Unregistered user
+# Exported at: Wed, 16 Oct 2019 00:08:03 +0100
+---
+this-value-should-be-false: This value should be false.
+this-value-should-be-true: This value should be true.
+this-value-should-be-of-type-type: This value should be of type {{ type }}.
+this-value-should-be-blank: This value should be blank.
+the-value-you-selected-is-not-a-valid-choice: The value you selected is not a valid choice.
+you-must-select-at-least-limit-choice-you-must-select-at-least-limit-choices: You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.
+you-must-select-at-most-limit-choice-you-must-select-at-most-limit-choices: You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.
+one-or-more-of-the-given-values-is-invalid: One or more of the given values is invalid.
+this-field-was-not-expected: This field was not expected.
+this-field-is-missing: This field is missing.
+this-value-is-not-a-valid-date: This value is not a valid date.
+this-value-is-not-a-valid-datetime: This value is not a valid datetime.
+this-value-is-not-a-valid-email-address: This value is not a valid email address.
+the-file-could-not-be-found: The file could not be found.
+the-file-is-not-readable: The file is not readable.
+the-file-is-too-large-size-suffix-allowed-maximum-size-is-limit-suffix: The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.
+the-mime-type-of-the-file-is-invalid-type-allowed-mime-types-are-types: The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.
+this-value-should-be-limit-or-less: This value should be {{ limit }} or less.
+this-value-is-too-long-it-should-have-limit-character-or-less-this-value-is-too-long-it-should-have-: This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.
+this-value-should-be-limit-or-more: This value should be {{ limit }} or more.
+this-value-is-too-short-it-should-have-limit-character-or-more-this-value-is-too-short-it-should-hav: This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.
+this-value-should-not-be-blank: This value should not be blank.
+this-value-should-not-be-null: This value should not be null.
+this-value-should-be-null: This value should be null.
+this-value-is-not-valid: This value is not valid.
+this-value-is-not-a-valid-time: This value is not a valid time.
+this-value-is-not-a-valid-url: This value is not a valid URL.
+the-two-values-should-be-equal: The two values should be equal.
+the-file-is-too-large-allowed-maximum-size-is-limit-suffix: The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.
+the-file-is-too-large: The file is too large.
+the-file-could-not-be-uploaded: The file could not be uploaded.
+this-value-should-be-a-valid-number: This value should be a valid number.
+this-file-is-not-a-valid-image: This file is not a valid image.
+this-is-not-a-valid-ip-address: This is not a valid IP address.
+this-value-is-not-a-valid-language: This value is not a valid language.
+this-value-is-not-a-valid-locale: This value is not a valid locale.
+this-value-is-not-a-valid-country: This value is not a valid country.
+this-value-is-already-used: This value is already used.
+the-size-of-the-image-could-not-be-detected: The size of the image could not be detected.
+the-image-width-is-too-big-width-px-allowed-maximum-width-is-max-width-px: The image width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.
+the-image-width-is-too-small-width-px-minimum-width-expected-is-min-width-px: The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.
+the-image-height-is-too-big-height-px-allowed-maximum-height-is-max-height-px: The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.
+the-image-height-is-too-small-height-px-minimum-height-expected-is-min-height-px: The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.
+this-value-should-be-the-users-current-password: This value should be the user's current password.
+this-value-should-have-exactly-limit-character-this-value-should-have-exactly-limit-characters: This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.
+the-file-was-only-partially-uploaded: The file was only partially uploaded.
+no-file-was-uploaded: No file was uploaded.
+no-temporary-folder-was-configured-in-php-ini: No temporary folder was configured in php.ini, or the configured folder does not exist.
+cannot-write-temporary-file-to-disk: Cannot write temporary file to disk.
+a-php-extension-caused-the-upload-to-fail: A PHP extension caused the upload to fail.
+this-collection-should-contain-limit-element-or-more-this-collection-should-contain-limit-elements-o: This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.
+this-collection-should-contain-limit-element-or-less-this-collection-should-contain-limit-elements-o: This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.
+this-collection-should-contain-exactly-limit-element-this-collection-should-contain-exactly-limit-el: This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.
+invalid-card-number: Invalid card number.
+unsupported-card-type-or-invalid-card-number: Unsupported card type or invalid card number.
+this-is-not-a-valid-international-bank-account-number-iban: This is not a valid International Bank Account Number (IBAN).
+this-value-is-not-a-valid-isbn-10: This value is not a valid ISBN-10.
+this-value-is-not-a-valid-isbn-13: This value is not a valid ISBN-13.
+this-value-is-neither-a-valid-isbn-10-nor-a-valid-isbn-13: This value is neither a valid ISBN-10 nor a valid ISBN-13.
+this-value-is-not-a-valid-issn: This value is not a valid ISSN.
+this-value-is-not-a-valid-currency: This value is not a valid currency.
+this-value-should-be-equal-to-compared-value: This value should be equal to {{ compared_value }}.
+this-value-should-be-greater-than-compared-value: This value should be greater than {{ compared_value }}.
+this-value-should-be-greater-than-or-equal-to-compared-value: This value should be greater than or equal to {{ compared_value }}.
+this-value-should-be-identical-to-compared-value-type-compared-value: This value should be identical to {{ compared_value_type }} {{ compared_value }}.
+this-value-should-be-less-than-compared-value: This value should be less than {{ compared_value }}.
+this-value-should-be-less-than-or-equal-to-compared-value: This value should be less than or equal to {{ compared_value }}.
+this-value-should-not-be-equal-to-compared-value: This value should not be equal to {{ compared_value }}.
+this-value-should-not-be-identical-to-compared-value-type-compared-value: This value should not be identical to {{ compared_value_type }} {{ compared_value }}.
+the-image-ratio-is-too-big-ratio-allowed-maximum-ratio-is-max-ratio: The image ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.
+the-image-ratio-is-too-small-ratio-minimum-ratio-expected-is-min-ratio: The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.
+the-image-is-square-width-x-height-px-square-images-are-not-allowed: The image is square ({{ width }}x{{ height }}px). Square images are not allowed.
+the-image-is-landscape-oriented-width-x-height-px-landscape-oriented-images-are-not-allowed: The image is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented images are not allowed.
+the-image-is-portrait-oriented-width-x-height-px-portrait-oriented-images-are-not-allowed: The image is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented images are not allowed.
+an-empty-file-is-not-allowed: An empty file is not allowed.
+the-host-could-not-be-resolved: The host could not be resolved.
+this-value-does-not-match-the-expected-charset-charset: This value does not match the expected {{ charset }} charset.
+this-is-not-a-valid-business-identifier-code-bic: This is not a valid Business Identifier Code (BIC).
+Error: Error
+this-is-not-a-valid-uuid: This is not a valid UUID.
+this-value-should-be-a-multiple-of-compared-value: This value should be a multiple of {{ compared_value }}.
+this-business-identifier-code-bic-is-not-associated-with-iban-iban: This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.
+this-value-should-be-valid-json: This value should be valid JSON.
+this-collection-should-contain-only-unique-elements: This collection should contain only unique elements.
+this-value-should-be-positive: This value should be positive.
+this-value-should-be-either-positive-or-zero: This value should be either positive or zero.
+this-value-should-be-negative: This value should be negative.
+this-value-should-be-either-negative-or-zero: This value should be either negative or zero.
+this-value-is-not-a-valid-timezone: This value is not a valid timezone.
+this-password-has-been-leaked-in-a-data-breach-it-must-not-be-used-please-use-another-password: This password has been leaked in a data breach, it must not be used. Please use another password.
+this-value-should-be-between-min-and-max: This value should be between {{ min }} and {{ max }}.
+this-form-should-not-contain-extra-fields: This form should not contain extra fields.
+the-uploaded-file-was-too-large-please-try-to-upload-a-smaller-file: The uploaded file was too large. Please try to upload a smaller file.
+the-csrf-token-is-invalid-please-try-to-resubmit-the-form: The CSRF token is invalid. Please try to resubmit the form.
+...

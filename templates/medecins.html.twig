@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Liste des médecins
+    {{ 'medecin.list.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -10,30 +10,30 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des médécins (<span
+            <h1 class="text-center grand-titre">{{ 'medecin.list.title'|trans }} (<span
                         class="text-white">{{ medecins | length }}</span>)
             </h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
                 <form class="form-inline" action="{{ path('medecins') }}" method="get">
                     <input class="form-control mr-sm-2" type="text" name="nom" placeholder="nom ou prénom du médécin">
                     <button class="btn btn-success" type="submit">
-                        <span class="fa fa-search"></span> Rechercher
+                        <span class="fa fa-search"></span> {{ 'medecin.list.search'|trans }}
                     </button>
                 </form>
             </nav>
             {% if impressionDone is defined and impressionDone == true %}
                 <div
                         class="text-center alert alert-success font-weight-bold w-100 mb-1 mt-1">
-                    <span class="fa fa-check"></span> Liste des médécins générée avec succès.
+                    <span class="fa fa-check"></span> {{ 'medecin.list.pdf'|trans }}
                 </div>
             {% endif %}
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
                         <th>ID</th>
-                        <th>Nom(s) et prénom(s)</th>
-                        <th>Détails</th>
-                        <th class="font-italic">Total Actif(<span class="text-success">{{ nbreMecinActif }}</span>)</th>
+                        <th>{{ 'medecin.list.table.name_title'|trans }}</th>
+                        <th>{{ 'medecin.list.table.detail_title'|trans }}</th>
+                        <th class="font-italic">{{ 'medecin.list.teble.total_actif'|trans }}(<span class="text-success">{{ nbreMecinActif }}</span>)</th>
                         <th colspan="2" class="text-center">Actions</th>
                     </tr>
                     {% if medecins|length > 0 %}
@@ -43,7 +43,7 @@
                                 <td>{{ medecin.allName }}</td>
                                 <td>
                                     <a href="{{ path('medecin_show',{'id': medecin.id}) }}" class="btn btn-secondary">
-                                        <span class="fa fa-ellipsis-h"></span> Afficher plus de détails
+                                        <span class="fa fa-ellipsis-h"></span> {{ 'medecin.list.table.btn_detail'|trans }}
                                     </a>
                                 </td>
                                 {% if medecin.compteMedecin.enabled == false %}
@@ -52,7 +52,7 @@
                                             <div class="form-group text-center">
                                                 <input type="hidden" name="medecin_id" value="{{ medecin.id }}">
                                                 <button type="submit" class="btn btn-warning">
-                                                    Désactivé
+                                                    {{ 'medecin.list.table.action.btn_d'|trans }}
                                                 </button>
                                             </div>
                                         </form>
@@ -63,47 +63,47 @@
                                             <div class="form-group text-center">
                                                 <input type="hidden" name="medecin_id" value="{{ medecin.id }}">
                                                 <button type="submit" class="btn btn-success">
-                                                    Activé
+                                                    {{ 'medecin.list.table.action.btn_a'|trans }}
                                                 </button>
                                             </div>
                                         </form>
                                     </td>
                                 {% endif %}
                                 <td>
-                                    <a href="{{ '/formModifMedecin/'~medecin.id }}" class="btn btn-info">
-                                        <span class="fa fa-edit"></span> Modifier
+                                    <a href="{{ path('medecin_form_modif',{'id':medecin.id})}}" class="btn btn-info">
+                                        <span class="fa fa-edit"></span> {{ 'medecin.list.table.action.modifier'|trans }}
                                     </a>
                                 </td>
 
                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#confirmationSupp{{ medecin.id }}">
-                                        <span class="fa fa-times-circle"></span> Supprimer
+                                        <span class="fa fa-times-circle"></span> {{ 'medecin.list.table.action.supprimer'|trans }}
                                     </button>
                                     <div class="modal modalSupp fade" id="confirmationSupp{{ medecin.id }}"
                                          tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: royalblue">
-                                                    <h4 class="modal-title">Supprimer un médécin</h4>
+                                                    <h4 class="modal-title">{{ 'medecin.list.modal.title.supprimer'|trans }}</h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-hidden="true">
                                                         &times;
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Voulez vous supprimer le médécin <strong>
+                                                    <p>{{ 'medecin.list.modal.confirm_supp'|trans }} <strong>
                                                             <span class="text-info">{{ medecin.allName }}</span></strong>?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        Close
+                                                        {{ 'medecin.list.modal.action.close'|trans }}
                                                     </button>
                                                     <form action="{{ path('medecin_delete') }}" method="POST">
                                                         <input type="hidden" name="id" value="{{ medecin.id }}">
                                                         <button class="btn btn-danger" type=submit>
-                                                            <span class="fa fa-times-circle"></span> Supprimer
+                                                            <span class="fa fa-times-circle"></span> {{ 'medecin.list.modal.action.supprimer'|trans }}
                                                         </button>
                                                     </form>
                                                 </div>
@@ -115,7 +115,7 @@
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">{{ 'medecin.list.table.notResult'|trans }}</h3>
                             </td>
                         </tr>
                     {% endif %}
@@ -128,13 +128,13 @@
                 <ul class="pagination justify-content-center">
                     <li class="page-item mr-2">
                         <a class="btn" style="background-color: #608059; color:white" href="{{ path('medecin_pdf') }}">
-                            <span class="fa fa-print"></span> Télécharger la liste des médécins
+                            <span class="fa fa-print"></span> {{ 'medecin.list.btn_dowload'|trans }}
                         </a>
                     </li>
                     <li class="page-item">
                         <a class="btn" style="background-color: purple; color:white"
                            href="{{ path('form_medecin_add') }}">
-                            <span class="fa fa-plus"></span> Ajouter un nouveau médécin
+                            <span class="fa fa-plus"></span> {{ 'medecin.list.btn_add_new'|trans }}
                         </a>
                     </li>
                 </ul>

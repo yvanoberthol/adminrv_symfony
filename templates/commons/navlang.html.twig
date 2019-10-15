@@ -2,7 +2,9 @@
     <div class="col-md-12">
         <div class="row bg-dark mt-1">
             <span class="ml-3 text-warning">
-                <a class="text-white" href="{{ path('change_langue',{'lang':'fr'}) }}">Français</a> || <a class="text-white" href="{{ path('change_langue',{'lang':'en'}) }}">Anglais</a>
+                <a class="text-white" href="{{ path(app.request.get('_route'),app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">Français</a>
+                ||
+                <a class="text-white" href="{{ path(app.request.get('_route'),app.request.get('_route_params')|merge({'_locale': 'en'})) }}">Anglais</a>
             </span>
         </div>
     </div>

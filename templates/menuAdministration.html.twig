@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Menu principal
+    {{ 'menu.nav_title'|trans }}
 {% endblock %}
 {% block body %}
     <a href="#" title="Haut de page" class="scrollup rounded"><span class="fa fa-arrow-up"></span></a>
@@ -9,16 +9,16 @@
     <div class="jumbotron jumbotron-fluid bg-dark"
          style="margin-top:20px; color:white; border-bottom: 10px solid #018577">
         <div class="container text-center">
-            <h1 class="text-vert">Espace d'administration à la gestion de notre cabinet</h1>
-            <p>Organisation et gestion des activités relatives au cabinet médical.</p>
+            <h1 class="text-vert">{{ 'menu.title'|trans }}</h1>
+            <p>{{ 'menu.soustitle'|trans }}</p>
             <h3>
 		    	<span>
-	                Bienvenue <span class="text-warning" id="myName"></span> |
-	                <a href="{{ path('logout') }}">Déconnexion</a>
+	                {{ 'menu.welcome'|trans }} <span class="text-warning" id="myName"></span> |
+	                <a href="{{ path('logout') }}">{{ 'menu.logout'|trans }}</a>
 	            </span>
             </h3>
             <p>
-                Le(s) rôle(s) à votre disposition: <span style="color:grey">
+                {{ 'menu.role_disposition'|trans }}: <span style="color:grey">
                     [--
                     {% for role in app.token.user.allRoles %}
                         {{ role.role }} --
@@ -32,16 +32,16 @@
         <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
             <div class="card gris-fond">
                 <div class="card-header text-center font-weight-bold vert-fond">
-                    Domaines médicaux
+                    {{ 'menu.panel.title.specialite'|trans }}
                 </div>
                 <div class="card-body text-center">
                     <img class="card-img-top"
-                         src="/imgs/programme_medical.jpg"
+                         src="{{ asset('imgs/programme_medical.jpg') }}"
                          alt="Spécialité médicale" style="width:200px; height:200px">
                 </div>
                 <div class="card-footer text-center">
-                    <a href="/specialites" class="text-white-50">
-                        Gestion des différentes spécialités médicales
+                    <a href="{{ path('specialites') }}" class="text-white-50">
+                        {{ 'menu.panel.footer.specialite'|trans }}
                     </a>
                 </div>
             </div>
@@ -50,16 +50,16 @@
         <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
             <div class="card gris-fond">
                 <div class="card-header text-center font-weight-bold vert-fond">
-                    Créneaux Horaires
+                    {{ 'menu.panel.title.creneau'|trans }}
                 </div>
                 <div class="card-body text-center">
                     <img class="card-img-top"
-                         src="/imgs/creneau.jpg"
-                         alt="utilisateurs" style="width:200px; height:200px">
+                         src="{{ asset('imgs/creneau.jpg') }}"
+                         alt="creneau" style="width:200px; height:200px">
                 </div>
                 <div class="card-footer text-center">
-                    <a href="/creneaux" class="text-white-50">
-                        Gestion des créneaux horaires des médecins du cabinet médical
+                    <a href="{{ path('creneaux') }}" class="text-white-50">
+                        {{ 'menu.panel.footer.creneau'|trans }}
                     </a>
                 </div>
             </div>
@@ -68,16 +68,16 @@
         <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
             <div class="card gris-fond">
                 <div class="card-header text-center font-weight-bold vert-fond">
-                    Médécins
+                    {{ 'menu.panel.title.medecin'|trans }}
                 </div>
                 <div class="card-body text-center">
                     <img class="card-img-top"
-                         src="/imgs/medecin.jpg"
-                         alt="utilisateurs" style="width:200px; height:200px">
+                         src="{{ asset('imgs/medecin.jpg') }}"
+                         alt="medecin" style="width:200px; height:200px">
                 </div>
                 <div class="card-footer text-center">
-                    <a href="/medecins" class="text-white-50">
-                        Gestion des médécins du cabinet <br/>médical
+                    <a href="{{ path('medecins') }}" class="text-white-50">
+                        {{ 'menu.panel.footer.medecin'|trans }}
                     </a>
                 </div>
             </div>
@@ -86,16 +86,16 @@
         <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
             <div class="card gris-fond">
                 <div class="card-header text-center font-weight-bold vert-fond">
-                    Patients
+                    {{ 'menu.panel.title.patient'|trans }}
                 </div>
                 <div class="card-body text-center">
                     <img class="card-img-top"
-                         src="/imgs/patient.jpg"
+                         src="{{ asset('imgs/patient.jpg') }}"
                          alt="patients" style="width:200px; height:200px">
                 </div>
                 <div class="card-footer text-center">
-                    <a href="/patients" class="text-white-50">
-                        Consulter la liste des patients
+                    <a href="{{ path('patients') }}" class="text-white-50">
+                        {{ 'menu.panel.footer.patient'|trans }}
                     </a>
                 </div>
             </div>
@@ -104,16 +104,16 @@
             <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:20px">
                 <div class="card gris-fond">
                     <div class="card-header text-center font-weight-bold vert-fond">
-                        Utilisateurs
+                        {{ 'menu.panel.title.user'|trans }}
                     </div>
                     <div class="card-body text-center">
                         <img class="card-img-top"
-                             src="/imgs/comptes_utilisateurs.png"
+                             src="{{ asset('imgs/comptes_utilisateurs.png') }}"
                              alt="utilisateurs" style="width:200px; height:200px">
                     </div>
                     <div class="card-footer text-center">
-                        <a href="/users" class="text-white-50">
-                            Gestion des utilisateurs de cette application
+                        <a href="{{ path('users') }}" class="text-white-50">
+                            {{ 'menu.panel.footer.user'|trans }}
                         </a>
                     </div>
                 </div>

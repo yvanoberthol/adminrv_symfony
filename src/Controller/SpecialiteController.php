@@ -172,7 +172,7 @@ class SpecialiteController extends AbstractController
 
 
     /**
-     * @route("/medecinSpecialiteStat",name="ms_stat")
+     * @Route("/medecinSpecialiteStat", name="ms_stat")
      */
     public function medecinSpecialiteStat()
     {

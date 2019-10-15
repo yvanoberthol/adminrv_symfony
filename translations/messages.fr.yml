@@ -1,0 +1,220 @@
+# menu principal
+menu.nav_title: Menu principal
+menu.title: Espace d'administration à la gestion de notre cabinet
+menu.soustitle: Organisation et gestion des activités relatives au cabinet médical.
+menu.welcome: Bienvenue
+menu.logout: Déconnexion
+menu.role_disposition: Le(s) rôle(s) à votre disposition
+menu.panel.title.specialite: Domaines médicaux
+menu.panel.footer.specialite: Gestion des différentes spécialités médicales
+menu.panel.title.creneau: Créneaux Horaires
+menu.panel.footer.creneau: Gestion des créneaux horaires des médecins du cabinet médical
+menu.panel.title.medecin: Médécins
+menu.panel.footer.medecin: Gestion des médécins du cabinet médical
+menu.panel.title.patient: Patients
+menu.panel.footer.patient: Consulter la liste des patients
+menu.panel.title.user: Utilisateurs
+menu.panel.footer.user: Gestion des utilisateurs de cette application
+
+#form add creneau
+creneau.formadd.nav_title: Ajouter une nouveau créneau
+creneau.formadd.title: Enregistrer un nouveau créneau
+creneau.formadd.hdebutGrand: L'heure de début doit être inférieur à l'heure de fin.
+creneau.formadd.hdebutExist: Ce début de créneau existe déja pour ce médécin.
+creneau.formadd.hFinLessDebut: Il existe déja un créneau qui prend en compte cette intervalle de temps.
+creneau.formadd.hFinExist: Cette fin de créneau existe déja pour ce médécin.
+creneau.formadd.dureeIntervale: L'intervalle de temps minimum entre l'heure de début et l'heure de fin doit être de 20 minutes".
+creneau.formadd.form.btn_add: Ajouter
+creneau.formadd.back_list: Retour à la liste des créneaux
+
+#form add medecin
+medecin.formadd.nav_title: Ajouter une nouveau médecin
+medecin.formadd.title: Enregistrer un nouveau médecin
+medecin.formadd.medecinNameExist: ce matricule est déjà pris.
+medecin.formadd.form.btn_add: Ajouter
+medecin.formadd.back_list: Retour à la liste des médecins
+
+#form add specialite
+specialite.formadd.nav_title: Ajouter une nouvelle spécialité
+specialite.formadd.title: Enregistrer un domaine médical
+specialite.formadd.specialiteNameExist: ce nom de spécialité existe déjà.
+specialite.formadd.form.btn_add: Ajouter
+specialite.formadd.back_list: Retour à la liste des spécialités
+
+#form add user
+user.formadd.nav_title: Ajouter une nouveau utilisateur
+user.formadd.title: Enregistrer un nouveau utilisateur
+user.formadd.userNameExist: ce login est déjà pris.
+user.formadd.form.btn_add: Ajouter
+user.formadd.back_list: Retour à la liste des utilisateurs
+
+#Loading page
+chargement.nav_title: Chargement...
+
+# patient list page
+patient.list.nav_title: Liste des patients
+patient.list.title: La liste des patients
+patient.list.search: Rechercher
+patient.list.teble.allName: Nom(s) et prénom(s)
+patient.list.table.phone: Téléphone
+patient.list.table.notResult: Aucun résultat trouvé ...
+
+# creneau list page
+creneau.list.nav_title: Liste des creneaux
+creneau.list.title: La liste des creneaux horaires
+creneau.list.search: Rechercher par médecin
+creneau.list.teble.creneau: Créneau
+creneau.list.table.medecin: Médecin
+creneau.list.table.action.modifier: Modifier
+creneau.list.table.action.supprimer: Supprimer
+creneau.list.modal.title.supprimer: Supprimer un créneau
+creneau.list.modal.confirm_supp: Voulez vous supprimer le creneau
+creneau.list.modal.action.supprimer: Supprimer
+creneau.list.table.notResult: Aucun résultat trouvé ...
+creneau.list.btn_add_new: Ajouter un nouveau créneau
+
+#detail medecin
+medecin.detail.nav_title: détail sur le médecin
+medecin.detail.back_list: Retour à la liste des médecins
+medecin.detail.edit: Editer
+medecin.detail.change_photo: Changer la photo
+medecin.detail.valider: Valider
+medecin.detail.matricule: Matricule
+medecin.detail.phone: Téléphone
+medecin.detail.ville: Ville
+medecin.detail.birthday: Date de naissance
+medecin.detail.label.specialite: Spécialisé(e) en
+medecin.detail.btn_add_competence: lui ajouter une compétence
+medecin.detail.modal.add_competence: Ajouter une compétence
+medecin.detail.modal.form.title: Ajouter une nouvelle compétence à
+medecin.detail.modal.form.domaine: Domaines
+medecin.detail.modal.form.btn_add: Ajouter
+medecin.detail.nb: Pour enlèver une compétence particulière à un médécin faudra juste cliquer sur celle dont il est
+medecin.detail.specialise: spécialisé
+
+#detail specialite
+specialite.detail.nav_title: Détail sur la spécialité
+specialite.detail.back_list: Retour à la liste des domaines
+specialite.detail.edit_desc: Editer sa description
+specialite.detail.modal.modif_title: Modifier la description de ce domaine
+specialite.detail.desc_title: Description
+specialite.detail.descNotFound: Aucune description soumise...
+specialite.detail.btn_list_medecin: Avoir la liste des médecins de ce domaine
+specialite.detail.medecin.title_name: Nom(s) et prénom(s) des médécins de ce domaine
+specialite.detail.total: Total
+specialite.detail.medecin: Avoir des détails
+specialite.detail.medecinNotFound: Aucun médécin trouvé ...
+
+#error 403
+error403.nav_title: Accès interdit
+error403.title: Problème d'autorisation
+error403.soustitle_d: Désolé
+error403.soustitle_f: vous n'avez pas le droit d'accéder à cette page.
+
+#error 404
+error404.nav_title: Page introuvable
+error404.title: Page introuvable
+error404.soustitle: La ressource ou le contenu demandé(e) n'existe pas.
+error404.back_accueil: Retour à la page d'accueil
+
+# medecin list page
+medecin.list.nav_title: Liste des medecins
+medecin.list.title: La liste des medecins
+medecin.list.search: Rechercher
+medecin.list.pdf: Liste des médécins générée avec succès.
+medecin.list.table.name_title: Nom(s) et prénom(s)
+medecin.list.table.detail_title: Détails
+medecin.list.teble.total_actif: Total Actif
+medecin.list.table.btn_detail: Afficher les détails
+medecin.list.table.action.btn_a: Activé
+medecin.list.table.action.btn_d: Désactivé
+medecin.list.table.action.modifier: Modifier
+medecin.list.table.action.supprimer: Supprimer
+medecin.list.modal.title.supprimer: Supprimer un médécin
+medecin.list.modal.confirm_supp: Voulez vous supprimer le medecin
+medecin.list.modal.action.close: Fermer
+medecin.list.modal.action.supprimer: Supprimer
+medecin.list.table.notResult: Aucun résultat trouvé ...
+medecin.list.btn_dowload: Télécharger la liste des médécins
+medecin.list.btn_add_new: Ajouter un nouveau médecin
+
+#form modif creneau
+creneau.formmodif.nav_title: Modifer un créneau
+creneau.formmodif.title: Modifier le créneau
+creneau.formmodif.hdebutGrand: L'heure de début doit être inférieur à l'heure de fin.
+creneau.formmodif.hdebutExist: Ce début de créneau existe déja pour ce médécin.
+creneau.formmodif.hFinLessDebut: Il existe déja un créneau qui prend en compte cette intervalle de temps.
+creneau.formmodif.hFinExist: Cette fin de créneau existe déja pour ce médécin.
+creneau.formmodif.dureeIntervale: L'intervalle de temps minimum entre l'heure de début et l'heure de fin doit être de 20 minutes".
+creneau.formmodif.form.btn_edit: Modifier
+creneau.formmodif.back_list: Retour à la liste des créneaux
+
+#form modif medecin
+medecin.formmodif.nav_title: Modifier un médecin
+medecin.formmodif.title: Modifier un médecin
+medecin.formmodif.medecinNameExist: ce matricule est déjà pris.
+medecin.formmodif.form.btn_edit: Modifier
+medecin.formmodif.back_list: Retour à la liste des médecins
+
+#form modif specialite
+specialite.formmodif.nav_title: Modifier une spécialité
+specialite.formmodif.title: Modifier le domaine médical
+specialite.formmodif.specialiteNameExist: ce nom de spécialité existe déjà.
+specialite.formmodif.form.btn_edit: Modifier
+specialite.formmodif.back_list: Retour à la liste des spécialités
+
+#form modif user
+user.formmodif.nav_title: Modifier votre compte
+user.formmodif.title: Modifier mon compte
+user.formmodif.userNameExist: ce login est déjà pris.
+user.formmodif.modifSucces: Votre compte a été modifié avec succès.
+user.formmodif.show_password: Afficher le mot de passe
+user.formmodif.form.btn_edit: Modifier
+
+# specialite list page
+specialite.list.nav_title: Liste des spécialités
+specialite.list.title: La liste des domaines médicaux
+specialite.list.search: Rechercher
+specialite.list.table.name_title: Nom
+specialite.list.table.action_title: Actions
+specialite.list.table.action.modifier: Modifier
+specialite.list.table.action.supprimer: Supprimer
+specialite.list.modal.title.supprimer: Supprimer un domaine
+specialite.list.modal.confirm_supp: Voulez vous supprimer la specialite
+specialite.list.modal.action.close: Fermer
+specialite.list.modal.action.supprimer: Supprimer
+specialite.list.table.notResult: Aucun résultat trouvé ...
+specialite.list.statistic_link: Statistique des ressources humaines sur les domaines
+specialite.list.btn_add_new: Ajouter un nouveau domaine médical
+
+#stat specialite
+specialite.stat.nav_title: Statistique sur les ressources humaines
+specialite.stat.title: Calcul des ressources humaines de tous les domaines
+specialite.stat.modal.title: Liste des médécins de ce domaine
+specialite.stat.modal.action.close: Fermer
+specialite.stat.back_list_specialite: Retour à la liste des domaines
+specialite.stat.back_list_medecin: Retour à la liste des médecins
+
+# user list page
+user.list.nav_title: Liste des utilisateurs
+user.list.title: La liste des utilisateurs
+user.list.search: Rechercher
+user.list.table.name_title: Username
+user.list.table.password_title: Mot de passe
+user.list.table.role_title: Rôle(s)
+user.list.table.action.btn_a: Activé
+user.list.table.action.btn_d: Désactivé
+user.list.table.action.add_role: Ajouter un rôle
+user.list.table.action.supprimer: Supprimer
+#modal role
+user.list.modal.title.add_role: Ajouter un rôle
+user.list.modal.body.title: Ajouter un nouveau rôle à
+user.list.modal.body.role: Roles
+user.list.modal.confirm_add_role: Ajouter
+#modal delete
+user.list.modal.delete.title: Supprimer un utilisateur
+user.list.modal.delete.confirm_supp: Voulez vous supprimer l'utilisateur
+user.list.modal.action.close: Fermer
+user.list.modal.action.supprimer: Supprimer
+user.list.table.notResult: Aucun résultat trouvé ...
+user.list.btn_add_new: Ajouter un nouveau utilisateur

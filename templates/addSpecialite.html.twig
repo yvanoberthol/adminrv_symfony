@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Ajouter une nouvelle spécialité
+    {{ 'specialite.formadd.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -9,10 +9,10 @@
 {% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="grand-titre">Enregistrer un domaine médical</h1>
+            <h1 class="grand-titre">{{ 'specialite.formadd.title'|trans }}</h1>
             {% if (specialiteNameExist is defined) and (specialiteNameExist == true) %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> ce nom de spécialité existe déjà.
+                    <span class="fa fa-times-circle"></span> {{ 'specialite.formadd.specialiteNameExist'|trans }}
                 </div>
             {% endif %}
             {{ form_start(form) }}
@@ -21,9 +21,9 @@
             {{ form_row(form.description) }}
             <div class="form-group">
                 <button type="submit" class="btn" style="background-color: purple; color:white"><span
-                            class="fa fa-plus-circle"></span> Ajouter
+                            class="fa fa-plus-circle"></span> {{ 'specialite.formadd.form.btn_add'|trans }}
                 </button>
-                <a href="{{ path('specialites') }}">Retour à la liste des domaines</a>
+                <a href="{{ path('specialites') }}">{{ 'specialite.formadd.back_list'|trans }}</a>
             </div>
             {{ form_end(form) }}
         </div>

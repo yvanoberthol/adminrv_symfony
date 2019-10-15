@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Liste des clients
+    {{ 'patient.list.nav_title'|trans }}
 {% endblock %}
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
@@ -9,14 +9,14 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des patients (<span
+            <h1 class="text-center grand-titre">{{ 'patient.list.title'|trans }} (<span
                         class="text-white">{{ clients|length }}</span>)
             </h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
                 <form class="form-inline" action="{{ path('patients') }}" method="get">
                     <input class="form-control mr-sm-2" type="text" name="name" placeholder="nom ou prénom">
                     <button class="btn btn-success" type="submit">
-                        <span class="fa fa-search"></span> Rechercher
+                        <span class="fa fa-search"></span> {{ 'patient.list.search'|trans }}
                     </button>
                 </form>
             </nav>
@@ -35,8 +35,8 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>ID</th>
-                        <th>Nom(s) et prénom(s)</th>
-                        <th>Téléphone</th>
+                        <th>{{ 'patient.list.table.phone'|trans }}</th>
+                        <th>{{ 'patient.list.table.phone'|trans }}</th>
                         <th colspan="2">Actions</th>
                     </tr>
                     {% if clients|length > 0 %}
@@ -50,7 +50,7 @@
                     {% else %}
 
                         <tr>
-                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">{{ 'patient.list.table.notResult'|trans }}</h3>
                             </td>
                         </tr>
                     {% endif %}

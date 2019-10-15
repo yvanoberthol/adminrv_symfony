@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ClientController extends AbstractController
 {
     /**
-     * @Route("/patients",name="patients")
+     * @Route("/patients", name="patients")
      * @param Request $request
      * @param PaginatorInterface $paginator
      * @return \Symfony\Component\HttpFoundation\Response
@@ -37,7 +37,6 @@ class ClientController extends AbstractController
             $clientsList,
             $request->query->getInt('page', 1), 5
         );
-
 
         return $this->render('clients.html.twig', $model);
     }

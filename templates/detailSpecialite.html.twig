@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Détail sur la spécialité{% endblock %}
+{% block title %}{{ 'specialite.detail.nav_title'|trans }}{% endblock %}
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
 {% endblock %}
@@ -18,13 +18,13 @@
                     <li style="margin-right: 20px">
                         <a href="{{ path('specialites') }}">
                             <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                            Retour à la liste des domaines
+                            {{ 'specialite.detail.back_list'|trans }}
                         </a>
                     </li>
                     <li>
                         <a href="" data-toggle="modal" data-target="#formDescription">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                            Editer sa description
+                            {{ 'specialite.detail.edit_desc'|trans }}
                         </a>
                     </li>
                 </ol>
@@ -35,12 +35,12 @@
 
                             <!-- Modal Header -->
                             <div class="modal-header text-center">
-                                <h4 class="modal-title">Modifier la description de ce domaine</h4>
+                                <h4 class="modal-title">{{ 'specialite.detail.modal.modif_title'|trans }}</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
 
                             <!-- Modal body -->
-                            <form name="specialite" action="{{ '/formModifSpecialite/'~specialite.id }}" method="POST">
+                            <form name="specialite" action="{{ path('specilaite_form_modif',{'id':specialite.id })}}" method="POST">
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-md-8 offset-md-2">
@@ -86,13 +86,13 @@
                         </div>
                     </div>
                     <p>
-                        <strong>Description: </strong><br>
+                        <strong>{{ 'specialite.detail.desc_title'|trans }}: </strong><br>
                     </p>
                     <div class="p-3 mb-5" style="font-size: 20px; border:black 2px solid">
                         {% if specialite.description != null %}
                             <p>{{ specialite.description | raw }}</p>
                         {% else %}
-                            <p class="text-danger">Aucune description soumise...</p>
+                            <p class="text-danger">{{ 'specialite.detail.descNotFound'|trans }}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                 <ol class="breadcrumb col-md-12">
                     <li>
                         <a href="" data-toggle="collapse" data-target="#medecinDomain">
-                            <span class="fa fa-user-circle-o"></span> Avoir la liste des médecins de ce domaine
+                            <span class="fa fa-user-circle-o"></span> {{ 'specialite.detail.btn_list_medecin'|trans }}
                         </a>
                     </li>
                 </ol>
@@ -112,10 +112,10 @@
                     <table class="table table-bordered">
                         <tr class="text-center">
                             <th colspan="2">
-                                Nom(s) et prénom(s) des médécins de ce domaine
+                                {{ 'specialite.detail.medecin.title_name'|trans }}
                             </th>
                             <th>
-                                Total: <span class="text-info">{{ medecins | length }}</span>
+                                {{ 'specialite.detail.total' }}: <span class="text-info">{{ medecins | length }}</span>
                             </th>
                         </tr>
 
@@ -124,13 +124,12 @@
                                 <tr class="text-center">
                                     <td colspan="2"
                                         class="text-uppercase text-success font-weight-bold">{{ medecin.allName() }}</td>
-                                    <td><a href="{{ path('medecin_show',{'id':medecin.id}) }}">Avoir des détails</a></td>
+                                    <td><a href="{{ path('medecin_show',{'id':medecin.id}) }}">{{ 'specialite.detail.medecin'|trans }}</a></td>
                                 </tr>
                             {% endfor %}
                         {% else %}
                             <tr>
-                                <td colspan="5" class="text-center"><h3 class="text-danger">Aucun médécin trouvé
-                                        ...</h3>
+                                <td colspan="5" class="text-center"><h3 class="text-danger">{{ 'specialite.detail.medecinNotFound'|trans }}</h3>
                                 </td>
                             </tr>
                         {% endif %}
@@ -144,20 +143,6 @@
     </div>
 {% endblock %}
 {% block javascripts %}
-    <script>
-        $(document).ready(function () {
-            $("#description").collapse('show');
-            $("#description").on("show.bs.collapse", function () {
-                $(".coulisseur").html('<span class="fa fa-minus"></span> Cacher');
-                $(".coulisseur").removeClass("btn-info").addClass("btn-danger");
-            });
-            $("#description").on("hide.bs.collapse", function () {
-                $(".coulisseur").html('<span class="fa fa-plus-circle"></span> Afficher');
-                $(".coulisseur").removeClass("btn-danger").addClass("btn-info");
-            });
-            $("#medecinDomain").collapse('hide');
-        });
-    </script>
     <script>
         ClassicEditor
             .create(document.querySelector('#specialite_description'))

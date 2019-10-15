@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Liste des spécialités
+    {{ 'specialite.list.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -10,14 +10,14 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des domaines médicaux (<span
+            <h1 class="text-center grand-titre">{{ 'specialite.list.title'|trans }} (<span
                         class="text-white">{{ specialites|length }}</span>)
             </h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
                 <form class="form-inline" action="{{ path('specialites') }}" method="get">
                     <input class="form-control mr-sm-2" type="text" name="nom" placeholder="Nom du domaine">
                     <button class="btn btn-success" type="submit">
-                        <span class="fa fa-search"></span> Rechercher
+                        <span class="fa fa-search"></span> {{ 'specialite.list.search'|trans }}
                     </button>
                 </form>
             </nav>
@@ -25,9 +25,9 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>ID</th>
-                        <th>Nom</th>
+                        <th>{{ 'specialite.list.table.name_title'|trans }}</th>
                         <th>Description</th>
-                        <th colspan="2">Actions</th>
+                        <th colspan="2">{{ 'specialite.list.table.action_title'|trans }}</th>
                     </tr>
                     {% if specialites|length > 0 %}
                         {% for specialite in specialites %}
@@ -37,37 +37,37 @@
                                 <td><a href="{{ path('specialite_show',{'id': specialite.id}) }}"
                                        class="btn btn-secondary"><span
                                                 class="fa fa-ellipsis-h"></span> Afficher plus de détails</a></td>
-                                <td><a href="{{ '/formModifSpecialite/'~specialite.id }}" class="btn btn-info"><span
-                                                class="fa fa-edit"></span> Modifier</a></td>
+                                <td><a href="{{ path('specilaite_form_modif',{'id':specialite.id })}}" class="btn btn-info"><span
+                                                class="fa fa-edit"></span>{{ 'specialite.list.table.action.modifier'|trans }}</a></td>
                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#confirmationSupp{{ specialite.id }}">
-                                        <span class="fa fa-times-circle"></span> Supprimer
+                                        <span class="fa fa-times-circle"></span> {{ 'specialite.list.table.action.supprimer'|trans }}
                                     </button>
                                     <div class="modal modalSupp fade" id="confirmationSupp{{ specialite.id }}"
                                          tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: royalblue">
-                                                    <h4 class="modal-title">Supprimer un domaine</h4>
+                                                    <h4 class="modal-title">{{ 'specialite.list.modal.title.supprimer'|trans }}</h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-hidden="true">
                                                         &times;
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Voulez vous supprimer la spécialité <strong><span
+                                                    <p>{{ 'specialite.list.modal.confirm_supp'|trans }} <strong><span
                                                                     class="text-info">{{ specialite.nom }}</span></strong>?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        Close
+                                                        {{ 'specialite.list.modal.action.close'|trans }}
                                                     </button>
                                                     <form action="{{ path('specialite_delete') }}" method="POST">
                                                         <input type="hidden" name="id" value="{{ specialite.id }}">
                                                         <button class="btn btn-danger" type=submit>
-                                                            <span class="fa fa-times-circle"></span> Supprimer
+                                                            <span class="fa fa-times-circle"></span> {{ 'specialite.list.modal.action.supprimer'|trans }}
                                                         </button>
                                                     </form>
                                                 </div>
@@ -78,9 +78,8 @@
                             </tr>
                         {% endfor %}
                     {% else %}
-
                         <tr>
-                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">{{ 'specialite.list.table.notResult'|trans }}</h3>
                             </td>
                         </tr>
                     {% endif %}
@@ -92,19 +91,18 @@
             <div>
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
-                        <a href="/medecinSpecialiteStat">
-                            Statistique des ressources humaines sur les domaines
+                        <a href="{{ path('ms_stat') }}">
+                           {{ 'specialite.list.statistic_link'|trans }}
                         </a>
                     </li>
                     <li class="page-item">
                         <a class="btn" style="background-color: purple; color:white"
                            href="{{ path('form_specialite_add') }}">
-                            <span class="fa fa-plus"></span> Ajouter un nouveau domaine médical
+                            <span class="fa fa-plus"></span> {{ 'specialite.list.btn_add_new'|trans }}
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
     </div>
 {% endblock %}

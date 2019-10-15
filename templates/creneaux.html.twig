@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Liste des créneaux horaires
+    {{ 'creneau.list.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -9,7 +9,7 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des créneaux horaires (<span
+            <h1 class="text-center grand-titre">{{ 'creneau.list.title'|trans }} (<span
                         class="text-white">{{ creneaux | length }}</span>)</h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
                 <form class="form-inline" action="{{ path('creneaux') }}" method="get">
@@ -22,7 +22,7 @@
                         {% endfor %}
                     </select>
                     <button class="btn btn-success" type="submit">
-                        <span class="fa fa-search-minus"></span> Rechercher par médecin
+                        <span class="fa fa-search-minus"></span> {{ 'creneau.list.search'|trans }}
                     </button>
                 </form>
             </nav>
@@ -30,8 +30,8 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>ID</th>
-                        <th>Créneau</th>
-                        <th>Médecin</th>
+                        <th>{{ 'creneau.list.teble.creneau'|trans }}</th>
+                        <th>{{ 'creneau.list.table.medecin'|trans }}</th>
                         <th colspan="2">Actions</th>
                     </tr>
                     {% if creneaux|length > 0 %}
@@ -42,25 +42,25 @@
                                 <td>{{ creneau.medecin.allName }}</td>
                                 <td><a href="{{ path('creneau_form_modif',{'id':creneau.id}) }}"
                                        class="btn btn-info"><span
-                                                class="fa fa-edit"></span> Modifier</a></td>
+                                                class="fa fa-edit"></span> {{ 'creneau.list.table.action.modifier'|trans }}</a></td>
                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#confirmationSupp{{ creneau.id }}">
-                                        <span class="fa fa-times-circle"></span> Supprimer
+                                        <span class="fa fa-times-circle"></span> {{ 'creneau.list.table.action.supprimer'|trans }}
                                     </button>
                                     <div class="modal modalSupp fade" id="confirmationSupp{{ creneau.id }}"
                                          tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: royalblue">
-                                                    <h4 class="modal-title">Supprimer un creneau</h4>
+                                                    <h4 class="modal-title">{{ 'creneau.list.modal.supprimer'|trans }}</h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-hidden="true">
                                                         &times;
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Voulez vous supprimer le creneau <strong><span
+                                                    <p>{{ 'creneau.list.modal.confirm_supp'|trans }}<strong><span
                                                                     class="text-info">{{ creneau.id }}</span></strong>?
                                                     </p>
                                                 </div>
@@ -71,7 +71,7 @@
                                                     <form action="{{ path('creneau_delete') }}" method="POST">
                                                         <input type="hidden" name="id" value="{{ creneau.id }}">
                                                         <button class="btn btn-danger" type=submit>
-                                                            <span class="fa fa-times-circle"></span> Supprimer
+                                                            <span class="fa fa-times-circle"></span> {{ 'creneau.list.modal.action.supprimer'|trans }}
                                                         </button>
                                                     </form>
                                                 </div>
@@ -83,7 +83,7 @@
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">{{ 'creneau.list.table.notResult'|trans }}</h3>
                             </td>
                         </tr>
                     {% endif %}
@@ -96,7 +96,7 @@
                     <li class="page-item">
                         <a class="btn" style="background-color: purple; color:white"
                            href="{{ path('form_creneau_add') }}">
-                            <span class="fa fa-plus"></span> Ajouter un nouveau créneau
+                            <span class="fa fa-plus"></span> {{ 'creneau.list.btn_add_new'|trans }}
                         </a>
                     </li>
                 </ul>

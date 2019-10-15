@@ -1,0 +1,220 @@
+# menu principal
+menu.nav_title: Main Menu
+menu.title: Administration space at the management of our firm
+menu.soustitle: Organization and management of medical practice activities.
+menu.welcome: Welcome
+menu.logout: Sign Out
+menu.role_disposition: The role(s) at your disposal
+menu.panel.title.specialite: Medical fields
+menu.panel.footer.specialite: Management of different medical specialties
+menu.panel.title.creneau: Slots
+menu.panel.footer.creneau: Management of the slots of doctors of the medical office
+menu.panel.title.medecin: doctors
+menu.panel.footer.medecin: Medecins management of the medical office
+menu.panel.title.patient: Patients
+menu.panel.footer.patient: Consult the list of patients
+menu.panel.title.user: Users
+menu.panel.footer.user: Managing users of this application
+
+#form add creneau
+creneau.formadd.nav_title: Add a new time slot
+creneau.formadd.title: Register a new time slot
+creneau.formadd.hdebutGrand: The start time must be less than the end time.
+creneau.formadd.hdebutExist: This beginning of niche already exists for this doctor.
+creneau.formadd.hFinLessDebut: There is already a niche that takes into account this time interval.
+creneau.formadd.hFinExist: This end of slot already exists for this doctor.
+creneau.formadd.dureeIntervale: The minimum time interval between start time and end time must be 20 minutes".
+creneau.formadd.form.btn_add: Add
+creneau.formadd.back_list: Back to the list of time slots
+
+#form add medecin
+medecin.formadd.nav_title: Add a new doctor
+medecin.formadd.title: Register a new doctor
+medecin.formadd.medecinNameExist: This official number is already taken.
+medecin.formadd.form.btn_add: Add
+medecin.formadd.back_list: Back to the list of doctors
+
+#form add specialite
+specialite.formadd.nav_title: Add a new specialty
+specialite.formadd.title: Register a new specialty
+specialite.formadd.specialiteNameExist: This specialty name already exists.
+specialite.formadd.form.btn_add: Add
+specialite.formadd.back_list: Back to the list of specialties
+
+#form add user
+user.formadd.nav_title: Add a new user
+user.formadd.title: Register a new user
+user.formadd.userNameExist: This username is already taken.
+user.formadd.form.btn_add: Add
+user.formadd.back_list: Back to users list
+
+#Loading page
+chargement.nav_title: Loading...
+
+# patient list page
+patient.list.nav_title: List of patients
+patient.list.title: The List of patients
+patient.list.search: Search
+patient.list.teble.allName: Firstname and LastName
+patient.list.table.phone: Phone
+patient.list.table.notResult: No result found ...
+
+# creneau list page
+creneau.list.nav_title: List of slots
+creneau.list.title: The list of time slots
+creneau.list.search: Search by doctor
+creneau.list.teble.creneau: Time slot
+creneau.list.table.medecin: Doctor
+creneau.list.table.action.modifier: update
+creneau.list.table.action.supprimer: delete
+creneau.list.modal.title.supprimer: Delete a time slot
+creneau.list.modal.confirm_supp: Do you want to delete the slot
+creneau.list.modal.action.supprimer: Delete
+creneau.list.table.notResult: No result found ...
+creneau.list.btn_add_new: Add a new time slot
+
+#detail medecin
+medecin.detail.nav_title: Detail about the doctor
+medecin.detail.back_list: Back to the list of doctors
+medecin.detail.edit: Edit
+medecin.detail.change_photo: Change the photo
+medecin.detail.valider: Valid
+medecin.detail.matricule: Official number
+medecin.detail.phone: Phone number
+medecin.detail.ville: City
+medecin.detail.birthday: BirthDate
+medecin.detail.label.specialite: Specialize in
+medecin.detail.btn_add_competence: Add a skill
+medecin.detail.modal.add_competence: Add a skill
+medecin.detail.modal.form.title: Add a skill to
+medecin.detail.modal.form.domaine: Domains
+medecin.detail.modal.form.btn_add: Add
+medecin.detail.nb: To remove a particular skill from a doctor will just have to click on the one of which he is
+medecin.detail.specialise: specilized
+
+#detail specialite
+specialite.detail.nav_title: Detail about the specialty
+specialite.detail.back_list: Back to the list of domains
+specialite.detail.edit_desc: Edit his description
+specialite.detail.modal.modif_title: Modify the description of this domain
+specialite.detail.desc_title: Description
+specialite.detail.descNotFound: No description submitted...
+specialite.detail.btn_list_medecin: Have a list of doctors in this area
+specialite.detail.medecin.title_name: FirstName and Lastname of the doctors of this domain
+specialite.detail.total: Total
+specialite.detail.medecin: Have details
+specialite.detail.medecinNotFound: No doctor found ...
+
+#error 403
+error403.nav_title: Access forbidden
+error403.title: Authorization problem
+error403.soustitle_d: Sorry
+error403.soustitle_f: You are not allowed to access this page.
+
+#error 404
+error404.nav_title: Page not found
+error404.title: Page not found
+error404.soustitle: The requested resource or content does not exist.
+error404.back_accueil: Back to the homepage
+
+# medecin list page
+medecin.list.nav_title: List of doctors
+medecin.list.title: The List of doctors
+medecin.list.search: Search
+medecin.list.pdf: Medecins list successfully generated.
+medecin.list.table.name_title: Firstname and LastName
+medecin.list.table.detail_title: Details
+medecin.list.teble.total_actif: Total Active
+medecin.list.table.btn_detail: Show the details
+medecin.list.table.action.btn_a: Active
+medecin.list.table.action.btn_d: deactivate
+medecin.list.table.action.modifier: Update
+medecin.list.table.action.supprimer: Delete
+medecin.list.modal.title.supprimer: Delete a doctor
+medecin.list.modal.confirm_supp: Do you want to delete a doctor
+medecin.list.modal.action.close: Close
+medecin.list.modal.action.supprimer: Delete
+medecin.list.table.notResult: No result found ...
+medecin.list.btn_dowload: Download the list of doctors
+medecin.list.btn_add_new: Add a new doctor
+
+#form modif creneau
+creneau.formmodif.nav_title: Modify a time slot
+creneau.formmodif.title: Modify the time slot
+creneau.formmodif.hdebutGrand: The start time must be less than the end time.
+creneau.formmodif.hdebutExist: This beginning of niche already exists for this doctor.
+creneau.formmodif.hFinLessDebut: There is already a niche that takes into account this time interval.
+creneau.formmodif.hFinExist: This end of slot already exists for this doctor.
+creneau.formmodif.dureeIntervale: The minimum time interval between start time and end time must be 20 minutes".
+creneau.formmodif.form.btn_edit: Update
+creneau.formmodif.back_list: Back to the list of time slots
+
+#form modif medecin
+medecin.formmodif.nav_title: Modify a doctor
+medecin.formmodif.title: Modify a doctor
+medecin.formmodif.medecinNameExist: This official number is already taken..
+medecin.formmodif.form.btn_edit: Update
+medecin.formmodif.back_list: Back to the list of doctors
+
+#form modif specialite
+specialite.formmodif.nav_title: Modify a specialty
+specialite.formmodif.title: Modify the medical field
+specialite.formmodif.specialiteNameExist: This specialty name already exists.
+specialite.formmodif.form.btn_edit: Update
+specialite.formmodif.back_list: Back to the list of specialties
+
+#form modif user
+user.formmodif.nav_title: Edit your account
+user.formmodif.title: Edit your account
+user.formmodif.userNameExist: This username is already taken.
+user.formmodif.modifSucces: Your account has been successfully changed.
+user.formmodif.show_password: Show the password
+user.formmodif.form.btn_edit: Update
+
+# specialite list page
+specialite.list.nav_title: List of specialty
+specialite.list.title: The List of specialty
+specialite.list.search: Search
+specialite.list.table.name_title: Name
+specialite.list.table.action_title: Actions
+specialite.list.table.action.modifier: Edit
+specialite.list.table.action.supprimer: Delete
+specialite.list.modal.title.supprimer: Delete a specialty
+specialite.list.modal.confirm_supp: Do you want to delete the specialty
+specialite.list.modal.action.close: Close
+specialite.list.modal.action.supprimer: Delete
+specialite.list.table.notResult: No result found ...
+specialite.list.statistic_link: Human Resources Statistics on Domains
+specialite.list.btn_add_new: Add a new medical field
+
+#stat specialite
+specialite.stat.nav_title: Human Resources Statistics
+specialite.stat.title: Calculation of human resources of all domains
+specialite.stat.modal.title: List of doctors in this area
+specialite.stat.modal.action.close: Close
+specialite.stat.back_list_specialite: Back to the list of domains
+specialite.stat.back_list_medecin: Back to the list of doctors
+
+# user list page
+user.list.nav_title: Users list
+user.list.title: The Users list
+user.list.search: Search
+user.list.table.name_title: Username
+user.list.table.password_title: Password
+user.list.table.role_title: Function(s)
+user.list.table.action.btn_a: Active
+user.list.table.action.btn_d: Deactive
+user.list.table.action.add_role: Add a role
+user.list.table.action.supprimer: Delete
+#modal role
+user.list.modal.title.add_role: Add a role
+user.list.modal.body.title: Add a new role to
+user.list.modal.body.role: Roles
+user.list.modal.confirm_add_role: Add
+#modal delete
+user.list.modal.delete.title: Delete a user
+user.list.modal.delete.confirm_supp: Do you want to delete the user
+user.list.modal.action.close: Close
+user.list.modal.action.supprimer: Delete
+user.list.table.notResult: No result found ...
+user.list.btn_add_new: Add a new user

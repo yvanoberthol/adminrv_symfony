@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Ajouter une nouveau créneau
+    {{ 'creneau.formadd.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -9,34 +9,30 @@
 {% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="grand-titre">Enregistrer un nouveau créneau</h1>
+            <h1 class="grand-titre">{{ 'creneau.formadd.title'|trans }}</h1>
             {% if hdebutGrand is defined and hdebutGrand == true %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> L'heure de début doit être inférieur à l'heure de fin.
+                    <span class="fa fa-times-circle"></span> {{ 'creneau.formadd.hdebutGrand'|trans }}
                 </div>
             {% endif %}
             {% if hdebutExists is defined and hdebutExists == true %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> Ce début de créneau existe déja pour ce médécin.
+                    <span class="fa fa-times-circle"></span> {{ 'creneau.formadd.hdebutExist'|trans }}
                 </div>
             {% endif %}
             {% if hfinLesshdebut is defined and hfinLesshdebut == true %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> Il existe déja un créneau qui prend en compte cette
-                    intervalle
-                    de temps.
+                    <span class="fa fa-times-circle"></span> {{ 'creneau.formadd.hFinLessDebut'|trans }}
                 </div>
             {% endif %}
             {% if hfinExists is defined and hfinExists == true %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> Cette fin de créneau existe déja pour ce médécin.
+                    <span class="fa fa-times-circle"></span> {{ 'creneau.formadd.hFinExist'|trans }}
                 </div>
             {% endif %}
             {% if dureeIntervalle is defined and dureeIntervalle == true %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> L'intervalle de temps minimum entre Heure de début et
-                    l'heure
-                    de fin doit être de 20 minutes".
+                    <span class="fa fa-times-circle"></span> {{ 'creneau.formadd.dureeIntervale'|trans }}
                 </div>
             {% endif %}
 
@@ -46,9 +42,9 @@
             {{ form_row(form.medecin) }}
             <div class="form-group">
                 <button type="submit" class="btn" style="background-color: purple; color:white"><span
-                            class="fa fa-plus-circle"></span> Ajouter
+                            class="fa fa-plus-circle"></span> {{ 'creneau.formadd.form.btn_add'|trans }}
                 </button>
-                <a href="{{ path('creneaux') }}">Retour à la liste des créneaux</a>
+                <a href="{{ path('creneaux') }}">{{ 'creneau.formadd.back_list'|trans }}</a>
             </div>
             {{ form_end(form) }}
         </div>

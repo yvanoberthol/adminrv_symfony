@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Modifier une spécialité
+    {{ 'specialite.formmodif.nav_title'|trans }}
 {% endblock %}
 {% block navbar %}
     {% include 'commons/navbar.html.twig' %}
@@ -8,18 +8,18 @@
 {% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="grand-titre">Modifier le domaine médical N° <span class="text-info">{{ id }}</span></h1>
+            <h1 class="grand-titre">{{ 'specialite.formmodif.title'|trans }} N° <span class="text-info">{{ id }}</span></h1>
             {% if (specialiteNameExist is defined) and (specialiteNameExist == true) %}
                 <div class="text-center bg-danger font-weight-bold" style="color:white">
-                    <span class="fa fa-times-circle"></span> ce nom de spécialité existe déjà.
+                    <span class="fa fa-times-circle"></span> {{ 'specialite.formmodif.specialiteNameExist'|trans }}
                 </div>
             {% endif %}
             {{ form_start(form) }}
             {{ form_row(form.nom) }}
             {{ form_row(form.description) }}
             <div class="form-group">
-                <button type="submit" class="btn btn-info"><span class="fa fa-edit"></span> Modifier</button>
-                <a href="{{ path('specialites') }}">Retour à la liste des domaines</a>
+                <button type="submit" class="btn btn-info"><span class="fa fa-edit"></span> {{ 'specialite.formmodif.form.btn_edit'|trans }}</button>
+                <a href="{{ path('specialites') }}">{{ 'specialite.formmodif.back_list'|trans }}</a>
             </div>
             {{ form_end(form) }}
         </div>

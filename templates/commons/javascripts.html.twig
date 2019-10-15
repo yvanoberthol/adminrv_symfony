@@ -19,7 +19,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#page-effect').fadeIn(1000);
-        var url = "http://localhost:8089/menuPrincipal";
+        var url = "{{ path('menu_principal') }}";
         $("#loader").fadeOut(6500, function () {
             $(location).attr('href', url);
         });

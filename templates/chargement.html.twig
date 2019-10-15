@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="commons/header::common-header"></head>
-<body>
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'chargement.nav_title'|trans }}
+{% endblock %}
+{% block body %}
 <div id="loader">
     <div class="thecube">
         <div class="cube c1"></div>
@@ -10,10 +11,7 @@
         <div class="cube c3"></div>
     </div>
     <div class="text-center name-user" style="margin-top: 40px; z-index:40;">
-        <h3 class="text-uppercase" th:text="${#authentication.name}"></h3>
+        <h3 class="text-uppercase">{{ app.token.user.username }}</h3>
     </div>
 </div>
-
-<div th:replace="commons/footer::body-common-scripts"></div>
-</body>
-</html>
+{% endblock %}

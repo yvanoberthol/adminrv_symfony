@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Modifier votre compte
+    {{ 'user.formmodif.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -9,15 +9,15 @@
 {% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="grand-titre">Modifier mon compte</h1>
+            <h1 class="grand-titre">{{ 'user.formmodif.title'|trans }}</h1>
             {% if userNameExist is defined and userNameExist == true %}
                 <div class="text-center alert alert-danger font-weight-bold">
-                    <span class="fa fa-times-circle"></span> ce login est déjà pris.
+                    <span class="fa fa-times-circle"></span> {{ 'user.formmodif.userNameExist'|trans }}
                 </div>
             {% endif %}
             {% if modifSucces is defined and modifSucces == true %}
                 <div class="text-center alert alert-success font-weight-bold">
-                    <span class="fa fa-check"></span> Votre compte a été modifié avec succès.
+                    <span class="fa fa-check"></span> {{ 'user.formmodif.modifSucces'|trans }}
                 </div>
             {% endif %}
             {#{%  if errors is defined and errors|length >0 %}
@@ -31,12 +31,12 @@
             {{ form_row(form.username) }}
             {{ form_row(form.password) }}
             <div class="form-inline">
-                <input type="checkbox" class="form-control-lg" id="check_valid"> Afficher le mot de passe
+                <input type="checkbox" class="form-control-lg" id="check_valid"> {{ 'user.formmodif.show_password'|trans }}
             </div>
 
             <div class="form-group">
                 <button type="submit" class="btn" style="background-color: purple; color:white"><span
-                            class="fa fa-edit"></span> Modifier
+                            class="fa fa-edit"></span> {{ 'user.formmodif.form.btn_edit'|trans }}
                 </button>
             </div>
             {{ form_end(form) }}

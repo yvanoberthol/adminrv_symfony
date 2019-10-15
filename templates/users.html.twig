@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Liste des utilisateurs
+    {{ 'user.list.nav_title'|trans }}
 {% endblock %}
 
 {% block navbar %}
@@ -10,7 +10,7 @@
 {% block body %}
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center grand-titre">La liste des utilisateurs (<span
+            <h1 class="text-center grand-titre">{{ 'user.list.title'|trans }} (<span
                         class="text-white">{{ users|length }}</span>)
             </h1>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top text-center">
@@ -18,7 +18,7 @@
                     <input class="form-control mr-sm-2" type="text" value="{{ username }}" name="username"
                            placeholder="Username">
                     <button class="btn btn-success" type="submit">
-                        <span class="fa fa-search"></span> Rechercher
+                        <span class="fa fa-search"></span> {{ 'user.list.search'|trans }}
                     </button>
                 </form>
             </nav>
@@ -37,10 +37,10 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>ID</th>
-                        <th>Username</th>
-                        <th>Password</th>
+                        <th>{{ 'user.list.table.name_title'|trans }}</th>
+                        <th>{{ 'user.list.table.password_title'|trans }}</th>
                         <th>Status(<span class="text-success">{{ nbreUserActif }}</span>)</th>
-                        <th>Role(s)</th>
+                        <th>{{ 'user.list.table.role_title'|trans }}</th>
                         <th colspan="2">Actions</th>
                     </tr>
                     {% if users|length > 0 %}
@@ -57,7 +57,7 @@
                                                 <input type="hidden" name="user_id" value="{{ user.id }}">
                                                 <input type="hidden" name="enabled" value="1">
                                                 <button type="submit" class="btn btn-warning">
-                                                    Désactivé
+                                                    {{ 'user.list.table.action.btn_d'|trans }}
                                                 </button>
                                             </div>
                                         </form>
@@ -69,7 +69,7 @@
                                                 <input type="hidden" name="user_id" value="{{ user.id }}">
                                                 <input type="hidden" name="enabled" value="0">
                                                 <button type="submit" class="btn btn-success">
-                                                    Activé
+                                                    {{ 'user.list.table.action.btn_a'|trans }}
                                                 </button>
                                             </div>
                                         </form>
@@ -90,7 +90,7 @@
                                     <span>
                                     <a class="badge badge-info" href="" data-toggle="modal"
                                        data-target="#addRole{{ user.id }}">
-                                        Ajouter un rôle
+                                        {{ 'user.list.table.action.add_role'|trans }}
                                     </a>
 							    </span>
                                     <!-- The Modal -->
@@ -100,7 +100,7 @@
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header text-center">
-                                                    <h4 class="modal-title">Ajouter un rôle</h4>
+                                                    <h4 class="modal-title">{{ 'user.list.modal.title.add_role'|trans }}</h4>
                                                     <button type="button" class="close" data-dismiss="modal">&times;
                                                     </button>
                                                 </div>
@@ -112,7 +112,7 @@
                                                             <div class="col-md-8 offset-md-2">
                                                                 <div class="form-group text-center">
                                                                     <label class="control-label">
-                                                                        <h1><span>Ajouter un nouveau rôle à </span><span
+                                                                        <h1><span>{{ 'user.list.modal.body.title'|trans }} </span><span
                                                                                     class="text-info">{{ user.username }}</span>
                                                                         </h1>
                                                                     </label>
@@ -120,7 +120,7 @@
                                                                            value="{{ user.id }}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Roles</label>
+                                                                    <label class="control-label">{{ 'user.list.modal.body.role'|trans }}</label>
                                                                     <select name="role_id"
                                                                             class="form-control text-center">
                                                                         {% for role in roles %}
@@ -131,7 +131,7 @@
                                                                 <div class="form-group text-center">
                                                                     <button type="submit" name="ajouter"
                                                                             class="btn btn-primary">
-                                                                        <span class="fa fa-plus"></span> Ajouter
+                                                                        <span class="fa fa-plus"></span> {{ 'user.list.modal.confirm_add_role'|trans }}
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -146,14 +146,14 @@
                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#confirmationSupp{{ user.id }}">
-                                        <span class="fa fa-times-circle"></span> Supprimer
+                                        <span class="fa fa-times-circle"></span> {{ 'user.list.table.action.supprimer'|trans }}
                                     </button>
                                     <div class="modal modalSupp fade" id="confirmationSupp{{ user.id }}" tabindex="-1"
                                          role="dialog">
                                         <div class="modal-dialog modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: royalblue">
-                                                    <h4 class="modal-title">Supprimer un utilisateur</h4>
+                                                    <h4 class="modal-title">{{ 'user.list.modal.delete.title'|trans }}</h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-hidden="true">
                                                         &times;
@@ -161,18 +161,18 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>
-                                                        Voulez vous supprimer l'utilisateur <strong><span
+                                                        {{ 'user.list.modal.delete.confirm_supp'|trans }} <strong><span
                                                                     class="text-info">{{ user.username }}</span></strong>?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        Close
+                                                        {{ 'user.list.modal.action.close'|trans }}
                                                     </button>
                                                     <form action="{{ path('user_delete') }}" method="POST">
                                                         <input type="hidden" name="id" value="{{ user.id }}">
                                                         <button class="btn btn-danger" type=submit>
-                                                            <span class="fa fa-times-circle"></span> Supprimer
+                                                            <span class="fa fa-times-circle"></span> {{ 'user.list.modal.action.supprimer'|trans }}
                                                         </button>
                                                     </form>
                                                 </div>
@@ -185,7 +185,7 @@
                     {% else %}
 
                         <tr>
-                            <td colspan="5" class="text-center"><h3 class="text-danger">Aucun résultat trouvé ...</h3>
+                            <td colspan="5" class="text-center"><h3 class="text-danger">{{ 'user.list.table.notResult'|trans }}</h3>
                             </td>
                         </tr>
                     {% endif %}
@@ -198,7 +198,7 @@
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
                         <a class="btn" style="background-color: purple; color:white" href="{{ path('form_user_add') }}">
-                            <span class="fa fa-plus"></span> Ajouter un nouvel utilisateur
+                            <span class="fa fa-plus"></span> {{ 'user.list.btn_add_new'|trans }}
                         </a>
                     </li>
                 </ul>
