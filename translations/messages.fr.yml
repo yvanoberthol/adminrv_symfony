@@ -1,3 +1,26 @@
+#navlang
+navlang.fr: Français
+navlang.en: Anglais
+
+#navbar
+navbar.title: Gestion du cabinet médical
+navbar.medecin: Médecins
+navbar.medecin.list: Liste des médécins
+navbar.medecin.add: Ajouter un médécin
+navbar.specialite: Spécialités
+navbar.specialite.list: Liste des spécialités
+navbar.specialite.add: Ajouter une spécialité
+navbar.specialite.stat: Statistique sur les spécialités
+navbar.creneau: Créneaux
+navbar.creneau.list: Liste des créneaux
+navbar.creneau.add: Ajouter un créneau
+navbar.patient: Patients
+navbar.user: Utilisateurs
+navbar.user.list: Liste des utilisateurs
+navbar.user.add: Ajouter un utilisateur
+navbar.compte: Mon compte
+navbar.compte.logout: Déconnexion
+
 # menu principal
 menu.nav_title: Menu principal
 menu.title: Espace d'administration à la gestion de notre cabinet
@@ -218,3 +241,15 @@ user.list.modal.action.close: Fermer
 user.list.modal.action.supprimer: Supprimer
 user.list.table.notResult: Aucun résultat trouvé ...
 user.list.btn_add_new: Ajouter un nouveau utilisateur
+
+#footer
+fonctionnality.title: Fonctionnalités de l'application
+fonctionnality.specialite: Gestion des domaines médicaux
+fonctionnality.medecin: Gestion des médécins
+fonctionnality.creneau: Gestion des créneaux
+fonctionnality.patient: Gestion des patients
+fonctionnality.user: Gestion des utilisateurs
+contact.title: Contactez nous
+situation.title: Notre état et situation
+situation.location: Nous sommes situé à bonabéri(ngwele)
+situation.copyright: Mon cabinet de médécin

@@ -1,24 +1,24 @@
 <div class="row bg-dark" style="margin-top:25px; color:white; border-top: 10px solid #018577">
     <div class="col-md-4 text-center">
-        <h4 class="font-weight-bold text-vert">Fonctionnalités de l'application</h4>
-        <h6><a href="{{ path('specialites') }}" style="color:gray;">Gestion des domaines médicaux</a></h6>
-        <h6><a href="{{ path('medecins') }}" style="color:grey;">Gestion des médécins</a></h6>
-        <h6><a href="{{ path('creneaux') }}" style="color:grey;">Gestion des créneaux</a></h6>
-        <h6><a href="/patients" style="color:grey;">Gestion des patients</a></h6>
+        <h4 class="font-weight-bold text-vert">{{ 'fonctionnality.title'|trans }}</h4>
+        <h6><a href="{{ path('specialites') }}" style="color:gray;">{{ 'fonctionnality.specialite'|trans }}</a></h6>
+        <h6><a href="{{ path('medecins') }}" style="color:grey;">{{ 'fonctionnality.medecin'|trans }}</a></h6>
+        <h6><a href="{{ path('creneaux') }}" style="color:grey;">{{ 'fonctionnality.creneau'|trans }}</a></h6>
+        <h6><a href="{{ path('patients') }}" style="color:grey;">{{ 'fonctionnality.patient'|trans }}</a></h6>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
             <h6>
-                <a href="{{ path('users') }}" style="color:gray;">Gestion des utilisateurs</a>
+                <a href="{{ path('users') }}" style="color:gray;">{{ 'fonctionnality.user'|trans }}</a>
             </h6>
         {% endif %}
     </div>
     <div class="col-md-4 text-center">
-        <h4 class="font-weight-bold text-vert">Contactez nous</h4>
+        <h4 class="font-weight-bold text-vert">{{ 'contact.title'|trans }}</h4>
         <h6>Email: yvanoberthol@gmail.com</h6>
         <h6>Tel: 690735187 - 682296797</h6>
     </div>
     <div class="col-md-4 text-center">
-        <h4 class="font-weight-bold text-vert">Notre état et situation</h4>
-        <h6>Nous sommes situé à bonabéri(ngwele)</h6>
-        <h6>Mon cabinet de médécin copyright @<span class="text-warning">2019</span></h6>
+        <h4 class="font-weight-bold text-vert">{{ 'situation.title'|trans }}</h4>
+        <h6>{{ 'situation.location'|trans }}</h6>
+        <h6>{{ 'situation.copyright'|trans }} copyright @<span class="text-warning">2019</span></h6>
     </div>
 </div>

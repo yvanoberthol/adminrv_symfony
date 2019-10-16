@@ -5,39 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f131a7b-b365-4ba2-9cb8-85f09caf510b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/translations/security.en.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/security.fr.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/validators.en.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/validators.fr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/annotations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SpecialiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SpecialiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addCreneau.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addCreneau.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addMedecin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addMedecin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addSpecialite.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addSpecialite.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addUser.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chargement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chargement.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clients.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/clients.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commons/javascripts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/commons/javascripts.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/commons/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/commons/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/commons/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/commons/navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/commons/navlang.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/commons/navlang.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/creneaux.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/creneaux.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detailMedecin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detailMedecin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detailSpecialite.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detailSpecialite.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/error403.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error403.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error404.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/medecins.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medecins.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menuAdministration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menuAdministration.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifCreneau.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifCreneau.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifMedecin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifMedecin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifSpecialite.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifSpecialite.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifUser.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/specialites.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/specialites.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/statMedecinService.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statMedecinService.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.en.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.fr.yml" afterDir="false" />
     </list>
@@ -73,20 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="navlang.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="navlang.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/commons/navlang.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/translations/messages.en.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="211" column="32" lean-forward="true" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
+            <state relative-caret-position="102">
+              <caret line="6" column="155" selection-start-line="6" selection-start-column="155" selection-end-line="6" selection-end-column="155" />
             </state>
           </provider>
         </entry>
@@ -94,8 +56,54 @@
       <file leaf-file-name="messages.fr.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/translations/messages.fr.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3723">
-              <caret line="219" column="41" selection-start-line="219" selection-start-column="41" selection-end-line="219" selection-end-column="41" />
+            <state>
+              <caret selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/commons/navbar.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="833">
+              <caret line="49" column="128" selection-start-line="49" selection-start-column="128" selection-end-line="49" selection-end-column="128" />
+              <folding>
+                <element signature="e#329#343#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="creneaux.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/creneaux.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="61" column="72" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="72" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/translations/messages.en.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/commons/footer.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#590#598#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/src/Form/UserEditType.php" />
         <option value="$PROJECT_DIR$/src/Beta/BetaHtmlAdder.php" />
         <option value="$PROJECT_DIR$/src/Beta/BetaListener.php" />
         <option value="$PROJECT_DIR$/src/Event/BetaListener.php" />
@@ -186,7 +192,6 @@
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" />
         <option value="$PROJECT_DIR$/templates/clients.html.twig" />
-        <option value="$PROJECT_DIR$/templates/creneaux.html.twig" />
         <option value="$PROJECT_DIR$/templates/detailSpecialite.html.twig" />
         <option value="$PROJECT_DIR$/templates/detailMedecin.html.twig" />
         <option value="$PROJECT_DIR$/templates/error403.html.twig" />
@@ -200,12 +205,15 @@
         <option value="$PROJECT_DIR$/templates/specialites.html.twig" />
         <option value="$PROJECT_DIR$/templates/statMedecinService.html.twig" />
         <option value="$PROJECT_DIR$/templates/users.html.twig" />
-        <option value="$PROJECT_DIR$/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/src/Controller/ClientController.php" />
-        <option value="$PROJECT_DIR$/templates/commons/navlang.html.twig" />
         <option value="$PROJECT_DIR$/translations/validators.fr.yml" />
         <option value="$PROJECT_DIR$/translations/security.fr.yml" />
+        <option value="$PROJECT_DIR$/templates/creneaux.html.twig" />
+        <option value="$PROJECT_DIR$/templates/commons/footer.html.twig" />
+        <option value="$PROJECT_DIR$/templates/commons/navbar.html.twig" />
+        <option value="$PROJECT_DIR$/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/translations/messages.en.yml" />
+        <option value="$PROJECT_DIR$/templates/commons/navlang.html.twig" />
       </list>
     </option>
   </component>
@@ -385,6 +393,17 @@
             <path>
               <item name="adminrv_symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="adminrv_symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="adminrv_symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="adminrv_symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="adminrv_symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="adminrv_symfony" type="462c0819:PsiDirectoryNode" />
               <item name="translations" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -453,12 +472,12 @@
       <workItem from="1570106585198" duration="1183000" />
       <workItem from="1570187789866" duration="57126000" />
       <workItem from="1570664387823" duration="85039000" />
-      <workItem from="1571049146823" duration="30112000" />
+      <workItem from="1571049146823" duration="32597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224946000" />
+    <option name="totallyTimeSpent" value="227431000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,7 +498,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.17161717" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.19306931" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21331316" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10514372" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.14372164" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49848714" weight="0.32838285" />
@@ -507,31 +526,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EventListener/BetaListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
-          <folding>
-            <element signature="e#30#43#0#PHP" expanded="true" />
-            <element signature="e#1368#1380#0#PHP" expanded="true" />
-            <element signature="e#1468#1477#0#PHP" expanded="true" />
-            <element signature="e#1550#1565#0#PHP" expanded="true" />
-            <element signature="e#1638#1653#0#PHP" expanded="true" />
-            <element signature="e#1735#1749#0#PHP" expanded="true" />
-            <element signature="e#1818#1832#0#PHP" expanded="true" />
-            <element signature="e#1952#1975#0#PHP" expanded="true" />
-            <element signature="e#2117#2140#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/psr/container/src/ContainerInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -685,16 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/creneaux.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="106" column="23" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
@@ -913,24 +897,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/messages.fr.yml">
+    <entry file="file://$PROJECT_DIR$/templates/commons/footer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3723">
-          <caret line="219" column="41" selection-start-line="219" selection-start-column="41" selection-end-line="219" selection-end-column="41" />
+        <state relative-caret-position="357">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#590#598#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/commons/navlang.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/creneaux.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="119">
+          <caret line="61" column="72" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="72" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/messages.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/translations/messages.en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="211" column="32" lean-forward="true" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/commons/navbar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="128" selection-start-line="49" selection-start-column="128" selection-end-line="49" selection-end-column="128" />
+          <folding>
+            <element signature="e#329#343#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/commons/navlang.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="155" selection-start-line="6" selection-start-column="155" selection-end-line="6" selection-end-column="155" />
         </state>
       </provider>
     </entry>

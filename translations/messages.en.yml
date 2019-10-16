@@ -1,3 +1,25 @@
+#navlang
+navlang.fr: French
+navlang.en: English
+
+#navbar
+navbar.title: Practice Management
+navbar.medecin: Doctors
+navbar.medecin.list: List of doctors
+navbar.medecin.add: Add a new doctor
+navbar.specialite: Specialties
+navbar.specialite.list: List of specialties
+navbar.specialite.add: Add a new specialty
+navbar.specialite.stat: Statistics on specialties
+navbar.creneau: Time slots
+navbar.creneau.list: List of slots
+navbar.creneau.add: Add a new time slot
+navbar.patient: Patients
+navbar.user: Users
+navbar.user.list: List of users
+navbar.user.add: Add a new user
+navbar.compte: My account
+navbar.compte.logout: Signout
 # menu principal
 menu.nav_title: Main Menu
 menu.title: Administration space at the management of our firm
@@ -218,3 +240,15 @@ user.list.modal.action.close: Close
 user.list.modal.action.supprimer: Delete
 user.list.table.notResult: No result found ...
 user.list.btn_add_new: Add a new user
+
+#footer
+fonctionnality.title: Features of the application
+fonctionnality.specialite: Management of medical domains
+fonctionnality.medecin: Management of doctors
+fonctionnality.creneau: Management of time slots
+fonctionnality.patient: Management of patients
+fonctionnality.user: Management of users
+contact.title: Contact us
+situation.title: Our state and situation
+situation.location: We are located in bonabéri(ngwele)
+situation.copyright: My doctor's office

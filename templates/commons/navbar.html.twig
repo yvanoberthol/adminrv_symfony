@@ -4,8 +4,7 @@
             <div class="row mb-4 mt-2">
                 <nav class="col-md-12 navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary p-3">
                     <a class="navbar-brand" href="{{ path('menu_principal') }}"><span
-                                class="fa fa-ambulance badge-info text-danger p-3"></span> Gestion du cabinet
-                        médical</a>
+                                class="fa fa-ambulance badge-info text-danger p-3"></span> {{ 'navbar.title'|trans }}</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,12 +18,11 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user-o">
                                     </i>
-                                    Médécins
+                                    {{ 'navbar.medecin'|trans }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ path('medecins') }}">Liste des médécins</a>
-                                    <a class="dropdown-item" href="{{ path('form_medecin_add') }}">Ajouter un
-                                        médécin</a>
+                                    <a class="dropdown-item" href="{{ path('medecins') }}">{{ 'navbar.medecin.list'|trans }}</a>
+                                    <a class="dropdown-item" href="{{ path('form_medecin_add') }}">{{ 'navbar.medecin.add'|trans }}</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -32,14 +30,12 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-file-zip-o">
                                     </i>
-                                    Spécialités
+                                    {{ 'navbar.specialite'|trans }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ path('specialites') }}">Liste des spécialités</a>
-                                    <a class="dropdown-item" href="{{ path('form_specialite_add') }}">Ajouter une
-                                        spécialité</a>
-                                    <a class="dropdown-item" href="{{ path('ms_stat') }}">Statistique sur les
-                                        spécialités</a>
+                                    <a class="dropdown-item" href="{{ path('specialites') }}">{{ 'navbar.specialite.list'|trans }}</a>
+                                    <a class="dropdown-item" href="{{ path('form_specialite_add') }}">{{ 'navbar.specialite.add'|trans }}</a>
+                                    <a class="dropdown-item" href="{{ path('ms_stat') }}">{{ 'navbar.specialite.stat'|trans }}</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -47,12 +43,11 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-hourglass-end">
                                     </i>
-                                    Créneaux
+                                    {{ 'navbar.creneau'|trans }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ path('creneaux') }}">Liste des créneaux</a>
-                                    <a class="dropdown-item" href="{{ path('form_creneau_add') }}">Ajouter un
-                                        créneau</a>
+                                    <a class="dropdown-item" href="{{ path('creneaux') }}">{{ 'navbar.creneau.list'|trans }}</a>
+                                    <a class="dropdown-item" href="{{ path('form_creneau_add') }}">{{ 'navbar.creneau.add'|trans }}</a>
                                 </div>
                             </li>
 
@@ -61,7 +56,7 @@
                                    aria-expanded="false">
                                     <i class="fa fa-users">
                                     </i>
-                                    Patients
+                                    {{ 'navbar.patient'|trans }}
                                 </a>
                             </li>
 
@@ -71,11 +66,11 @@
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-user">
                                         </i>
-                                        Users
+                                        {{ 'navbar.user'|trans }}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="{{ path('users') }}">Liste des users</a>
-                                        <a class="dropdown-item" href="{{ path('form_user_add') }}">Ajouter un user</a>
+                                        <a class="dropdown-item" href="{{ path('users') }}">{{ 'navbar.user.list'|trans }}</a>
+                                        <a class="dropdown-item" href="{{ path('form_user_add') }}">{{ 'navbar.user.add'|trans }}</a>
                                     </div>
                                 </li>
                             {% endif %}
@@ -92,12 +87,12 @@
                                     <a class="dropdown-item" href="{{ path('user_form_modif') }}">
                                         <i class="fa fa-calculator">
                                         </i>
-                                        Mon compte
+                                        {{ 'navbar.compte'|trans }}
                                     </a>
                                     <a class="dropdown-item" href="{{ path('logout') }}">
                                         <i class="fa fa-sign-out">
                                         </i>
-                                        Déconnexion
+                                        {{ 'navbar.compte.logout'|trans }}
                                     </a>
                                 </div>
                             </li>
