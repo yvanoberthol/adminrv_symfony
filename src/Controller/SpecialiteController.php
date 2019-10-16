@@ -23,15 +23,15 @@ class SpecialiteController extends AbstractController
 
     /**
      * @Route("/specialite/get/{id}", name="specialite_show")
-     * @param $id
+     * @param Specialite $specialite
      * @param Request $request
      * @param PaginatorInterface $paginator
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getSpecialite($id, Request $request, PaginatorInterface $paginator)
+    public function getSpecialite(Specialite $specialite, Request $request, PaginatorInterface $paginator)
     {
 
-        $model['specialite'] = $this->getDoctrine()->getRepository(Specialite::class)->find($id);
+        $model['specialite'] = $specialite;
 
         $model['medecins'] = $paginator->paginate(
             $model['specialite']->getMedecins(), /* query NOT result */
@@ -67,14 +67,12 @@ class SpecialiteController extends AbstractController
 
     /**
      * @Route("/formModifSpecialite/{id}",name="specilaite_form_modif")
-     * @param $id
+     * @param Specialite $specialite
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifSpecialite($id, Request $request)
+    public function formModifSpecialite(Specialite $specialite, Request $request)
     {
-        $specialite = $this->getDoctrine()->getRepository(Specialite::class)->find($id);
-
         $form = $this->createForm(SpecialiteType::class, $specialite);
 
         if ($request->isMethod('POST')) {
@@ -193,13 +191,11 @@ class SpecialiteController extends AbstractController
 
     /**
      * @route("/api/stat/specialiteMedecin/{nom}")
-     * @param $nom
+     * @param Specialite $specialite
      * @return JsonResponse
      */
-    public function getMedecinSpecialite($nom)
+    public function getMedecinSpecialite(Specialite $specialite)
     {
-        $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneBy(array('nom' => $nom));
-
         $medecins = array();
         foreach ($specialite->getMedecins() as $medecin) {
             $medecins[] = $medecin->getId() . ' ' . $medecin->getAllName();

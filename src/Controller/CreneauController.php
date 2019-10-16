@@ -50,14 +50,12 @@ class CreneauController extends AbstractController
 
     /**
      * @Route("/formModifCreneau/{id}",name="creneau_form_modif")
-     * @param $id
+     * @param Creneau $creneau
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifCreneau($id, Request $request): \Symfony\Component\HttpFoundation\Response
+    public function formModifCreneau(Creneau $creneau, Request $request): \Symfony\Component\HttpFoundation\Response
     {
-        $creneau = $this->getDoctrine()->getRepository(Creneau::class)->find($id);
-
         $form = $this->createForm(CreneauType::class, $creneau);
 
         if ($request->isMethod('POST')) {
@@ -73,7 +71,7 @@ class CreneauController extends AbstractController
 
         }
 
-        $model['id'] = $id;
+        $model['id'] = $creneau->getId();
         $model['form'] = $form->createView();
 
         return $this->render('modifCreneau.html.twig', $model);
@@ -127,7 +125,6 @@ class CreneauController extends AbstractController
                 $intervalle = $creneau->getHeureFin()->getTimestamp() - (int)$creneau->getHeureDebut()->getTimestamp();
                 $creneauByHeureDebut = $doctrine->getRepository(Creneau::class)->findOneBy(array('heure_debut' => $creneau->getHeureDebut()));
                 $creneauByHeureFin = $doctrine->getRepository(Creneau::class)->findOneBy(array('heure_fin' => $creneau->getHeureFin()));
-                // $creneauByHeureDebutLess = $doctrine->getRepository(Creneau::class)->creneauInIntervalle($creneau->getHeureDebut(),$creneau->getMedecin()->getId());
 
                 if ($creneau->getHeureDebut() >= $creneau->getHeureFin()) {
                     $model['hdebutGrand'] = true;

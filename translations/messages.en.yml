@@ -252,3 +252,13 @@ contact.title: Contact us
 situation.title: Our state and situation
 situation.location: We are located in bonabéri(ngwele)
 situation.copyright: My doctor's office
+
+#error
+error.delete.admin: you can't delete a superadmin account
+error.disable.admin: you can't active \ deactive a superadmin account
+error.remove_role.admin: you can't remove a role to a superadmin account
+error.have_role: user has already the role %role%
+
+#success
+success.lost_role: user %username% has lost the %role%
+success.obtain_role: user %username% has obtain the %role%

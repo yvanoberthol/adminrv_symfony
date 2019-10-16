@@ -26,13 +26,13 @@ class MedecinController extends AbstractController
 {
     /**
      * @Route("/medecin/get/{id}", name="medecin_show")
-     * @param $id
+     * @param Medecin $medecin
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getMedecin($id)
+    public function getMedecin(Medecin $medecin)
     {
 
-        $model['medecin'] = $this->getDoctrine()->getRepository(Medecin::class)->find($id);
+        $model['medecin'] = $medecin;
         $model['specialites'] = $this->getDoctrine()->getRepository(Specialite::class)->findAll();
 
         return $this->render('detailMedecin.html.twig', $model);
@@ -56,7 +56,7 @@ class MedecinController extends AbstractController
 
         $model['nbreMecinActif'] = 0;
         foreach ($medecinsList as $medecin) {
-            if ($medecin->getCompteMedecin()->getEnabled() == true) {
+            if ($medecin->getCompteMedecin()->getEnabled() === true) {
                 $model['nbreMecinActif'] += 1;
             }
         }
@@ -72,18 +72,15 @@ class MedecinController extends AbstractController
 
     /**
      * @Route("/formModifMedecin/{id}",name="medecin_form_modif")
-     * @param $id
+     * @param Medecin $medecin
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function formModifMedecin($id, Request $request)
+    public function formModifMedecin(Medecin $medecin, Request $request)
     {
-        $doctrine = $this->getDoctrine();
-
-        $medecin = $doctrine->getRepository(Medecin::class)->find($id);
 
         if ($medecin === null) {
-            Throw new NotFoundHttpException('Le médecin N° ' . $id . ' n\'existe pas');
+            Throw new NotFoundHttpException('Le médecin N° ' . $medecin->getId() . ' n\'existe pas');
         }
 
         $form = $this->createForm(MedecinEditType::class, $medecin);
@@ -93,6 +90,7 @@ class MedecinController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isValid() && $form->isSubmitted()) {
+                $doctrine = $this->getDoctrine();
                 $medecinByMatricule = $doctrine->getRepository(Medecin::class)->findOneBy(array('matricule' => $medecin->getMatricule()));
 
                 if (!$medecinByMatricule) {
@@ -215,13 +213,9 @@ class MedecinController extends AbstractController
      */
     public function addCompetence(Request $request)
     {
-        $medecin = $this->getDoctrine()->getRepository(Medecin::class)->findOneBy(
-            array('matricule' => $request->get('matricule'))
-        );
+        $medecin = $this->getDoctrine()->getRepository(Medecin::class)->findOneByMatricule($request->get('matricule'));
 
-        $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneBy(
-            array('nom' => $request->get('specialiteName'))
-        );
+        $specialite = $this->getDoctrine()->getRepository(Specialite::class)->findOneByNom($request->get('specialiteName'));
 
         if (!$medecin->getSpecialites()->contains($specialite)) {
             $medecin->getSpecialites()->add($specialite);
