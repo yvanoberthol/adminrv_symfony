@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f131a7b-b365-4ba2-9cb8-85f09caf510b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CreneauController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CreneauController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MedecinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MedecinController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SpecialiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SpecialiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event/ExceptionHandler404.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event/ExceptionHandler404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/ExceptionHandle404Listener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/ExceptionHandle404Listener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error404.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.fr.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +55,8 @@
       <file leaf-file-name="messages.fr.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/translations/messages.fr.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4352">
-              <caret line="256" selection-start-line="256" selection-end-line="264" selection-end-column="69" />
+            <state relative-caret-position="269">
+              <caret line="139" column="36" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -73,26 +73,20 @@
       <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/translations/messages.en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="232" column="45" lean-forward="true" selection-start-line="232" selection-start-column="45" selection-end-line="232" selection-end-column="45" />
+            <state relative-caret-position="218">
+              <caret line="138" selection-start-line="138" selection-end-line="138" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpecialiteController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SpecialiteController.php">
+      <file leaf-file-name="error404.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/error404.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Medecin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Medecin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1105">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="354">
+              <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
+              <folding>
+                <element signature="e#798#832#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,8 +126,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/EventListener/BetaListener.php" />
-        <option value="$PROJECT_DIR$/src/Event/ExceptionHandler404.php" />
-        <option value="$PROJECT_DIR$/src/EventListener/ExceptionHandle404Listener.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3725be8d-5d3b-459e-8747-01381d34f48a/console.sql" />
         <option value="$PROJECT_DIR$/src/EventListener/LoginListener.php" />
         <option value="$PROJECT_DIR$/src/EventListener/LogoutListener.php" />
@@ -158,7 +150,6 @@
         <option value="$PROJECT_DIR$/templates/detailSpecialite.html.twig" />
         <option value="$PROJECT_DIR$/templates/detailMedecin.html.twig" />
         <option value="$PROJECT_DIR$/templates/error403.html.twig" />
-        <option value="$PROJECT_DIR$/templates/error404.html.twig" />
         <option value="$PROJECT_DIR$/templates/medecins.html.twig" />
         <option value="$PROJECT_DIR$/templates/modifCreneau.html.twig" />
         <option value="$PROJECT_DIR$/templates/modifMedecin.html.twig" />
@@ -176,12 +167,15 @@
         <option value="$PROJECT_DIR$/templates/addUser.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/templates/users.html.twig" />
-        <option value="$PROJECT_DIR$/translations/messages.en.yml" />
         <option value="$PROJECT_DIR$/src/Controller/CreneauController.php" />
         <option value="$PROJECT_DIR$/src/Controller/MedecinController.php" />
         <option value="$PROJECT_DIR$/src/Controller/SpecialiteController.php" />
+        <option value="$PROJECT_DIR$/src/Event/ExceptionHandler404.php" />
+        <option value="$PROJECT_DIR$/src/EventListener/ExceptionHandle404Listener.php" />
+        <option value="$PROJECT_DIR$/translations/messages.fr.yml" />
+        <option value="$PROJECT_DIR$/translations/messages.en.yml" />
+        <option value="$PROJECT_DIR$/templates/error404.html.twig" />
       </list>
     </option>
   </component>
@@ -348,7 +342,8 @@
             <path>
               <item name="adminrv_symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="adminrv_symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="EventListener" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="adminrv_symfony" type="b2602c69:ProjectViewProjectNode" />
@@ -423,12 +418,12 @@
       <workItem from="1570664387823" duration="85039000" />
       <workItem from="1571049146823" duration="33195000" />
       <workItem from="1571226770808" duration="3615000" />
-      <workItem from="1571267080710" duration="671000" />
+      <workItem from="1571267080710" duration="1855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232315000" />
+    <option name="totallyTimeSpent" value="233499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,27 +472,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/addCreneau.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="39" column="44" lean-forward="true" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addMedecin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addSpecialite.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -586,13 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/error404.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="135" selection-start-line="15" selection-start-column="135" selection-end-line="15" selection-end-column="135" />
         </state>
       </provider>
     </entry>
@@ -715,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="242" column="54" selection-start-line="242" selection-start-column="54" selection-end-line="242" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -747,13 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/messages.fr.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4352">
-          <caret line="256" selection-start-line="256" selection-end-line="264" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -788,48 +741,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SpecialiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#1030#1065#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3822">
+          <caret line="242" column="54" selection-start-line="242" selection-start-column="54" selection-end-line="242" selection-end-column="54" />
+          <folding>
+            <element signature="e#7412#7461#0#PHP" expanded="true" />
+            <element signature="e#7475#7516#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Event/ExceptionHandler404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventListener/ExceptionHandle404Listener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="34" column="73" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
+          <folding>
+            <element signature="e#476#500#0#PHP" expanded="true" />
+            <element signature="e#739#761#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MedecinController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2312">
-          <caret line="212" column="7" lean-forward="true" selection-start-line="212" selection-start-column="7" selection-end-line="212" selection-end-column="7" />
-          <folding>
-            <element signature="e#1767#1795#0#PHP" expanded="true" />
-            <element signature="e#1767#1809#0#PHP" expanded="true" />
-            <element signature="e#2895#2919#1#PHP" expanded="true" />
-            <element signature="e#2992#3020#0#PHP" expanded="true" />
-            <element signature="e#3025#3042#0#PHP" expanded="true" />
-            <element signature="e#3313#3363#0#PHP" expanded="true" />
-            <element signature="e#3324#3348#1#PHP" expanded="true" />
-            <element signature="e#3313#3363#0#PHP" expanded="true" />
-            <element signature="e#3385#3436#0#PHP" expanded="true" />
-            <element signature="e#3385#3436#0#PHP" expanded="true" />
-            <element signature="e#4981#5005#1#PHP" expanded="true" />
-            <element signature="e#5193#5243#0#PHP" expanded="true" />
-            <element signature="e#5204#5228#1#PHP" expanded="true" />
-            <element signature="e#5193#5243#0#PHP" expanded="true" />
-            <element signature="e#5265#5316#0#PHP" expanded="true" />
-            <element signature="e#5265#5316#0#PHP" expanded="true" />
-            <element signature="e#6128#6148#0#PHP" expanded="true" />
-            <element signature="e#6371#6388#1#PHP" expanded="true" />
-            <element signature="e#7934#7960#0#PHP" expanded="true" />
-            <element signature="e#8185#8202#1#PHP" expanded="true" />
-            <element signature="e#9057#9094#0#PHP" expanded="true" />
-            <element signature="e#9057#9094#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="2414">
+          <caret line="212" column="7" selection-start-line="212" selection-start-column="7" selection-end-line="212" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/messages.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="139" column="36" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/translations/messages.en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="232" column="45" lean-forward="true" selection-start-line="232" selection-start-column="45" selection-end-line="232" selection-end-column="45" />
+        <state relative-caret-position="218">
+          <caret line="138" selection-start-line="138" selection-end-line="138" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SpecialiteController.php">
+    <entry file="file://$PROJECT_DIR$/templates/error404.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        <state relative-caret-position="354">
+          <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
+          <folding>
+            <element signature="e#798#832#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

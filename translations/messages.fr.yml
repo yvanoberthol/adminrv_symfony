@@ -137,6 +137,7 @@ error403.soustitle_f: vous n'avez pas le droit d'accéder à cette page.
 #error 404
 error404.nav_title: Page introuvable
 error404.title: Page introuvable
+error404.type_error: Erreur survenue
 error404.soustitle: La ressource ou le contenu demandé(e) n'existe pas.
 error404.back_accueil: Retour à la page d'accueil
 

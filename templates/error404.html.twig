@@ -9,12 +9,18 @@
             <h1>{{ 'error404.title'|trans }}</h1>
         </div>
     </div>
-
     <div class="row bg-danger" style="margin-top:20px">
         <div class="text-center col-md-12">
             <h3>
                 {{ 'error404.soustitle'|trans }} <a class="text-white-50" href="{{ path('menu_principal') }}">{{ 'error404.back_accueil'|trans }}</a>
             </h3>
+        </div>
+    </div>
+    <div class="row bg-white" style="margin-top:20px">
+        <div class="text-center col-md-12">
+            <h5>
+               <span style="text-decoration: underline">{{ 'error404.type_error'|trans }}:</span> {{ errors.message }}
+            </h5>
         </div>
     </div>
     <div class="row" style="color:white; margin-top:20px">

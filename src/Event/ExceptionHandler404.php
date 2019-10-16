@@ -29,10 +29,12 @@ class ExceptionHandler404
     /**
      * @return Response
      */
-    public function show(): Response
+    public function show($errors): Response
     {
 
-        $html = $this->twig->render('error404.html.twig');
+        $model['errors'] = $errors;
+
+        $html = $this->twig->render('error404.html.twig',$model);
         return new Response($html);
 
     }

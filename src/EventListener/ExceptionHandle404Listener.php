@@ -32,7 +32,7 @@ class ExceptionHandle404Listener
             return;
         }
 
-        $response = $this->exception_handler->show();
+        $response = $this->exception_handler->show($event->getException());
 
         $event->setResponse($response);
     }

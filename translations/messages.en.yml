@@ -136,6 +136,7 @@ error403.soustitle_f: You are not allowed to access this page.
 #error 404
 error404.nav_title: Page not found
 error404.title: Page not found
+error404.type_error: Uninspected error
 error404.soustitle: The requested resource or content does not exist.
 error404.back_accueil: Back to the homepage
 
