@@ -24,14 +24,24 @@
             </nav>
             {% for message in app.session.flashBag.get('error') %}
                 <div class="alert alert-danger text-center font-weight-bold">
-                    <span class="fa fa-times-circle"></span> {{ message }}
+                    {% if message == 'error.have_role' %}
+                        {% for role in app.session.flashBag.get('role') %}
+                        <span class="fa fa-times-circle"></span> {{ message|trans({'%role%':role}) }}
+                        {% endfor %}
+                    {% else %}
+                        <span class="fa fa-times-circle"></span> {{ message|trans }}
+                    {% endif %}
                 </div>
             {% endfor %}
 
             {% for message in app.session.flashBag.get('succes') %}
-                <div class="alert alert-success text-center font-weight-bold">
-                    <span class="fa fa-check-circle"></span> {{ message }}
-                </div>
+                {% for role in app.session.flashBag.get('role') %}
+                    {% for username in app.session.flashBag.get('username') %}
+                        <div class="alert alert-success text-center font-weight-bold">
+                            <span class="fa fa-check-circle"></span> {{ message|trans({'%role%':role,'%username%':username}) }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
             {% endfor %}
             <div class="table-responsive">
                 <table class="table table-bordered">

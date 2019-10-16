@@ -9,7 +9,7 @@
 {% block body %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="grand-titre">{{ 'user.formadd.title:'|trans }}</h1>
+            <h1 class="grand-titre">{{ 'user.formadd.title'|trans }}</h1>
             {% if userNameExist is defined and userNameExist == true %}
                 <div class="text-center alert alert-danger font-weight-bold">
                     <span class="fa fa-times-circle"></span> {{ 'user.formadd.userNameExist'|trans }}

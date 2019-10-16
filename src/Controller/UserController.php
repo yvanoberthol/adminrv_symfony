@@ -116,9 +116,22 @@ class UserController extends AbstractController
             $id = $request->get('id');
             $user = $doctrine->getRepository(User::class)->find($id);
 
-            $doctrine->getManager()->remove($user);
+            $roles = new ArrayCollection();
+            if (!$user->getAllRoles()->isEmpty()) {
 
-            $doctrine->getManager()->flush();
+                foreach ($user->getAllRoles() as $role_user) {
+                    $roles->add($role_user->getName());
+                }
+            }
+
+            if ($roles->contains('ROLE_SUPER_ADMIN')) {
+                $this->addFlash('error', 'error.delete.admin');
+            } else {
+                $doctrine->getManager()->remove($user);
+
+                $doctrine->getManager()->flush();
+            }
+
             return $this->redirectToRoute('users');
         }
     }
@@ -187,7 +200,7 @@ class UserController extends AbstractController
         }
 
         if ($roles->contains('ROLE_SUPER_ADMIN')) {
-            $this->addFlash('error', 'Vous ne pouvez pas activer ou désactiver un compte super administrateur');
+            $this->addFlash('error', 'error.disable.admin');
         } else {
             $user->setEnabled($enabled);
             $manager->flush();
@@ -222,11 +235,13 @@ class UserController extends AbstractController
         }
 
         if ($roles->contains('ROLE_SUPER_ADMIN')) {
-            $this->addFlash('error', 'Vous ne pouvez pas enlever de rôle à un super administrateur');
+            $this->addFlash('error', 'error.remove_role.admin');
         } else {
             $user->removeRole($role);
             $manager->flush();
-            $this->addFlash('succes', 'L\'utilisateur ' . $user->getUsername() . ' a perdu le role ' . $role->getRole());
+            $this->addFlash('username', $user->getUsername());
+            $this->addFlash('role', $role->getRole());
+            $this->addFlash('succes', 'success.lost_role');
         }
 
         return $this->redirectToRoute('users');
@@ -250,12 +265,14 @@ class UserController extends AbstractController
         $role = $doctrine->getRepository(Role::class)->find($role_id);
 
         if ($user->getAllRoles()->contains($role)) {
-            $this->addFlash('error', 'l\'utilisateur possède déjà le rôle '.$role->getRole());
+            $this->addFlash('role', $role->getRole());
+            $this->addFlash('error', 'error.have_role');
         } else {
             $user->addRole($role);
             $manager->flush();
-
-            $this->addFlash('succes', 'L\'utilisateur ' . $user->getUsername() . ' a obtenu le role ' . $role->getRole());
+            $this->addFlash('username', $user->getUsername());
+            $this->addFlash('role', $role->getRole());
+            $this->addFlash('succes', 'success.obtain_role');
         }
 
         return $this->redirectToRoute('users');

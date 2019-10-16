@@ -253,3 +253,13 @@ contact.title: Contactez nous
 situation.title: Notre état et situation
 situation.location: Nous sommes situé à bonabéri(ngwele)
 situation.copyright: Mon cabinet de médécin
+
+#error
+error.delete.admin: Vous ne pouvez pas supprimer un compte super administrateur
+error.disable.admin: Vous ne pouvez pas activer ou désactiver un compte super administrateur
+error.remove_role.admin: Vous ne pouvez pas enlever de rôle à un super administrateur
+error.have_role: l'utilisateur possède déjà le rôle %role%
+
+#success
+success.lost_role: L'utilisateur %username% a perdu le role %role%
+success.obtain_role: L'utilisateur %username% a obtenu le role %role%
